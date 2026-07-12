@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Что GloVe объяснил о смысле в векторах слов — сё</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <div class="site-shell article-shell">
+    <aside class="side">
+      <div class="side__top">
+        <a class="brand" href="../index.html">сё</a>
+        <nav class="nav" aria-label="Основная навигация">
+          <a class="nav__link" href="../index.html#tech">техно</a>
+          <a class="nav__link" href="../index.html#life">жизнь</a>
+          <a class="nav__link" href="../about.html">о сё</a>
+        </nav>
+      </div>
+      <div class="article-note">
+        <span>002</span>
+      </div>
+      <div class="side__bottom">
+        <a href="../index.html#tech">← техно</a>
+        <span>© 2026</span>
+      </div>
+    </aside>
+
+    <main class="main article-main">
+      <article class="article">
+        <header class="article-header">
+          <div class="section-label">002</div>
+          <h1>Что GloVe объяснил о смысле в векторах слов</h1>
+          <p class="article-authors">Исходная работа: Jeffrey Pennington, Richard Socher, Christopher D. Manning. <em>GloVe: Global Vectors for Word Representation</em>. Stanford University, 2014.</p>
+          <p class="article-thesis">Векторные представления слов (word vector representations) уже были привычным инструментом NLP к моменту этой статьи. Каждому слову сопоставляли вещественный вектор, а затем использовали эти векторы как признаки в поиске информации, классификации документов, question answering, named entity recognition и синтаксическом разборе.</p>
+        </header>
+
+        <section class="article-body">
+          <p>Долгое время качество таких векторов часто проверяли через близость пар слов. Если vectors for &quot;cat&quot; and &quot;dog&quot; находятся рядом, а &quot;cat&quot; and &quot;table&quot; дальше, пространство выглядит разумным. Такая проверка показывает, что модель размещает похожие слова поблизости.</p>
+
+          <p>Word analogy task изменила вопрос. Проверка вида &quot;king is to queen as man is to ?&quot; требует не только близости отдельных слов, а направления в пространстве. Хорошее пространство должно кодировать отношение так, чтобы разность king - queen была похожа на man - woman. Статья GloVe спрашивает, откуда в векторах берутся такие линейные регулярности.</p>
+
+          <p>До GloVe у исследователей были два сильных семейства методов. Методы матричной факторизации (matrix factorization methods), включая LSA, работали с глобальными статистиками корпуса. Они строили большую матрицу, например слово-документ или слово-слово, и извлекали из неё низкоразмерные представления.</p>
+
+          <p>У этого подхода было понятное преимущество: он видел агрегированную статистику корпуса. Но на analogy task такие методы, по описанию авторов, работали хуже. Они извлекали полезную информацию, но не обязательно строили пространство с хорошими линейными направлениями смысла.</p>
+
+          <p>Другое семейство - локальные оконные модели (local context window methods), например skip-gram. Они проходили по корпусу окнами контекста и обучались предсказывать слова или контексты. Эти модели лучше проявляли analogy structure, но хуже использовали повторяющуюся глобальную статистику: одно и то же co-occurrence evidence встречалось в корпусе много раз и обрабатывалось как отдельные локальные события.</p>
+
+          <p>Вопрос статьи появляется из этого разрыва. Можно ли построить модель, которая напрямую использует глобальные счётчики совместной встречаемости (global co-occurrence counts), но при этом даёт пространство, где отношения между словами выражаются линейными направлениями?</p>
+
+          <p>Центральный ход GloVe начинается не с самих вероятностей P(k|word), а с отношений вероятностей (ratios of co-occurrence probabilities). Авторы показывают это на паре ice и steam. Если context word k равно solid, отношение P(solid|ice) / P(solid|steam) должно быть большим. Если k равно gas, отношение должно быть маленьким.</p>
+
+          <p>Для слов вроде water или fashion происходит другое. Water связано и с ice, и со steam, поэтому отношение близко к единице. Fashion не связано по существу ни с одним из них, и отношение тоже близко к единице. Ratio отделяет диагностический контекст от общего или шумового контекста.</p>
+
+          <p>Это точнее, чем просто знать, что ice часто встречается рядом с water. Сырая вероятность может быть высокой для слов, которые не различают два target words. Отношение вероятностей отвечает более полезному вопросу: какой context word помогает отличить одно слово от другого?</p>
+
+          <p>Дальше авторы связывают этот ratio с геометрией. Если смысловые отношения в vector space должны быть линейными, то естественный носитель отношения между двумя словами - разность их векторов. Поэтому модель должна связать разность word vectors с отношением co-occurrence probabilities.</p>
+
+          <p>Так появляется GloVe (Global Vectors): глобальная лог-билинейная регрессионная модель (global log-bilinear regression model). У каждого слова есть word vector w_i, у каждого контекстного слова есть context vector wtilde_j, а матрица X хранит, сколько раз word j встретилось в контексте word i.</p>
+
+          <p>После серии ограничений авторы приходят к простой форме. Скалярное произведение word vector и context vector вместе с двумя bias terms должно приближать log X_ij, то есть логарифм счётчика совместной встречаемости. Модель не запоминает каждую локальную пару из корпуса, а обучается на агрегированных отношениях между словами.</p>
+
+          <p>Целевая функция GloVe - взвешенная least squares ошибка. Для каждой пары слов модель минимизирует расхождение между w_i^T wtilde_j + b_i + btilde_j и log X_ij. Это не обычная factorization всей плотной матрицы, потому что нулевые co-occurrences не обучают модель напрямую.</p>
+
+          <p>Весовая функция (weighting function) нужна, чтобы плохие статистики не управляли обучением. Очень редкие co-occurrences шумны, поэтому их нельзя переоценивать. Очень частые пары тоже не должны доминировать, потому что частые служебные слова несут мало различительной семантики. В экспериментах авторы используют cutoff x_max = 100 и exponent alpha = 3/4.</p>
+
+          <p>Связь с skip-gram в статье не подаётся как простое противопоставление. Авторы показывают, что prediction-based methods тоже можно переписать как objectives over co-occurrence counts. Разница в том, как именно используется эта статистика и какая функция ошибки оптимизируется. GloVe берёт прямой доступ к global counts и обучается на ненулевых элементах матрицы X.</p>
+
+          <p>Это важно для масштаба. Наивно матрица vocabulary by vocabulary выглядит слишком большой. Но GloVe зависит от числа ненулевых co-occurrences. Для изученных корпусов авторы моделируют это число power-law зависимостью и получают рост примерно O(|C|^0.8), где |C| - размер корпуса. Это лучше, чем худший случай O(|V|^2).</p>
+
+          <p>Экспериментальная часть проверяет не один эффект. Авторы обучают модели на корпусах от 1 billion до 42 billion tokens, строят словари в 400,000 слов или больше для Common Crawl, используют AdaGrad и сравнивают GloVe с matrix factorization baselines, skip-gram, CBOW, HPCA, vLBL и ivLBL.</p>
+
+          <p>Главная проверка - word analogy task. На 42 billion token corpus GloVe с 300-dimensional vectors достигает 75.0% overall accuracy. На 6 billion token corpus результат ниже, 71.7%, но всё равно выше многих сравнений в таблице. Для статьи это прямой ответ на исходный вопрос: global co-occurrence model может давать пространство с meaningful linear substructure.</p>
+
+          <p>Word similarity tasks проверяют другую сторону качества. Там модель должна согласоваться с human similarity judgments на наборах WS353, MC, RG, SCWS и RW. GloVe на 42 billion tokens показывает лучшие reported Spearman correlations среди сравниваемых моделей в таблице. Это важно, потому что analogy performance мог бы быть узкой особенностью одного теста.</p>
+
+          <p>Named entity recognition даёт downstream проверку. Векторы добавляют как continuous features к CRF-модели для CoNLL-2003 NER. GloVe получает лучшие scores на development set, ACE и MUC7 среди перечисленных методов, хотя HPCA немного выше на CoNLL test set. Значит, векторы полезны не только в intrinsic evaluations.</p>
+
+          <p>Сравнение с word2vec авторы проводят осторожно. Они прямо пишут, что строгий количественный comparison сложен: на результат влияет много параметров, а code for word2vec был устроен под один epoch. В контролируемом сравнении с одинаковым corpus, vocabulary, window size и training time GloVe consistently outperforms word2vec на analogy task и достигает лучшего результата быстрее.</p>
+
+          <p>Анализы показывают, от чего зависит качество. Увеличение vector dimension даёт diminishing returns после примерно 200 dimensions. Малые и asymmetric context windows лучше работают для syntactic analogies, потому что синтаксис чаще живёт в ближайшем порядке слов. Larger symmetric windows помогают semantic analogies, где нужная информация бывает дальше от target word.</p>
+
+          <p>Размер корпуса тоже ведёт себя неодинаково. Syntactic performance растёт с corpus size. Semantic performance не просто следует числу токенов: Wikipedia corpora оказываются сильнее Gigaword на semantic subset, и авторы связывают это с большим числом city-country analogies в тесте и полнотой Wikipedia по таким сущностям.</p>
+
+          <p>У GloVe есть ограничения, которые статья не прячет. Выбор alpha = 3/4 для weighting function мотивирован эмпирически, а не выводится теоретически. Сравнение с word2vec зависит от настройки параметров. Некоторые улучшения связаны не только с моделью, но и с corpus choice, window size, vector dimension и evaluation set.</p>
+
+          <p>Финальный вывод статьи шире, чем &quot;count beats predict&quot;. Авторы утверждают, что count-based и prediction-based methods не так далеки на фундаментальном уровне: оба семейства используют co-occurrence statistics корпуса. GloVe показывает, что можно взять эффективность global count data и при этом получить linear substructures, которые сделали prediction-based word vectors сильными на analogies.</p>
+
+          <p>Поэтому вклад GloVe состоит не только в новой objective function. Статья объясняет, почему отношения co-occurrence probabilities могут быть источником направлений смысла, затем строит модель, которая обучается именно на этой информации, и проверяет результат на analogy, similarity и NER. После чтения paper становится понятнее, что word vector space хранит не только близость слов, но и повторяющиеся отношения между контекстами.</p>
+
+          <h2>Глоссарий</h2>
+
+          <p><strong>Word vector representation</strong> - векторное представление слова: числовой вектор, который используется как машинное представление слова.</p>
+
+          <p><strong>Vector space model</strong> - модель векторного пространства: подход, где слова или документы представлены точками в многомерном пространстве.</p>
+
+          <p><strong>Word analogy task</strong> - проверка аналогий вида &quot;a is to b as c is to ?&quot;, где ответ ищется через операции над векторами.</p>
+
+          <p><strong>Matrix factorization</strong> - матричная факторизация: разложение большой статистической матрицы на низкоразмерные компоненты.</p>
+
+          <p><strong>Local context window</strong> - локальное окно контекста: несколько слов слева и справа от target word, используемые как обучающий контекст.</p>
+
+          <p><strong>Co-occurrence count</strong> - счётчик совместной встречаемости: число раз, когда одно слово появляется в контексте другого.</p>
+
+          <p><strong>Co-occurrence probability ratio</strong> - отношение вероятностей совместной встречаемости: величина P(k|i)/P(k|j), показывающая, насколько context word k специфично для одного target word по сравнению с другим.</p>
+
+          <p><strong>Global log-bilinear regression model</strong> - глобальная лог-билинейная регрессионная модель: модель GloVe, которая связывает скалярное произведение word и context vectors с log co-occurrence count.</p>
+
+          <p><strong>Weighted least squares</strong> - взвешенный метод наименьших квадратов: функция ошибки, где разные обучающие примеры получают разные веса.</p>
+
+          <p><strong>Weighting function</strong> - весовая функция: функция f(X_ij), регулирующая вклад редких и частых co-occurrences в обучение.</p>
+
+          <p><strong>Skip-gram</strong> - модель, которая обучается предсказывать контекстные слова по target word.</p>
+
+          <p><strong>CBOW</strong> - continuous bag-of-words model: модель, которая обучается предсказывать target word по словам контекста.</p>
+
+          <p><strong>Named entity recognition</strong> - распознавание именованных сущностей: задача нахождения в тексте персон, организаций, мест и других сущностей.</p>
+
+          <p><strong>Spearman rank correlation</strong> - ранговая корреляция Спирмена: метрика согласия между порядком similarity scores модели и человеческими оценками.</p>
+        </section>
+      </article>
+    </main>
+  </div>
+</body>
+</html>
