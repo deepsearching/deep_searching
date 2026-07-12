@@ -22,7 +22,7 @@
         <img src="assets/visuals/archive-glow.png" alt="" loading="lazy" />
       </div>
       <div class="side__bottom">
-        <a href="https://t.me/deep_seng">Telegram</a>
+        <a href="https://t.me/deep_seng">Канал проекта</a>
         <span>© 2026</span>
       </div>
     </aside>
@@ -35,16 +35,10 @@
         </div>
       </section>
 
-      <section class="category-tabs" aria-label="Разделы архива">
-        <button class="category-tab category-tab--active" type="button" data-tab-button="tech">техно</button>
-        <button class="category-tab" type="button" data-tab-button="life">жизнь</button>
-      </section>
-
       <section class="works-list category-panel" id="tech" aria-label="Публикации раздела техно" data-tab-panel="tech">
         <div class="works-list__items">
           <a class="work is-active" href="articles/why-gpt-2-did-unsupervised-tasks.html">
             <span class="work__title">Как GPT-2 начала выполняла задачи, под которые ее не дообучали</span>
-            <span class="work__meta">техно · жизнь · 2019</span>
           </a>
         </div>
       </section>
@@ -53,7 +47,6 @@
         <div class="works-list__items">
           <a class="work is-active" href="articles/why-gpt-2-did-unsupervised-tasks.html">
             <span class="work__title">Как GPT-2 начала выполняла задачи, под которые ее не дообучали</span>
-            <span class="work__meta">техно · жизнь · 2019</span>
           </a>
         </div>
       </section>
@@ -62,16 +55,12 @@
     </main>
   </div>
   <script>
-    const tabButtons = document.querySelectorAll("[data-tab-button]");
     const tabLinks = document.querySelectorAll("[data-tab-link]");
     const tabPanels = document.querySelectorAll("[data-tab-panel]");
 
     function setActiveTab(tab) {
       tabPanels.forEach((panel) => {
         panel.hidden = panel.dataset.tabPanel !== tab;
-      });
-      tabButtons.forEach((button) => {
-        button.classList.toggle("category-tab--active", button.dataset.tabButton === tab);
       });
       tabLinks.forEach((link) => {
         link.classList.toggle("nav__link--active", link.dataset.tabLink === tab);
@@ -81,9 +70,6 @@
       }
     }
 
-    tabButtons.forEach((button) => {
-      button.addEventListener("click", () => setActiveTab(button.dataset.tabButton));
-    });
     tabLinks.forEach((link) => {
       link.addEventListener("click", (event) => {
         event.preventDefault();
