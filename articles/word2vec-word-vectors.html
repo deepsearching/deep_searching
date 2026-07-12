@@ -12,8 +12,8 @@
       <div class="side__top">
         <a class="brand" href="../index.html">сё</a>
         <nav class="nav" aria-label="Основная навигация">
-          <a class="nav__link" href="../index.html#tech">техно</a>
-          <a class="nav__link" href="../index.html#life">жизнь</a>
+          <a class="nav__link" href="../index.html?tab=tech">техно</a>
+          <a class="nav__link" href="../index.html?tab=life">жизнь</a>
           <a class="nav__link" href="../about.html">о сё</a>
         </nav>
       </div>
@@ -21,7 +21,7 @@
         <span>004</span>
       </div>
       <div class="side__bottom">
-        <a href="../index.html#tech">← техно</a>
+        <a href="../index.html?tab=tech">← техно</a>
         <span>© 2026</span>
       </div>
     </aside>
@@ -29,7 +29,6 @@
     <main class="main article-main">
       <article class="article">
         <header class="article-header">
-          <div class="section-label">004</div>
           <h1>Как Word2Vec сделал векторы слов практическим инструментом</h1>
           <p class="article-authors">Исходная работа: Tomas Mikolov, Kai Chen, Greg Corrado, Jeffrey Dean. <em>Efficient Estimation of Word Representations in Vector Space</em>. Google Inc., arXiv, 2013.</p>
           <p class="article-thesis">В начале статьи авторы описывают обычную для NLP ситуацию: слово часто представлено номером в словаре. В такой записи <code>cat</code>, <code>dog</code> и <code>table</code> отличаются только индексами. Модель не получает из самой записи никакого признака, что <code>cat</code> ближе к <code>dog</code>, чем к <code>table</code>.</p>
