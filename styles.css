@@ -21,6 +21,7 @@ a { color: inherit; text-decoration: none; }
 .nav__link--active::before { content: "● "; font-size: 10px; }
 .side__bottom { display: grid; grid-template-columns: 1fr 3fr; gap: 26px; color: var(--muted); }
 .side__bottom a:hover { color: var(--ink); }
+.side__bottom span { grid-column: 2; }
 .side__visual { width: min(62%, 280px); aspect-ratio: 2 / 3; overflow: hidden; }
 .portrait { width: 180px; aspect-ratio: 1; overflow: hidden; }
 .side__visual img, .portrait img { display: block; width: 100%; height: 100%; object-fit: cover; }
@@ -45,6 +46,10 @@ h1 { font-size: clamp(36px, 6vw, 78px); line-height: .9; letter-spacing: -0.07em
 .about-text p { margin-bottom: 22px; }
 .lead { font-size: 24px; line-height: 1.1; letter-spacing: -0.035em; }
 .text-link { text-decoration: underline; text-underline-offset: 3px; }
+.privacy-text { max-width: 720px; padding-top: 6px; }
+.privacy-text p { margin-bottom: 22px; }
+.privacy-text h2 { margin: 46px 0 14px; font-size: 24px; line-height: 1; letter-spacing: -0.045em; }
+.privacy-date { color: var(--muted); }
 .article-shell { grid-template-columns: 32% 68%; }
 .article-note { display: flex; flex-direction: column; gap: 8px; color: var(--muted); font-size: 13px; }
 .article-main { padding: var(--pad) var(--pad) 100px; }
@@ -78,5 +83,6 @@ h1 { font-size: clamp(36px, 6vw, 78px); line-height: .9; letter-spacing: -0.07em
   .work + .work { margin-top: 18px; }
   .tiles { grid-template-columns: 1fr; }
   .side__bottom { grid-template-columns: 1fr; gap: 8px; }
+  .side__bottom span { grid-column: 1; }
   .nav { gap: 22px; }
 }
