@@ -12,16 +12,16 @@
       <div class="side__top">
         <a class="brand" href="../index.html">сё</a>
         <nav class="nav" aria-label="Основная навигация">
-          <a class="nav__link nav__link--active" href="../index.html">Works</a>
-          <a class="nav__link" href="../about.html">About</a>
+          <a class="nav__link nav__link--active" href="../index.html">статьи</a>
+          <a class="nav__link" href="../about.html">о сё</a>
         </nav>
       </div>
       <div class="article-note">
-        <span>Research</span>
+        <span>статья</span>
         <span>deep_searching</span>
       </div>
       <div class="side__bottom">
-        <a href="../index.html">Archive</a>
+        <a href="../index.html">← статьи</a>
         <span>© 2026</span>
       </div>
     </aside>
@@ -29,14 +29,14 @@
     <main class="main article-main">
       <article class="article">
         <header class="article-header">
-          <div class="section-label">Research</div>
+          <div class="section-label">статья</div>
           <h1>Как Word2Vec сделал векторы слов практическим инструментом</h1>
           <p class="article-authors">Tomas Mikolov, Kai Chen, Greg Corrado, Jeffrey Dean. Efficient Estimation of Word Representations in Vector Space. Google Inc., arXiv, 2013.</p>
-          <p class="article-thesis">У такого подхода были причины. Простые N-граммные модели (N-gram models) устойчивы, понятны и хорошо масштабируются: их можно обучать на триллионах слов. Но масштабирование помогает не всегда. В автоматическом распознавании речи много решает объём качественно </p>
+          <p class="article-thesis">У такого подхода были причины. Простые N-граммные модели (N-gram models) устойчивы, понятны и хорошо масштабируются: их можно обучать на триллионах слов. Но масштабирование помогает не всегда. В автоматическом распознавании речи много решает объём качественно</p>
         </header>
 
         <section class="article-body">
-          <p>Исходная работа: Tomas Mikolov, Kai Chen, Greg Corrado, Jeffrey Dean. Efficient Estimation of Word Representations in Vector Space. Google Inc., arXiv, 2013.</p>
+<p>Исходная работа: Tomas Mikolov, Kai Chen, Greg Corrado, Jeffrey Dean. Efficient Estimation of Word Representations in Vector Space. Google Inc., arXiv, 2013.</p>
           <p>У такого подхода были причины. Простые N-граммные модели (N-gram models) устойчивы, понятны и хорошо масштабируются: их можно обучать на триллионах слов. Но масштабирование помогает не всегда. В автоматическом распознавании речи много решает объём качественно расшифрованной речи, а не просто любой текст. В машинном переводе для многих языков доступные корпуса тоже ограничены.</p>
           <p>Распределённые представления слов (distributed word representations) обещали другой путь. Вместо номера слово получает вектор: набор чисел, который обучается по употреблению слова в тексте. Если два слова встречаются в похожих контекстах, их векторы могут оказаться близко. Нейросетевые языковые модели уже показывали, что такие представления улучшают качество по сравнению с N-граммами.</p>
           <p>Проблема была в цене. Авторы пишут, что, насколько им известно, прежние архитектуры не обучались успешно на корпусах больше нескольких сотен миллионов слов при размерности векторов выше примерно 50-100. Для статьи это ключевой фон: качество векторов слов (word vectors) хочется повышать не только архитектурой, но и количеством данных, размерностью и словарём.</p>

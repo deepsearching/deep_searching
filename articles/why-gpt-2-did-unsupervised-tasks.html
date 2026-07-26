@@ -12,16 +12,16 @@
       <div class="side__top">
         <a class="brand" href="../index.html">сё</a>
         <nav class="nav" aria-label="Основная навигация">
-          <a class="nav__link" href="../index.html?tab=tech">техно</a>
-          <a class="nav__link" href="../index.html?tab=life">жизнь</a>
+          <a class="nav__link nav__link--active" href="../index.html">статьи</a>
           <a class="nav__link" href="../about.html">о сё</a>
         </nav>
       </div>
       <div class="article-note">
-        <span>001</span>
+        <span>статья</span>
+        <span>deep_searching</span>
       </div>
       <div class="side__bottom">
-        <a href="../index.html">← техно</a>
+        <a href="../index.html">← статьи</a>
         <span>© 2026</span>
       </div>
     </aside>
@@ -29,13 +29,14 @@
     <main class="main article-main">
       <article class="article">
         <header class="article-header">
+          <div class="section-label">статья</div>
           <h1>Как GPT-2 начала выполняла задачи, под которые ее не дообучали</h1>
           <p class="article-authors">Исходная работа: Alec Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Amodei, Ilya Sutskever, "Language Models are Unsupervised Multitask Learners", 2019.</p>
           <p class="article-thesis">Главная мысль работы не в том, что GPT-2 магически выполняет задания без задания. Главная мысль в другом: если большая языковая модель обучается предсказывать следующий фрагмент текста на разнообразном веб-корпусе, она может начать считывать формат текста как постановку задачи.</p>
         </header>
 
         <section class="article-body">
-          <p>Представьте, что вы видите в тексте такой кусок:</p>
+<p>Представьте, что вы видите в тексте такой кусок:</p>
 
           <p><code>Вопрос: где началась эстафета?</code><br><code>Ответ:</code></p>
 
@@ -175,11 +176,6 @@
 
           <p>И в этом, пожалуй, главная ценность работы. Она сдвигает вопрос с "как обучить отдельную модель под каждую задачу?" на "сколько задач уже спрятано в самом языке, если научиться достаточно хорошо предсказывать его продолжение?"</p>
         </section>
-
-        <footer class="article-disclosure">
-          <h2>О материале</h2>
-          <p>Эта статья подготовлена на основе научной публикации с использованием собственной исследовательской редакции «сё», разработанной для анализа и объяснения научных работ. Перед публикацией материал проходит автоматический редакционный контроль.</p>
-        </footer>
       </article>
     </main>
   </div>
