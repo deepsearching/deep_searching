@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Language Models are Unsupervised Multitask Learners — сё</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <div class="site-shell article-shell">
+    <aside class="side">
+      <div class="side__top">
+        <a class="brand" href="../index.html">сё</a>
+        <nav class="nav" aria-label="Основная навигация">
+          <a class="nav__link nav__link--active" href="../index.html">Works</a>
+          <a class="nav__link" href="../about.html">About</a>
+        </nav>
+      </div>
+      <div class="article-note">
+        <span>Research</span>
+        <span>deep_searching</span>
+      </div>
+      <div class="side__bottom">
+        <a href="../index.html">Archive</a>
+        <span>© 2026</span>
+      </div>
+    </aside>
+
+    <main class="main article-main">
+      <article class="article">
+        <header class="article-header">
+          <div class="section-label">Research</div>
+          <h1>Language Models are Unsupervised Multitask Learners</h1>
+          <p class="article-authors">Alex Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Amodei, Ilya Sutskever</p>
+          <p class="article-thesis">Про GPT-2 легко рассказать скучно: OpenAI обучила большую языковую модель, модель стала лучше на разных тестах, размер оказался важен. Всё это правда, но так теряется главный поворот.</p>
+        </header>
+
+        <section class="article-body">
+          <p>Исходная работа: Alex Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Amodei, Ilya Sutskever</p>
+          <p>Про GPT-2 легко рассказать скучно: OpenAI обучила большую языковую модель, модель стала лучше на разных тестах, размер оказался важен. Всё это правда, но так теряется главный поворот.</p>
+          <p>Самое интересное в этой статье не то, что модель стала больше. Интереснее другое: авторы показали, что задачу иногда можно не вшивать в модель через отдельное обучение, а задать прямо текстом.</p>
+          <h2>Задача раньше жила снаружи модели</h2>
+          <p>Обычная схема машинного обучения проста. Есть задача, под неё собирают данные, модель обучают на примерах, затем проверяют на новых случаях. Для перевода нужна своя коллекция. Для суммаризации — своя. Для классификации — своя.</p>
+          <p>GPT-2 задал другой вопрос: всегда ли задача должна приходить снаружи? Или часть задачи уже можно выразить внутри самого текста?</p>
+          <h2>Новый интерфейс: задача как продолжение</h2>
+          <p>Если в контексте написано translate to French: house =, модель формально всё ещё предсказывает следующие токены. Но содержательно от неё ждут французский перевод.</p>
+          <p>Вот где находится главный сдвиг статьи. Контекст не только сообщает информацию, но и задаёт, какое действие сейчас ожидается.</p>
+          <h2>Что стоит запомнить</h2>
+          <p>До GPT-2 естественно было думать: сначала модель учит язык, потом мы отдельно учим её задачам. После этой статьи приходится держать более интересную картину: некоторые задачи уже существуют внутри языка как формы записи.</p>
+        </section>
+      </article>
+    </main>
+  </div>
+</body>
+</html>
