@@ -13,8 +13,7 @@
       <div class="side__top">
         <a class="brand" href="index.html">сё</a>
         <nav class="nav" aria-label="Основная навигация">
-          <a class="nav__link nav__link--active" href="#" data-tab-link="tech">техно</a>
-          <a class="nav__link" href="#" data-tab-link="life">жизнь</a>
+          <a class="nav__link nav__link--active" href="index.html">статьи</a>
           <a class="nav__link" href="about.html">о сё</a>
         </nav>
       </div>
@@ -35,16 +34,19 @@
         </div>
       </section>
 
-      <section class="works-list category-panel" id="tech" aria-label="Публикации раздела техно" data-tab-panel="tech">
+      <section class="works-list category-panel" id="articles" aria-label="Статьи">
         <div class="works-list__items">
           <a class="work is-active" href="articles/gpt-2.html">
             <span class="work__title">Language Models are Unsupervised Multitask Learners</span>
           </a>
-                    <a class="work is-active" href="articles/new-pair-of-gloves.html">
+          <a class="work is-active" href="articles/new-pair-of-gloves.html">
             <span class="work__title">Зачем GloVe понадобилась новая пара векторов</span>
           </a>
-                    <a class="work is-active" href="articles/word2vec-word-vectors.html">
+          <a class="work is-active" href="articles/word2vec-word-vectors.html">
             <span class="work__title">Как Word2Vec сделал векторы слов практическим инструментом</span>
+          </a>
+          <a class="work is-active" href="articles/ai-society-bioethics.html">
+            <span class="work__title">Почему биоэтика ИИ начинается не с машин, а с ответственности людей</span>
           </a>
           <a class="work is-active" href="articles/glove-word-vectors.html">
             <span class="work__title">Что GloVe объяснил о смысле в векторах слов</span>
@@ -55,46 +57,8 @@
         </div>
       </section>
 
-      <section class="works-list category-panel" id="life" aria-label="Публикации раздела жизнь" data-tab-panel="life" hidden>
-        <div class="works-list__items">
-                    <a class="work is-active" href="articles/ai-society-bioethics.html">
-            <span class="work__title">Почему биоэтика ИИ начинается не с машин, а с ответственности людей</span>
-          </a>
-          <a class="work is-active" href="articles/why-gpt-2-did-unsupervised-tasks.html">
-            <span class="work__title">Как GPT-2 начала выполняла задачи, под которые ее не дообучали</span>
-          </a>
-        </div>
-      </section>
-
       <section class="content-section empty-space" aria-hidden="true"></section>
     </main>
   </div>
-  <script>
-    const tabLinks = document.querySelectorAll("[data-tab-link]");
-    const tabPanels = document.querySelectorAll("[data-tab-panel]");
-
-    function setActiveTab(tab) {
-      tabPanels.forEach((panel) => {
-        panel.hidden = panel.dataset.tabPanel !== tab;
-      });
-      tabLinks.forEach((link) => {
-        link.classList.toggle("nav__link--active", link.dataset.tabLink === tab);
-      });
-      const nextUrl = tab === "life" ? `${window.location.pathname}?tab=life` : window.location.pathname;
-      if (`${window.location.pathname}${window.location.search}${window.location.hash}` !== nextUrl) {
-        history.replaceState(null, "", nextUrl);
-      }
-    }
-
-    tabLinks.forEach((link) => {
-      link.addEventListener("click", (event) => {
-        event.preventDefault();
-        setActiveTab(link.dataset.tabLink);
-      });
-    });
-
-    const initialTab = new URLSearchParams(window.location.search).get("tab") === "life" ? "life" : "tech";
-    setActiveTab(initialTab);
-  </script>
 </body>
 </html>
