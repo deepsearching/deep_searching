@@ -1,0 +1,420 @@
+{
+  "nodes": [
+    {
+      "id": "agi",
+      "label": "ИИ общего назначения",
+      "coords": [
+        11.619670670774301,
+        -15.56233435979686,
+        -6.344632114474374
+      ],
+      "top": [
+        "superintelligence",
+        "ai-rd-progress-multiplier",
+        "misalignment",
+        "oversight-committee",
+        "spec"
+      ]
+    },
+    {
+      "id": "ai-rd-progress-multiplier",
+      "label": "Множитель прогресса ИИ-разработки",
+      "coords": [
+        12.53579418212494,
+        -13.708535493467199,
+        -7.54998335091393
+      ],
+      "top": [
+        "iterated-distillation-amplification",
+        "agi",
+        "oversight-committee",
+        "spec",
+        "chain-of-thought"
+      ]
+    },
+    {
+      "id": "algorithmic-bias",
+      "label": "Алгоритмическое искажение",
+      "coords": [
+        9.309762542336106,
+        -19.59226102963558,
+        -3.312141731231767
+      ],
+      "top": [
+        "confabulation",
+        "intelligence-explosion",
+        "superintelligence",
+        "ultraintelligence",
+        "linearity-bias"
+      ]
+    },
+    {
+      "id": "chain-of-thought",
+      "label": "Цепочка рассуждений",
+      "coords": [
+        12.292489456487454,
+        -12.51305703764418,
+        -7.757452846264995
+      ],
+      "top": [
+        "neuralese",
+        "oversight-committee",
+        "spec",
+        "ai-rd-progress-multiplier",
+        "interpretability"
+      ]
+    },
+    {
+      "id": "cnn",
+      "label": "Свёрточная нейронная сеть",
+      "coords": [
+        -17.019882011218932,
+        24.802019275983568,
+        4.669307342863372
+      ],
+      "top": [
+        "relu",
+        "local-response-normalization",
+        "overlapping-pooling",
+        "data-augmentation",
+        "dropout"
+      ]
+    },
+    {
+      "id": "confabulation",
+      "label": "Конфабуляция",
+      "coords": [
+        10.084773753148008,
+        -19.642203189787413,
+        -3.807856323240445
+      ],
+      "top": [
+        "sycophancy",
+        "algorithmic-bias",
+        "intelligence-explosion",
+        "superintelligence",
+        "ultraintelligence"
+      ]
+    },
+    {
+      "id": "data-augmentation",
+      "label": "Аугментация данных",
+      "coords": [
+        -17.34460542633125,
+        25.044752226606875,
+        4.04707772994904
+      ],
+      "top": [
+        "dropout",
+        "cnn",
+        "relu",
+        "ilsvrc",
+        "local-response-normalization"
+      ]
+    },
+    {
+      "id": "dropout",
+      "label": "Dropout",
+      "coords": [
+        -16.875856317693675,
+        24.067419439533538,
+        4.8496528292881464
+      ],
+      "top": [
+        "data-augmentation",
+        "cnn",
+        "relu",
+        "ilsvrc",
+        "local-response-normalization"
+      ]
+    },
+    {
+      "id": "flop",
+      "label": "Операции с плавающей точкой",
+      "coords": [
+        12.761435077066233,
+        -12.595678358970934,
+        -6.783162452416764
+      ],
+      "top": [
+        "oversight-committee",
+        "spec",
+        "ai-rd-progress-multiplier",
+        "chain-of-thought",
+        "interpretability"
+      ]
+    },
+    {
+      "id": "ilsvrc",
+      "label": "ILSVRC",
+      "coords": [
+        -16.54440166443867,
+        23.870697113735858,
+        4.148605967281704
+      ],
+      "top": [
+        "top-1-top-5-error",
+        "cnn",
+        "data-augmentation",
+        "dropout",
+        "relu"
+      ]
+    },
+    {
+      "id": "intelligence-explosion",
+      "label": "Взрыв интеллекта",
+      "coords": [
+        9.709350517303744,
+        -17.939696303895264,
+        -4.191093454724345
+      ],
+      "top": [
+        "ultraintelligence",
+        "misalignment",
+        "linearity-bias",
+        "superintelligence",
+        "algorithmic-bias"
+      ]
+    },
+    {
+      "id": "interpretability",
+      "label": "Интерпретируемость",
+      "coords": [
+        11.480174596898738,
+        -13.05243110379254,
+        -7.069642296192182
+      ],
+      "top": [
+        "misalignment",
+        "oversight-committee",
+        "spec",
+        "ai-rd-progress-multiplier",
+        "chain-of-thought"
+      ]
+    },
+    {
+      "id": "iterated-distillation-amplification",
+      "label": "Итеративная дистилляция и усиление",
+      "coords": [
+        12.451765039788697,
+        -13.26555616345361,
+        -8.508774403195146
+      ],
+      "top": [
+        "ai-rd-progress-multiplier",
+        "oversight-committee",
+        "spec",
+        "chain-of-thought",
+        "interpretability"
+      ]
+    },
+    {
+      "id": "linearity-bias",
+      "label": "Искажение линейности",
+      "coords": [
+        9.020273973700737,
+        -19.493706945837975,
+        -4.457304217210543
+      ],
+      "top": [
+        "intelligence-explosion",
+        "superintelligence",
+        "ultraintelligence",
+        "algorithmic-bias",
+        "confabulation"
+      ]
+    },
+    {
+      "id": "local-response-normalization",
+      "label": "Локальная нормализация отклика",
+      "coords": [
+        -18.07247564482613,
+        24.40182523581511,
+        4.914547634446883
+      ],
+      "top": [
+        "cnn",
+        "data-augmentation",
+        "dropout",
+        "relu",
+        "ilsvrc"
+      ]
+    },
+    {
+      "id": "misalignment",
+      "label": "Рассинхронизация",
+      "coords": [
+        10.762163509595629,
+        -15.151314325113804,
+        -5.916430269477041
+      ],
+      "top": [
+        "intelligence-explosion",
+        "spec",
+        "interpretability",
+        "agi",
+        "oversight-committee"
+      ]
+    },
+    {
+      "id": "neuralese",
+      "label": "Нейронский режим",
+      "coords": [
+        11.345657272355778,
+        -12.822479714807564,
+        -8.133612739906471
+      ],
+      "top": [
+        "chain-of-thought",
+        "oversight-committee",
+        "spec",
+        "ai-rd-progress-multiplier",
+        "interpretability"
+      ]
+    },
+    {
+      "id": "overlapping-pooling",
+      "label": "Пулинг с перекрытием",
+      "coords": [
+        -16.13546460872619,
+        24.843355601689765,
+        3.4850714775858975
+      ],
+      "top": [
+        "cnn",
+        "data-augmentation",
+        "dropout",
+        "relu",
+        "ilsvrc"
+      ]
+    },
+    {
+      "id": "oversight-committee",
+      "label": "Наблюдательный комитет",
+      "coords": [
+        11.957009785103457,
+        -13.71576110184317,
+        -6.8856963538197355
+      ],
+      "top": [
+        "interpretability",
+        "spec",
+        "ai-rd-progress-multiplier",
+        "chain-of-thought",
+        "neuralese"
+      ]
+    },
+    {
+      "id": "relu",
+      "label": "ReLU",
+      "coords": [
+        -17.154007396237304,
+        24.36964152596961,
+        3.6984008890088984
+      ],
+      "top": [
+        "cnn",
+        "data-augmentation",
+        "dropout",
+        "ilsvrc",
+        "local-response-normalization"
+      ]
+    },
+    {
+      "id": "spec",
+      "label": "Spec",
+      "coords": [
+        11.62152216328066,
+        -13.899619493429247,
+        -7.419738915414309
+      ],
+      "top": [
+        "misalignment",
+        "oversight-committee",
+        "ai-rd-progress-multiplier",
+        "chain-of-thought",
+        "interpretability"
+      ]
+    },
+    {
+      "id": "superintelligence",
+      "label": "Сверхразум",
+      "coords": [
+        10.268965009876034,
+        -18.445274137756417,
+        -4.378265097621256
+      ],
+      "top": [
+        "agi",
+        "intelligence-explosion",
+        "ultraintelligence",
+        "algorithmic-bias",
+        "confabulation"
+      ]
+    },
+    {
+      "id": "sycophancy",
+      "label": "Лестность",
+      "coords": [
+        10.08271463646178,
+        -18.86835626013191,
+        -2.8083857791896643
+      ],
+      "top": [
+        "confabulation",
+        "intelligence-explosion",
+        "superintelligence",
+        "ultraintelligence",
+        "algorithmic-bias"
+      ]
+    },
+    {
+      "id": "top-1-top-5-error",
+      "label": "Top-1 / top-5 ошибка",
+      "coords": [
+        -15.986455445926659,
+        25.004450141301348,
+        4.777263972191002
+      ],
+      "top": [
+        "ilsvrc",
+        "cnn",
+        "data-augmentation",
+        "dropout",
+        "relu"
+      ]
+    },
+    {
+      "id": "ultraintelligence",
+      "label": "Ультраинтеллект",
+      "coords": [
+        9.054996210258857,
+        -18.810903456740053,
+        -3.460560985968368
+      ],
+      "top": [
+        "intelligence-explosion",
+        "superintelligence",
+        "algorithmic-bias",
+        "confabulation",
+        "linearity-bias"
+      ]
+    },
+    {
+      "id": "weight-decay",
+      "label": "Затухание весов",
+      "coords": [
+        -17.75745090656032,
+        23.505514948514726,
+        3.9951102433995946
+      ],
+      "top": [
+        "cnn",
+        "data-augmentation",
+        "dropout",
+        "relu",
+        "ilsvrc"
+      ]
+    }
+  ]
+}

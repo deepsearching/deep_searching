@@ -1,0 +1,25 @@
+{
+  "id": "ai-rd-progress-multiplier",
+  "label": "Множитель прогресса ИИ-разработки",
+  "gloss_summary": "отношение скорости алгоритмического прогресса лаборатории с ИИ-ассистентами к скорости без них. Множитель 4 означает, что то, на что раньше уходил месяц, теперь занимает неделю.",
+  "relations": [
+    {
+      "id": "iterated-distillation-amplification",
+      "label": "Итеративная дистилляция и усиление",
+      "type": "часть"
+    },
+    {
+      "id": "agi",
+      "label": "ИИ общего назначения",
+      "type": "зависит от"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0002",
+      "title": "AI 2027: два будущих",
+      "url": "https://deepsearching.github.io/deep_searching/articles/ai2027.html",
+      "weight": 4
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "iterated-distillation-amplification",
+  "label": "Итеративная дистилляция и усиление",
+  "gloss_summary": "метод самоулучшения модели: «усиленная» версия модели порождает данные, на которых обучается новая, более быстрая модель, воспроизводящая то же качество за меньшие вычисления. Использовался при обучении AlphaGo.",
+  "relations": [
+    {
+      "id": "ai-rd-progress-multiplier",
+      "label": "Множитель прогресса ИИ-разработки",
+      "type": "часть"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0002",
+      "title": "AI 2027: два будущих",
+      "url": "https://deepsearching.github.io/deep_searching/articles/ai2027.html",
+      "weight": 3
+    }
+  ]
+}

@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>Пространство концептов — сё</title>
+<style>
+  /* Style is not final (see ТЗ §10) -- everything visual lives in these
+     variables so a future brand pass can swap them cheaply. */
+  :root {
+    --bg: #0b0b0b;
+    --ink: #f5f5f5;
+    --muted: #8a8a8a;
+    --dim: #3a3a3a;
+    --accent: #f5f5f5;
+    --card-bg: rgba(15, 15, 15, 0.92);
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; background: var(--bg); color: var(--ink); font-family: var(--font); overflow: hidden; }
+  #scene { position: fixed; inset: 0; }
+  #scene canvas { display: block; touch-action: none; }
+
+  .label {
+    position: absolute;
+    top: 0; left: 0;
+    font-size: 13px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+    /* Labels sit above their sphere (see the -140% transform below), so the
+       label text and the sphere occupy different screen pixels. The label
+       layer's own container has pointer-events:none (set in JS on
+       labelRenderer.domElement) so it never blocks OrbitControls dragging,
+       but each label re-enables pointer-events on itself -- it's a bigger,
+       easier tap target than the small sphere underneath it, which matters
+       most on mobile. Invisible (opacity 0, not yet focused-neighbor) labels
+       stay non-interactive via the padding trick below, not via
+       pointer-events, so they don't eat clicks meant for the canvas. */
+    pointer-events: none;
+    padding: 6px 10px;
+    margin: -6px -10px;
+    cursor: pointer;
+    white-space: nowrap;
+    transform: translate(-50%, -140%);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+  .label--focus { font-size: 16px; font-weight: 600; }
+  .label--visible { opacity: 1; pointer-events: auto; }
+
+  #home {
+    position: fixed; top: 20px; left: 20px;
+    z-index: 5;
+    background: transparent;
+    border: 1px solid var(--dim);
+    color: var(--muted);
+    font-family: var(--font);
+    font-size: 13px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  #home:hover { color: var(--ink); border-color: var(--ink); }
+
+  #trail {
+    position: fixed; top: 20px; right: 20px;
+    z-index: 5;
+    display: flex; gap: 8px;
+    max-width: 60vw;
+    overflow-x: auto;
+  }
+  .trail-chip {
+    font-size: 12px; color: var(--muted);
+    border: 1px solid var(--dim);
+    border-radius: 999px;
+    padding: 6px 12px;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  .trail-chip:hover, .trail-chip--current { color: var(--ink); border-color: var(--ink); }
+
+  #card {
+    position: fixed;
+    right: 24px; bottom: 24px;
+    width: min(360px, calc(100vw - 48px));
+    max-height: 55vh;
+    overflow-y: auto;
+    background: var(--card-bg);
+    border: 1px solid var(--dim);
+    border-radius: 14px;
+    padding: 20px;
+    z-index: 6;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(12px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  #card.card--visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+  #card h2 { font-size: 20px; letter-spacing: -0.02em; margin-bottom: 10px; }
+  #card .gloss { font-size: 14px; line-height: 1.45; color: #d8d8d8; margin-bottom: 16px; }
+  #card .group-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 14px 0 6px; }
+  #card .rel-item, #card .article-item { display: block; font-size: 14px; color: var(--ink); padding: 5px 0; cursor: pointer; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  #card .rel-item:hover { color: var(--muted); }
+  #card .article-item { cursor: default; }
+  #card .article-item a { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; }
+  #card-close { position: absolute; top: 14px; right: 16px; color: var(--muted); cursor: pointer; font-size: 13px; }
+
+  #hint {
+    position: fixed; bottom: 20px; left: 20px;
+    font-size: 12px; color: var(--muted);
+    z-index: 4;
+    max-width: 260px;
+  }
+
+  #loading {
+    position: fixed; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--muted); font-size: 13px;
+    z-index: 10;
+    background: var(--bg);
+  }
+
+  @media (max-width: 720px) {
+    #card {
+      left: 0; right: 0; bottom: 0;
+      width: 100%;
+      max-height: 42vh;
+      border-radius: 16px 16px 0 0;
+      border-left: none; border-right: none; border-bottom: none;
+    }
+    .label { font-size: 11px; }
+    .label--focus { font-size: 13px; }
+    #trail { max-width: 56vw; }
+    .trail-chip { max-width: 40vw; overflow: hidden; text-overflow: ellipsis; }
+    #hint { display: none; } /* would collide with the bottom-docked card; tap discoverability matters more on mobile than a hint anyway */
+  }
+</style>
+</head>
+<body>
+  <div id="loading">Загрузка пространства…</div>
+  <div id="scene"></div>
+  <div id="labels"></div>
+  <button id="home">← сё</button>
+  <div id="trail"></div>
+  <div id="hint">Перетаскивание — вращение. Колесо/щипок — приближение. Тап по узлу — переход.</div>
+  <div id="card">
+    <span id="card-close">закрыть</span>
+    <h2 id="card-title"></h2>
+    <div class="gloss" id="card-gloss"></div>
+    <div id="card-relations"></div>
+    <div id="card-articles"></div>
+  </div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module">
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { CSS2DRenderer, CSS2DObject } from "three/addons/renderers/CSS2DRenderer.js";
+
+/* ---------- config (see :root above for colors) ---------- */
+const SCENE_SCALE = 22;          // used for camera/fog distances
+const POSITION_SCALE = 12;       // graph.json coords are small floats (build.py's LAYOUT_CUBE, typical inter-node distance ~2-4); multiplied up so nodes/labels don't overlap
+const NODE_RADIUS = 1.5;
+const FOCUS_NODE_RADIUS = 2.3;
+const FLIGHT_DURATION_MS = 1200; // ТЗ §10: "перелёт ~1,2 с, не телепорт"
+const TRAIL_MAX = 4;
+const DATA_BASE = "public/data";
+
+const isMobile = window.matchMedia("(max-width: 720px)").matches;
+
+/* ---------- three.js setup ---------- */
+const sceneEl = document.getElementById("scene");
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(getVar("--bg"));
+scene.fog = new THREE.Fog(getVar("--bg"), SCENE_SCALE * 2.2, SCENE_SCALE * 6.5); // ТЗ §10: дальние узлы гаснут в дымку
+
+const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 2000);
+camera.position.set(0, 0, SCENE_SCALE * 3.2);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobile ? 1.5 : 2));
+renderer.setSize(window.innerWidth, window.innerHeight);
+sceneEl.appendChild(renderer.domElement);
+
+const labelRenderer = new CSS2DRenderer();
+labelRenderer.setSize(window.innerWidth, window.innerHeight);
+labelRenderer.domElement.style.position = "absolute";
+labelRenderer.domElement.style.top = "0";
+labelRenderer.domElement.style.pointerEvents = "none";
+sceneEl.appendChild(labelRenderer.domElement);
+
+/* Constrained navigation on purpose (user requirement, 2026-08-06): free
+   360 rotation on every axis makes a graph like this disorienting and easy
+   to get lost in. Horizontal orbit (azimuth) stays free -- walking around
+   the space is the whole point -- but vertical tilt is clamped so you can
+   never flip past the poles or end up looking at the scene upside down,
+   and there's no roll at all (OrbitControls never introduces one). */
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.08;
+controls.minDistance = SCENE_SCALE * 0.8;
+controls.maxDistance = SCENE_SCALE * 5.5;
+controls.minPolarAngle = Math.PI * 0.18;
+controls.maxPolarAngle = Math.PI * 0.82;
+controls.target.set(0, 0, 0);
+controls.update();
+
+scene.add(new THREE.AmbientLight(0xffffff, 0.9));
+const key = new THREE.DirectionalLight(0xffffff, 0.6);
+key.position.set(1, 1, 1);
+scene.add(key);
+
+function getVar(name) {
+  return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+}
+
+/* ---------- state ---------- */
+let graph = null;              // { nodes: [{id,label,coords,top}] }
+const nodeById = new Map();    // id -> node meta
+const meshById = new Map();    // id -> THREE.Mesh (visible sphere)
+const hitMeshById = new Map(); // id -> THREE.Mesh (invisible, larger raycast target)
+const labelById = new Map();   // id -> { object: CSS2DObject, el: HTMLElement }
+const edgeGroup = new THREE.Group();
+scene.add(edgeGroup);
+
+let focusId = null;
+let cardCache = new Map();     // id -> card json
+const trail = [];
+let flightHandle = null;
+
+/* ---------- load graph ---------- */
+init();
+
+async function init() {
+  const res = await fetch(`${DATA_BASE}/graph.json`);
+  graph = await res.json();
+  if (!graph.nodes || graph.nodes.length === 0) {
+    document.getElementById("loading").textContent = "Пространство пока пустое.";
+    return;
+  }
+  buildNodes();
+  document.getElementById("loading").style.display = "none";
+
+  const startId = pickStartNode();
+  focusNode(startId, { immediate: true, addToTrail: true });
+
+  renderer.domElement.addEventListener("pointerdown", onPointerDown);
+  window.addEventListener("resize", onResize);
+  document.getElementById("home").addEventListener("click", () => {
+    trail.length = 0;
+    focusNode(startId, { addToTrail: true });
+  });
+  document.getElementById("card-close").addEventListener("click", hideCard);
+
+  animate();
+}
+
+function pickStartNode() {
+  // Most-connected node makes a more useful entry point than an arbitrary one.
+  let best = graph.nodes[0];
+  for (const n of graph.nodes) {
+    if ((n.top || []).length > (best.top || []).length) best = n;
+  }
+  return best.id;
+}
+
+function buildNodes() {
+  const geometry = new THREE.IcosahedronGeometry(NODE_RADIUS, 1);
+  // Raycasting target is deliberately bigger than the visible sphere -- a
+  // NODE_RADIUS=1.5 sphere is a tiny, easy-to-miss tap target, especially on
+  // a phone. This hit sphere is invisible (opacity 0, not visible=false --
+  // three.js Raycaster skips objects with visible=false entirely) but still
+  // participates in raycasting.
+  const hitGeometry = new THREE.SphereGeometry(NODE_RADIUS * 2.4, 8, 8);
+  const hitMaterial = new THREE.MeshBasicMaterial({ transparent: true, opacity: 0 });
+
+  for (const node of graph.nodes) {
+    nodeById.set(node.id, node);
+
+    const material = new THREE.MeshStandardMaterial({
+      color: getVar("--dim"),
+      roughness: 0.6,
+      metalness: 0.1,
+      transparent: true,
+      opacity: 0.55,
+    });
+    const mesh = new THREE.Mesh(geometry, material);
+    mesh.position.set(node.coords[0] * POSITION_SCALE, node.coords[1] * POSITION_SCALE, node.coords[2] * POSITION_SCALE);
+    mesh.userData.id = node.id;
+    scene.add(mesh);
+    meshById.set(node.id, mesh);
+
+    const hitMesh = new THREE.Mesh(hitGeometry, hitMaterial);
+    hitMesh.position.copy(mesh.position);
+    hitMesh.userData.id = node.id;
+    scene.add(hitMesh);
+    hitMeshById.set(node.id, hitMesh);
+
+    const el = document.createElement("div");
+    el.className = "label";
+    el.textContent = node.label;
+    const labelObject = new CSS2DObject(el);
+    labelObject.position.set(0, 0, 0);
+    mesh.add(labelObject);
+    labelById.set(node.id, { object: labelObject, el });
+
+    el.addEventListener("pointerdown", (e) => {
+      e.stopPropagation();
+      goTo(node.id);
+    });
+  }
+}
+
+/* ---------- interaction ---------- */
+const raycaster = new THREE.Raycaster();
+const pointer = new THREE.Vector2();
+
+function onPointerDown(event) {
+  pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
+  pointer.y = -(event.clientY / window.innerHeight) * 2 + 1;
+  raycaster.setFromCamera(pointer, camera);
+  const hits = raycaster.intersectObjects([...hitMeshById.values()]);
+  if (hits.length > 0) {
+    goTo(hits[0].object.userData.id);
+  }
+}
+
+function goTo(id) {
+  if (id === focusId) return;
+  focusNode(id, { addToTrail: true });
+}
+
+function onResize() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  labelRenderer.setSize(window.innerWidth, window.innerHeight);
+}
+
+/* ---------- focus / dim model (ТЗ §10: только фокус-узел + топ-5 соседей видны) ---------- */
+function focusNode(id, { immediate = false, addToTrail = false } = {}) {
+  const node = nodeById.get(id);
+  if (!node) return;
+  focusId = id;
+
+  const neighborIds = new Set(node.top || []);
+  neighborIds.add(id);
+
+  for (const [nid, mesh] of meshById) {
+    const isFocus = nid === id;
+    const isNeighbor = neighborIds.has(nid);
+    const targetOpacity = isFocus ? 1 : isNeighbor ? 0.85 : 0.25;
+    const targetColor = isFocus || isNeighbor ? getVar("--accent") : getVar("--dim");
+    mesh.material.opacity = targetOpacity;
+    mesh.material.color = new THREE.Color(targetColor);
+    mesh.scale.setScalar(isFocus ? FOCUS_NODE_RADIUS / NODE_RADIUS : 1);
+
+    const label = labelById.get(nid);
+    label.el.classList.toggle("label--visible", isNeighbor);
+    label.el.classList.toggle("label--focus", isFocus);
+  }
+
+  rebuildEdges(id, node.top || []);
+  flyTo(meshById.get(id).position, immediate);
+  loadCard(id);
+
+  if (addToTrail) {
+    trail.push(id);
+    while (trail.length > TRAIL_MAX) trail.shift();
+    renderTrail();
+  }
+}
+
+function rebuildEdges(focusId, neighborIds) {
+  edgeGroup.clear();
+  const focusPos = meshById.get(focusId).position;
+  const material = new THREE.LineBasicMaterial({ color: getVar("--muted"), transparent: true, opacity: 0.5 });
+  for (const nid of neighborIds) {
+    const mesh = meshById.get(nid);
+    if (!mesh) continue;
+    const points = [focusPos.clone(), mesh.position.clone()];
+    const geometry = new THREE.BufferGeometry().setFromPoints(points);
+    edgeGroup.add(new THREE.Line(geometry, material));
+  }
+}
+
+/* ---------- camera flight (не телепорт, ~1.2s) ---------- */
+function flyTo(targetPosition, immediate) {
+  const camOffset = camera.position.clone().sub(controls.target);
+  const newTarget = targetPosition.clone();
+  const newCamPos = newTarget.clone().add(camOffset.clone().setLength(Math.max(camOffset.length(), controls.minDistance)));
+
+  if (immediate) {
+    controls.target.copy(newTarget);
+    camera.position.copy(newCamPos);
+    controls.update();
+    return;
+  }
+
+  if (flightHandle) cancelAnimationFrame(flightHandle);
+  const startTarget = controls.target.clone();
+  const startCam = camera.position.clone();
+  const startTime = performance.now();
+
+  function step(now) {
+    const t = Math.min(1, (now - startTime) / FLIGHT_DURATION_MS);
+    const eased = easeInOutCubic(t);
+    controls.target.lerpVectors(startTarget, newTarget, eased);
+    camera.position.lerpVectors(startCam, newCamPos, eased);
+    controls.update();
+    if (t < 1) {
+      flightHandle = requestAnimationFrame(step);
+    }
+  }
+  flightHandle = requestAnimationFrame(step);
+}
+
+function easeInOutCubic(t) {
+  return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+}
+
+/* ---------- trail ---------- */
+function renderTrail() {
+  const el = document.getElementById("trail");
+  el.innerHTML = "";
+  for (const id of trail) {
+    const chip = document.createElement("div");
+    chip.className = "trail-chip" + (id === focusId ? " trail-chip--current" : "");
+    chip.textContent = nodeById.get(id)?.label || id;
+    chip.addEventListener("click", () => focusNode(id, { addToTrail: false }));
+    el.appendChild(chip);
+  }
+}
+
+/* ---------- card (lazy-loaded per ТЗ §9: сцена лёгкая, тексты по требованию) ---------- */
+async function loadCard(id) {
+  const cardEl = document.getElementById("card");
+  let data = cardCache.get(id);
+  if (!data) {
+    try {
+      const res = await fetch(`${DATA_BASE}/cards/${id}.json`);
+      if (!res.ok) throw new Error(res.status);
+      data = await res.json();
+      cardCache.set(id, data);
+    } catch (err) {
+      cardEl.classList.remove("card--visible");
+      return;
+    }
+  }
+  renderCard(data);
+  cardEl.classList.add("card--visible");
+}
+
+function hideCard() {
+  document.getElementById("card").classList.remove("card--visible");
+}
+
+function renderCard(data) {
+  document.getElementById("card-title").textContent = data.label;
+  document.getElementById("card-gloss").textContent = data.gloss_summary || "";
+
+  const relEl = document.getElementById("card-relations");
+  relEl.innerHTML = "";
+  const groups = new Map();
+  for (const rel of data.relations || []) {
+    if (!groups.has(rel.type)) groups.set(rel.type, []);
+    groups.get(rel.type).push(rel);
+  }
+  for (const [type, items] of groups) {
+    const label = document.createElement("div");
+    label.className = "group-label";
+    label.textContent = type;
+    relEl.appendChild(label);
+    for (const item of items) {
+      const row = document.createElement("div");
+      row.className = "rel-item";
+      row.textContent = item.label;
+      row.addEventListener("click", () => goTo(item.id));
+      relEl.appendChild(row);
+    }
+  }
+
+  const artEl = document.getElementById("card-articles");
+  artEl.innerHTML = "";
+  if ((data.articles || []).length) {
+    const label = document.createElement("div");
+    label.className = "group-label";
+    label.textContent = "статьи";
+    artEl.appendChild(label);
+    for (const art of data.articles) {
+      const row = document.createElement("div");
+      row.className = "article-item";
+      if (art.url) {
+        const a = document.createElement("a");
+        a.href = art.url;
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.textContent = art.title;
+        row.appendChild(a);
+      } else {
+        row.textContent = art.title;
+      }
+      artEl.appendChild(row);
+    }
+  }
+}
+
+/* ---------- render loop ---------- */
+function animate() {
+  requestAnimationFrame(animate);
+  controls.update();
+  renderer.render(scene, camera);
+  labelRenderer.render(scene, camera);
+}
+</script>
+</body>
+</html>

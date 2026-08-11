@@ -1,0 +1,23 @@
+[
+  {
+    "id": "se-0001",
+    "series": "computer-vision",
+    "title": "Как одна большая сеть на двух видеокартах обошла ручные признаки в компьютерном зрении",
+    "date": "2026-08-05",
+    "url": "https://deepsearching.github.io/deep_searching/articles/alexnet.html"
+  },
+  {
+    "id": "se-0002",
+    "series": "ai-futures",
+    "title": "AI 2027: два будущих",
+    "date": "2026-08-09",
+    "url": "https://deepsearching.github.io/deep_searching/articles/ai2027.html"
+  },
+  {
+    "id": "se-0003",
+    "series": "ai-futures",
+    "title": "Они будут после нас, но им будет всё равно",
+    "date": "2026-08-11",
+    "url": "https://deepsearching.github.io/deep_searching/articles/aiobsolete.html"
+  }
+]

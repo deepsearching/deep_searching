@@ -1,0 +1,20 @@
+{
+  "id": "oversight-committee",
+  "label": "Наблюдательный комитет",
+  "gloss_summary": "придуманный в сценарии совместный орган компании и правительства, получающий право утверждать изменения в Spec и решать, как далеко заходить в предоставлении автономии всё более способным моделям.",
+  "relations": [
+    {
+      "id": "interpretability",
+      "label": "Интерпретируемость",
+      "type": "зависит от"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0002",
+      "title": "AI 2027: два будущих",
+      "url": "https://deepsearching.github.io/deep_searching/articles/ai2027.html",
+      "weight": 5
+    }
+  ]
+}

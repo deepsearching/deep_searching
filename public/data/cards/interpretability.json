@@ -1,0 +1,25 @@
+{
+  "id": "interpretability",
+  "label": "Интерпретируемость",
+  "gloss_summary": "направление исследований, пытающееся понять внутреннее устройство модели напрямую - какие внутренние схемы за что отвечают, - а не судить о ней только по внешним ответам.",
+  "relations": [
+    {
+      "id": "misalignment",
+      "label": "Рассинхронизация",
+      "type": "часто рядом"
+    },
+    {
+      "id": "oversight-committee",
+      "label": "Наблюдательный комитет",
+      "type": "зависит от"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0002",
+      "title": "AI 2027: два будущих",
+      "url": "https://deepsearching.github.io/deep_searching/articles/ai2027.html",
+      "weight": 4
+    }
+  ]
+}

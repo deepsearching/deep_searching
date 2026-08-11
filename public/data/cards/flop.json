@@ -1,0 +1,14 @@
+{
+  "id": "flop",
+  "label": "Операции с плавающей точкой",
+  "gloss_summary": "операции с плавающей точкой; стандартная единица измерения объёма вычислений, потраченных на обучение модели.",
+  "relations": [],
+  "articles": [
+    {
+      "id": "se-0002",
+      "title": "AI 2027: два будущих",
+      "url": "https://deepsearching.github.io/deep_searching/articles/ai2027.html",
+      "weight": 3
+    }
+  ]
+}
