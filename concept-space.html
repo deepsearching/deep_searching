@@ -172,9 +172,30 @@ const NODE_RADIUS = 1.5;
 const FOCUS_NODE_RADIUS = 2.3;
 const FLIGHT_DURATION_MS = 1200; // ТЗ §10: "перелёт ~1,2 с, не телепорт"
 const TRAIL_MAX = 4;
-const DATA_BASE = "public/data";
 
 const isMobile = window.matchMedia("(max-width: 720px)").matches;
+
+/* Deep-dive series are separate spaces by default (2026-08-14 decision) --
+   each series' own build.py --series run lives in its own data subfolder, so
+   this page never mixes nodes across series unless the URL asks for the
+   combined view explicitly. ?series=<id> -> public/data/<id>; no param (or
+   ?series=all) -> public/data (root), the combined cross-series space. */
+const requestedSeries = new URLSearchParams(window.location.search).get("series");
+const DATA_BASE =
+  requestedSeries && requestedSeries !== "all"
+    ? `public/data/${requestedSeries}`
+    : "public/data";
+
+// Cosmetic only, safe to extend or leave stale for a series not listed here
+// yet -- falls back to the raw id, never breaks data loading.
+const SERIES_TITLES = {
+  "computer-vision": "Компьютерное зрение",
+  "ai-futures": "Будущее ИИ",
+  "search": "Поиск",
+};
+if (requestedSeries && requestedSeries !== "all") {
+  document.title = `${SERIES_TITLES[requestedSeries] || requestedSeries} — Пространство концептов — сё`;
+}
 
 /* ---------- three.js setup ---------- */
 const sceneEl = document.getElementById("scene");

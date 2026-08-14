@@ -1,0 +1,25 @@
+{
+  "id": "vq-vae",
+  "label": "VQ-VAE",
+  "gloss_summary": "метод, дискретизирующий непрерывные эмбеддинги в идентификаторы из обучаемой кодовой книги через поиск ближайшего соседа.",
+  "relations": [
+    {
+      "id": "semantic-id",
+      "label": "Семантический идентификатор",
+      "type": "зависит от"
+    },
+    {
+      "id": "codebook",
+      "label": "Кодовая книга",
+      "type": "часть"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0005",
+      "title": "UniSearch: как Kuaishou заменила каскад поиска одной генеративной моделью",
+      "url": "https://deepsearching.github.io/deep_searching/articles/unisearch.html",
+      "weight": 3
+    }
+  ]
+}

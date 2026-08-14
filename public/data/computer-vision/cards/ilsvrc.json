@@ -1,0 +1,20 @@
+{
+  "id": "ilsvrc",
+  "label": "ILSVRC",
+  "gloss_summary": "ежегодное соревнование по классификации изображений на подмножестве ImageNet, около 1000 образцов на каждую из 1000 категорий.",
+  "relations": [
+    {
+      "id": "top-1-top-5-error",
+      "label": "Top-1 / top-5 ошибка",
+      "type": "часто рядом"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0001",
+      "title": "Как одна большая сеть на двух видеокартах обошла ручные признаки в компьютерном зрении",
+      "url": "https://deepsearching.github.io/deep_searching/articles/alexnet.html",
+      "weight": 3
+    }
+  ]
+}

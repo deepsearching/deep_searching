@@ -1,0 +1,276 @@
+{
+  "nodes": [
+    {
+      "id": "agi",
+      "label": "ИИ общего назначения",
+      "coords": [
+        24.781125722254988,
+        -49.73170181661389,
+        -7.956295264625675
+      ],
+      "top": [
+        "superintelligence",
+        "ai-rd-progress-multiplier",
+        "misalignment",
+        "oversight-committee",
+        "spec"
+      ]
+    },
+    {
+      "id": "ai-rd-progress-multiplier",
+      "label": "Множитель прогресса ИИ-разработки",
+      "coords": [
+        24.38943784102896,
+        -46.83933215537279,
+        -8.524185786515764
+      ],
+      "top": [
+        "iterated-distillation-amplification",
+        "agi",
+        "oversight-committee",
+        "spec",
+        "chain-of-thought"
+      ]
+    },
+    {
+      "id": "algorithmic-bias",
+      "label": "Алгоритмическое искажение",
+      "coords": [
+        24.63088692238096,
+        -55.6733529333268,
+        -5.692722567231494
+      ],
+      "top": [
+        "confabulation",
+        "intelligence-explosion",
+        "superintelligence",
+        "ultraintelligence",
+        "linearity-bias"
+      ]
+    },
+    {
+      "id": "chain-of-thought",
+      "label": "Цепочка рассуждений",
+      "coords": [
+        23.677109792004867,
+        -45.65402146543436,
+        -8.012576999811714
+      ],
+      "top": [
+        "neuralese",
+        "oversight-committee",
+        "spec",
+        "ai-rd-progress-multiplier",
+        "interpretability"
+      ]
+    },
+    {
+      "id": "confabulation",
+      "label": "Конфабуляция",
+      "coords": [
+        25.18559469586045,
+        -56.375227472396965,
+        -6.356217061492039
+      ],
+      "top": [
+        "sycophancy",
+        "algorithmic-bias",
+        "intelligence-explosion",
+        "superintelligence",
+        "ultraintelligence"
+      ]
+    },
+    {
+      "id": "flop",
+      "label": "Операции с плавающей точкой",
+      "coords": [
+        25.03022589164325,
+        -45.750110612120054,
+        -8.094842107313106
+      ],
+      "top": [
+        "oversight-committee",
+        "spec",
+        "ai-rd-progress-multiplier",
+        "chain-of-thought",
+        "interpretability"
+      ]
+    },
+    {
+      "id": "intelligence-explosion",
+      "label": "Взрыв интеллекта",
+      "coords": [
+        24.663024236981304,
+        -54.0682495313668,
+        -6.363886020563949
+      ],
+      "top": [
+        "ultraintelligence",
+        "misalignment",
+        "linearity-bias",
+        "superintelligence",
+        "algorithmic-bias"
+      ]
+    },
+    {
+      "id": "interpretability",
+      "label": "Интерпретируемость",
+      "coords": [
+        23.444958925085295,
+        -46.91189596787071,
+        -7.196048775795364
+      ],
+      "top": [
+        "misalignment",
+        "oversight-committee",
+        "spec",
+        "ai-rd-progress-multiplier",
+        "chain-of-thought"
+      ]
+    },
+    {
+      "id": "iterated-distillation-amplification",
+      "label": "Итеративная дистилляция и усиление",
+      "coords": [
+        22.786798832271437,
+        -46.388194837037645,
+        -8.69325873104479
+      ],
+      "top": [
+        "ai-rd-progress-multiplier",
+        "oversight-committee",
+        "spec",
+        "chain-of-thought",
+        "interpretability"
+      ]
+    },
+    {
+      "id": "linearity-bias",
+      "label": "Искажение линейности",
+      "coords": [
+        24.028092480295598,
+        -55.906752955351195,
+        -7.116695040731942
+      ],
+      "top": [
+        "intelligence-explosion",
+        "superintelligence",
+        "ultraintelligence",
+        "algorithmic-bias",
+        "confabulation"
+      ]
+    },
+    {
+      "id": "misalignment",
+      "label": "Рассинхронизация",
+      "coords": [
+        24.072526814588294,
+        -49.90695908944295,
+        -6.897845884063158
+      ],
+      "top": [
+        "intelligence-explosion",
+        "spec",
+        "interpretability",
+        "agi",
+        "oversight-committee"
+      ]
+    },
+    {
+      "id": "neuralese",
+      "label": "Нейронский режим",
+      "coords": [
+        24.131888771230322,
+        -45.8497690526261,
+        -6.8198361635174445
+      ],
+      "top": [
+        "chain-of-thought",
+        "oversight-committee",
+        "spec",
+        "ai-rd-progress-multiplier",
+        "interpretability"
+      ]
+    },
+    {
+      "id": "oversight-committee",
+      "label": "Наблюдательный комитет",
+      "coords": [
+        23.822861414491243,
+        -47.53851678440751,
+        -7.938469690020172
+      ],
+      "top": [
+        "interpretability",
+        "spec",
+        "ai-rd-progress-multiplier",
+        "chain-of-thought",
+        "neuralese"
+      ]
+    },
+    {
+      "id": "spec",
+      "label": "Spec",
+      "coords": [
+        24.46260513494,
+        -47.35842339149388,
+        -7.470858479958328
+      ],
+      "top": [
+        "misalignment",
+        "oversight-committee",
+        "ai-rd-progress-multiplier",
+        "chain-of-thought",
+        "interpretability"
+      ]
+    },
+    {
+      "id": "superintelligence",
+      "label": "Сверхразум",
+      "coords": [
+        25.227675442525083,
+        -54.249079872046764,
+        -7.120405340389529
+      ],
+      "top": [
+        "agi",
+        "intelligence-explosion",
+        "ultraintelligence",
+        "algorithmic-bias",
+        "confabulation"
+      ]
+    },
+    {
+      "id": "sycophancy",
+      "label": "Лестность",
+      "coords": [
+        26.166743450967573,
+        -55.44551931870263,
+        -5.803683871859393
+      ],
+      "top": [
+        "confabulation",
+        "intelligence-explosion",
+        "superintelligence",
+        "ultraintelligence",
+        "algorithmic-bias"
+      ]
+    },
+    {
+      "id": "ultraintelligence",
+      "label": "Ультраинтеллект",
+      "coords": [
+        25.512729336443424,
+        -55.7395419831278,
+        -7.126949847883596
+      ],
+      "top": [
+        "intelligence-explosion",
+        "superintelligence",
+        "algorithmic-bias",
+        "confabulation",
+        "linearity-bias"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "ultraintelligence",
+  "label": "Ультраинтеллект",
+  "gloss_summary": "по Гуду, интеллект, превосходящий человеческий и качественно, и количественно, дополнительно обладающий способностью самостоятельно улучшать собственную архитектуру.",
+  "relations": [
+    {
+      "id": "intelligence-explosion",
+      "label": "Взрыв интеллекта",
+      "type": "зависит от"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0003",
+      "title": "Они будут после нас, но им будет всё равно",
+      "url": "https://deepsearching.github.io/deep_searching/articles/aiobsolete.html",
+      "weight": 4
+    }
+  ]
+}

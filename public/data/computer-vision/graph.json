@@ -1,0 +1,148 @@
+{
+  "nodes": [
+    {
+      "id": "cnn",
+      "label": "Свёрточная нейронная сеть",
+      "coords": [
+        -48.37381409646379,
+        65.34843584543046,
+        10.17294146270989
+      ],
+      "top": [
+        "relu",
+        "local-response-normalization",
+        "overlapping-pooling",
+        "data-augmentation",
+        "dropout"
+      ]
+    },
+    {
+      "id": "data-augmentation",
+      "label": "Аугментация данных",
+      "coords": [
+        -48.70993641936461,
+        64.61706680979971,
+        9.213415953858599
+      ],
+      "top": [
+        "dropout",
+        "cnn",
+        "relu",
+        "ilsvrc",
+        "local-response-normalization"
+      ]
+    },
+    {
+      "id": "dropout",
+      "label": "Dropout",
+      "coords": [
+        -48.107337813158736,
+        64.69204327056839,
+        11.357039942266129
+      ],
+      "top": [
+        "data-augmentation",
+        "cnn",
+        "relu",
+        "ilsvrc",
+        "local-response-normalization"
+      ]
+    },
+    {
+      "id": "ilsvrc",
+      "label": "ILSVRC",
+      "coords": [
+        -47.188354854285684,
+        63.76845742257537,
+        10.971005887196103
+      ],
+      "top": [
+        "top-1-top-5-error",
+        "cnn",
+        "data-augmentation",
+        "dropout",
+        "relu"
+      ]
+    },
+    {
+      "id": "local-response-normalization",
+      "label": "Локальная нормализация отклика",
+      "coords": [
+        -50.0612573711097,
+        64.67225626204409,
+        10.98068999967813
+      ],
+      "top": [
+        "cnn",
+        "data-augmentation",
+        "dropout",
+        "relu",
+        "ilsvrc"
+      ]
+    },
+    {
+      "id": "overlapping-pooling",
+      "label": "Пулинг с перекрытием",
+      "coords": [
+        -46.503526680198995,
+        64.5629215342785,
+        8.867254009542984
+      ],
+      "top": [
+        "cnn",
+        "data-augmentation",
+        "dropout",
+        "relu",
+        "ilsvrc"
+      ]
+    },
+    {
+      "id": "relu",
+      "label": "ReLU",
+      "coords": [
+        -47.90660362987078,
+        63.62617564979401,
+        9.699392220634087
+      ],
+      "top": [
+        "cnn",
+        "data-augmentation",
+        "dropout",
+        "ilsvrc",
+        "local-response-normalization"
+      ]
+    },
+    {
+      "id": "top-1-top-5-error",
+      "label": "Top-1 / top-5 ошибка",
+      "coords": [
+        -46.69835112026086,
+        66.0266048332674,
+        10.518226029493608
+      ],
+      "top": [
+        "ilsvrc",
+        "cnn",
+        "data-augmentation",
+        "dropout",
+        "relu"
+      ]
+    },
+    {
+      "id": "weight-decay",
+      "label": "Затухание весов",
+      "coords": [
+        -49.15774120966833,
+        62.669728605263856,
+        10.670657830382686
+      ],
+      "top": [
+        "cnn",
+        "data-augmentation",
+        "dropout",
+        "relu",
+        "ilsvrc"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "aio",
+  "label": "AI Overviews",
+  "gloss_summary": "функция Google, показывающая единый сгенерированный ИИ ответ над обычной выдачей ссылок вместо (или вместе с) традиционного списка результатов.",
+  "relations": [
+    {
+      "id": "zero-click",
+      "label": "Zero-click search",
+      "type": "часто рядом"
+    },
+    {
+      "id": "confabulation",
+      "label": "Конфабуляция",
+      "type": "часто рядом"
+    },
+    {
+      "id": "aet",
+      "label": "Прозрачность поисковых движков-ответчиков",
+      "type": "зависит от"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0006",
+      "title": "24 000 запросов в 243 странах: как ИИ-поиск меняется быстрее, чем мы замечаем",
+      "url": "https://deepsearching.github.io/deep_searching/articles/airise.html",
+      "weight": 5
+    }
+  ]
+}

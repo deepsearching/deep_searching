@@ -1,0 +1,20 @@
+{
+  "id": "long-tail",
+  "label": "Длинный хвост",
+  "gloss_summary": "большое количество источников с низкой индивидуальной посещаемостью, в противоположность небольшому числу самых популярных сайтов.",
+  "relations": [
+    {
+      "id": "information-uniqueness",
+      "label": "Уникальность информации",
+      "type": "часто рядом"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0006",
+      "title": "24 000 запросов в 243 странах: как ИИ-поиск меняется быстрее, чем мы замечаем",
+      "url": "https://deepsearching.github.io/deep_searching/articles/airise.html",
+      "weight": 4
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "react-agent",
+  "label": "ReAct-агент",
+  "gloss_summary": "тип ИИ-агента, чередующего рассуждение (reasoning) и действие (acting) - например, обращение к внешнему поиску, - и делающего свои промежуточные шаги видимыми для пользователя.",
+  "relations": [
+    {
+      "id": "cognitive-apprenticeship",
+      "label": "Когнитивное ученичество",
+      "type": "частный случай"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0007",
+      "title": "От инструмента к учителю: что если поисковик обязан не только отвечать, но и учить искать",
+      "url": "https://deepsearching.github.io/deep_searching/articles/searchteacher.html",
+      "weight": 4
+    }
+  ]
+}

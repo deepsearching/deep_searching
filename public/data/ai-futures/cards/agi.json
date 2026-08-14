@@ -1,0 +1,31 @@
+{
+  "id": "agi",
+  "label": "ИИ общего назначения",
+  "gloss_summary": "ИИ общего назначения: система, способная выполнять практически любую интеллектуальную задачу не хуже человека, в противоположность узкоспециализированным моделям, обученным под одну задачу.",
+  "relations": [
+    {
+      "id": "superintelligence",
+      "label": "Сверхразум",
+      "type": "часто рядом"
+    },
+    {
+      "id": "ai-rd-progress-multiplier",
+      "label": "Множитель прогресса ИИ-разработки",
+      "type": "зависит от"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0002",
+      "title": "AI 2027: два будущих",
+      "url": "https://deepsearching.github.io/deep_searching/articles/ai2027.html",
+      "weight": 4
+    },
+    {
+      "id": "se-0003",
+      "title": "Они будут после нас, но им будет всё равно",
+      "url": "https://deepsearching.github.io/deep_searching/articles/aiobsolete.html",
+      "weight": 3
+    }
+  ]
+}

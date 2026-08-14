@@ -1,0 +1,20 @@
+{
+  "id": "cascade",
+  "label": "Каскад",
+  "gloss_summary": "стандартная архитектура промышленного поиска, где кандидаты последовательно сужаются через отдельные стадии recall, pre-ranking и ranking, каждая - своей моделью со своей целевой функцией.",
+  "relations": [
+    {
+      "id": "generative-retrieval",
+      "label": "Генеративный поиск",
+      "type": "спорит с"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0005",
+      "title": "UniSearch: как Kuaishou заменила каскад поиска одной генеративной моделью",
+      "url": "https://deepsearching.github.io/deep_searching/articles/unisearch.html",
+      "weight": 4
+    }
+  ]
+}

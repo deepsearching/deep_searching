@@ -1,0 +1,14 @@
+{
+  "id": "ab-test",
+  "label": "A/B-тест",
+  "gloss_summary": "метод оценки, при котором часть реального трафика случайным образом делится на контрольную и экспериментальную группы для прямого сравнения систем на живых пользователях.",
+  "relations": [],
+  "articles": [
+    {
+      "id": "se-0005",
+      "title": "UniSearch: как Kuaishou заменила каскад поиска одной генеративной моделью",
+      "url": "https://deepsearching.github.io/deep_searching/articles/unisearch.html",
+      "weight": 3
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "srl",
+  "label": "Саморегулируемое обучение",
+  "gloss_summary": "способность учащегося самостоятельно планировать, отслеживать и оценивать собственный процесс обучения.",
+  "relations": [
+    {
+      "id": "instructional-feedback",
+      "label": "Обучающая обратная связь",
+      "type": "часто рядом"
+    },
+    {
+      "id": "heutagogy",
+      "label": "Хьютагогика",
+      "type": "зависит от"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0007",
+      "title": "От инструмента к учителю: что если поисковик обязан не только отвечать, но и учить искать",
+      "url": "https://deepsearching.github.io/deep_searching/articles/searchteacher.html",
+      "weight": 4
+    }
+  ]
+}

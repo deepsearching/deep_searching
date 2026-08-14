@@ -1,0 +1,20 @@
+{
+  "id": "serialization",
+  "label": "Сериализация",
+  "gloss_summary": "преобразование данных (например, переменных программы) в форму, которую можно сохранить в файл или передать между процессами, а затем восстановить обратно.",
+  "relations": [
+    {
+      "id": "repl",
+      "label": "REPL",
+      "type": "альтернатива"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0004",
+      "title": "Поиск как код",
+      "url": "https://deepsearching.github.io/deep_searching/articles/sac.html",
+      "weight": 3
+    }
+  ]
+}

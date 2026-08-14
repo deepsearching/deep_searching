@@ -1,0 +1,564 @@
+{
+  "nodes": [
+    {
+      "id": "ab-test",
+      "label": "A/B-тест",
+      "coords": [
+        -44.08623927137868,
+        -5.323906383129564,
+        27.166991075299567
+      ],
+      "top": [
+        "cascade",
+        "coarse-to-fine",
+        "generative-retrieval",
+        "residual",
+        "semantic-id"
+      ]
+    },
+    {
+      "id": "aet",
+      "label": "Прозрачность поисковых движков-ответчиков",
+      "coords": [
+        26.981372140118445,
+        -63.21100967918259,
+        -4.332453316742586
+      ],
+      "top": [
+        "aio",
+        "path-dependence",
+        "information-uniqueness",
+        "long-tail",
+        "confabulation"
+      ]
+    },
+    {
+      "id": "aio",
+      "label": "AI Overviews",
+      "coords": [
+        27.196895691033045,
+        -63.204420911368736,
+        -5.056077665553431
+      ],
+      "top": [
+        "zero-click",
+        "confabulation",
+        "aet",
+        "information-uniqueness",
+        "long-tail"
+      ]
+    },
+    {
+      "id": "boosting-pedagogy",
+      "label": "Усиление",
+      "coords": [
+        27.412589012582682,
+        19.91804279342732,
+        -42.306178352348724
+      ],
+      "top": [
+        "nudging",
+        "fading",
+        "scaffolding-zpd",
+        "cognitive-apprenticeship",
+        "react-agent"
+      ]
+    },
+    {
+      "id": "cascade",
+      "label": "Каскад",
+      "coords": [
+        -43.67249659993284,
+        -6.126052826493181,
+        25.95803625845848
+      ],
+      "top": [
+        "generative-retrieval",
+        "coarse-to-fine",
+        "residual",
+        "semantic-id",
+        "spo"
+      ]
+    },
+    {
+      "id": "coarse-to-fine",
+      "label": "От грубого к точному",
+      "coords": [
+        -43.99270123049328,
+        -5.536626092781323,
+        25.969628178582344
+      ],
+      "top": [
+        "residual",
+        "cascade",
+        "generative-retrieval",
+        "semantic-id",
+        "spo"
+      ]
+    },
+    {
+      "id": "codebook",
+      "label": "Кодовая книга",
+      "coords": [
+        -44.96474271027646,
+        -5.837167817367627,
+        25.84489505324874
+      ],
+      "top": [
+        "vq-vae",
+        "cascade",
+        "coarse-to-fine",
+        "generative-retrieval",
+        "residual"
+      ]
+    },
+    {
+      "id": "cognitive-apprenticeship",
+      "label": "Когнитивное ученичество",
+      "coords": [
+        27.59101077191321,
+        20.750992372329012,
+        -43.009658863624075
+      ],
+      "top": [
+        "react-agent",
+        "fading",
+        "scaffolding-zpd",
+        "nudging",
+        "search-as-learning"
+      ]
+    },
+    {
+      "id": "confabulation",
+      "label": "Конфабуляция",
+      "coords": [
+        27.437591420231584,
+        -62.24081325923271,
+        -4.948325592385238
+      ],
+      "top": [
+        "aio",
+        "information-uniqueness",
+        "long-tail",
+        "path-dependence",
+        "aet"
+      ]
+    },
+    {
+      "id": "contrastive-learning",
+      "label": "Контрастное обучение",
+      "coords": [
+        -42.943104158765024,
+        -5.258977512331912,
+        26.93759673638107
+      ],
+      "top": [
+        "residual",
+        "cascade",
+        "coarse-to-fine",
+        "generative-retrieval",
+        "semantic-id"
+      ]
+    },
+    {
+      "id": "control-plane",
+      "label": "Управляющий слой",
+      "coords": [
+        13.263017385879872,
+        102.05529902083978,
+        21.622456369437327
+      ],
+      "top": [
+        "sandbox",
+        "sdk",
+        "pipeline",
+        "repl",
+        "serialization"
+      ]
+    },
+    {
+      "id": "fading",
+      "label": "Постепенное убывание поддержки",
+      "coords": [
+        27.205948175680497,
+        21.13593983627902,
+        -42.6245554291475
+      ],
+      "top": [
+        "scaffolding-zpd",
+        "cognitive-apprenticeship",
+        "nudging",
+        "react-agent",
+        "search-as-learning"
+      ]
+    },
+    {
+      "id": "generative-retrieval",
+      "label": "Генеративный поиск",
+      "coords": [
+        -43.85936534267629,
+        -5.897071228063559,
+        26.503631444015927
+      ],
+      "top": [
+        "cascade",
+        "coarse-to-fine",
+        "residual",
+        "semantic-id",
+        "spo"
+      ]
+    },
+    {
+      "id": "heutagogy",
+      "label": "Хьютагогика",
+      "coords": [
+        28.450273276189897,
+        21.00884370963395,
+        -42.64996660891048
+      ],
+      "top": [
+        "srl",
+        "fading",
+        "scaffolding-zpd",
+        "cognitive-apprenticeship",
+        "nudging"
+      ]
+    },
+    {
+      "id": "iir",
+      "label": "Интерактивный поиск информации",
+      "coords": [
+        26.547907525683843,
+        21.064035406691424,
+        -43.96058240004364
+      ],
+      "top": [
+        "search-as-learning",
+        "fading",
+        "scaffolding-zpd",
+        "cognitive-apprenticeship",
+        "nudging"
+      ]
+    },
+    {
+      "id": "information-uniqueness",
+      "label": "Уникальность информации",
+      "coords": [
+        28.195986722061832,
+        -62.91806347226953,
+        -4.638780931544962
+      ],
+      "top": [
+        "long-tail",
+        "aio",
+        "path-dependence",
+        "aet",
+        "confabulation"
+      ]
+    },
+    {
+      "id": "instructional-feedback",
+      "label": "Обучающая обратная связь",
+      "coords": [
+        27.98643103347686,
+        21.579141958474082,
+        -43.75426892842488
+      ],
+      "top": [
+        "srl",
+        "fading",
+        "scaffolding-zpd",
+        "cognitive-apprenticeship",
+        "nudging"
+      ]
+    },
+    {
+      "id": "long-tail",
+      "label": "Длинный хвост",
+      "coords": [
+        27.691557432268365,
+        -62.945041264061956,
+        -4.089496584187766
+      ],
+      "top": [
+        "information-uniqueness",
+        "aio",
+        "path-dependence",
+        "aet",
+        "confabulation"
+      ]
+    },
+    {
+      "id": "nudging",
+      "label": "Подталкивание",
+      "coords": [
+        27.258724136677557,
+        20.366962113101756,
+        -43.39104630489989
+      ],
+      "top": [
+        "boosting-pedagogy",
+        "fading",
+        "scaffolding-zpd",
+        "cognitive-apprenticeship",
+        "react-agent"
+      ]
+    },
+    {
+      "id": "path-dependence",
+      "label": "Зависимость от предыдущего выбора",
+      "coords": [
+        27.889860652819504,
+        -63.3428904618413,
+        -5.207663809705577
+      ],
+      "top": [
+        "aet",
+        "aio",
+        "information-uniqueness",
+        "long-tail",
+        "confabulation"
+      ]
+    },
+    {
+      "id": "pipeline",
+      "label": "Конвейер",
+      "coords": [
+        12.743278183019527,
+        101.42510552950972,
+        22.267555232370295
+      ],
+      "top": [
+        "sdk",
+        "sandbox",
+        "control-plane",
+        "repl",
+        "serialization"
+      ]
+    },
+    {
+      "id": "react-agent",
+      "label": "ReAct-агент",
+      "coords": [
+        26.576991250558095,
+        20.27565433081282,
+        -42.47486046121862
+      ],
+      "top": [
+        "cognitive-apprenticeship",
+        "fading",
+        "scaffolding-zpd",
+        "nudging",
+        "search-as-learning"
+      ]
+    },
+    {
+      "id": "repl",
+      "label": "REPL",
+      "coords": [
+        13.113659689162139,
+        102.83304752411996,
+        22.327868118881028
+      ],
+      "top": [
+        "serialization",
+        "sandbox",
+        "sdk",
+        "control-plane",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "residual",
+      "label": "Остаток",
+      "coords": [
+        -43.58036724782903,
+        -5.069129493637903,
+        26.04770217320123
+      ],
+      "top": [
+        "contrastive-learning",
+        "coarse-to-fine",
+        "cascade",
+        "generative-retrieval",
+        "semantic-id"
+      ]
+    },
+    {
+      "id": "sandbox",
+      "label": "Песочница",
+      "coords": [
+        12.38371604471232,
+        102.25801558890389,
+        21.958227517557024
+      ],
+      "top": [
+        "sdk",
+        "control-plane",
+        "pipeline",
+        "repl",
+        "serialization"
+      ]
+    },
+    {
+      "id": "scaffolding-zpd",
+      "label": "Строительные леса",
+      "coords": [
+        27.201371352930778,
+        21.19396028199679,
+        -43.14294580534432
+      ],
+      "top": [
+        "fading",
+        "cognitive-apprenticeship",
+        "nudging",
+        "react-agent",
+        "search-as-learning"
+      ]
+    },
+    {
+      "id": "sdk",
+      "label": "SDK",
+      "coords": [
+        13.49994546255923,
+        101.93904805938085,
+        22.549211182420834
+      ],
+      "top": [
+        "sandbox",
+        "pipeline",
+        "control-plane",
+        "repl",
+        "serialization"
+      ]
+    },
+    {
+      "id": "search-as-learning",
+      "label": "Поиск как обучение",
+      "coords": [
+        26.208351550502844,
+        20.78992590912412,
+        -43.13164782436907
+      ],
+      "top": [
+        "iir",
+        "fading",
+        "scaffolding-zpd",
+        "cognitive-apprenticeship",
+        "nudging"
+      ]
+    },
+    {
+      "id": "semantic-id",
+      "label": "Семантический идентификатор",
+      "coords": [
+        -43.15843863227254,
+        -6.108403567703004,
+        26.424246292607105
+      ],
+      "top": [
+        "vq-vae",
+        "cascade",
+        "coarse-to-fine",
+        "generative-retrieval",
+        "residual"
+      ]
+    },
+    {
+      "id": "serialization",
+      "label": "Сериализация",
+      "coords": [
+        12.609295342141026,
+        102.16942830752122,
+        22.918518319141597
+      ],
+      "top": [
+        "repl",
+        "sandbox",
+        "sdk",
+        "control-plane",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "spo",
+      "label": "Search Preference Optimization",
+      "coords": [
+        -43.4492963848687,
+        -5.854437128499864,
+        25.122938981281454
+      ],
+      "top": [
+        "cascade",
+        "coarse-to-fine",
+        "generative-retrieval",
+        "residual",
+        "semantic-id"
+      ]
+    },
+    {
+      "id": "srl",
+      "label": "Саморегулируемое обучение",
+      "coords": [
+        28.08107068015981,
+        21.979269185278657,
+        -42.74143324058793
+      ],
+      "top": [
+        "instructional-feedback",
+        "heutagogy",
+        "fading",
+        "scaffolding-zpd",
+        "cognitive-apprenticeship"
+      ]
+    },
+    {
+      "id": "trie",
+      "label": "Префиксное дерево",
+      "coords": [
+        -42.68484492649888,
+        -5.539470658238941,
+        25.791298820910765
+      ],
+      "top": [
+        "cascade",
+        "coarse-to-fine",
+        "generative-retrieval",
+        "residual",
+        "semantic-id"
+      ]
+    },
+    {
+      "id": "vq-vae",
+      "label": "VQ-VAE",
+      "coords": [
+        -44.44489419259294,
+        -6.8698790935594305,
+        26.25306203601973
+      ],
+      "top": [
+        "semantic-id",
+        "codebook",
+        "cascade",
+        "coarse-to-fine",
+        "generative-retrieval"
+      ]
+    },
+    {
+      "id": "zero-click",
+      "label": "Zero-click search",
+      "coords": [
+        27.791338669863784,
+        -64.02657772545557,
+        -4.4206955895903235
+      ],
+      "top": [
+        "aio",
+        "information-uniqueness",
+        "long-tail",
+        "path-dependence",
+        "aet"
+      ]
+    }
+  ]
+}

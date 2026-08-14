@@ -1,0 +1,20 @@
+{
+  "id": "control-plane",
+  "label": "Управляющий слой",
+  "gloss_summary": "часть системы, принимающая решения о том, что и как должно произойти, в противоположность слою, который эти решения непосредственно исполняет. В SaC роль управляющего слоя играет модель.",
+  "relations": [
+    {
+      "id": "sandbox",
+      "label": "Песочница",
+      "type": "часто рядом"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0004",
+      "title": "Поиск как код",
+      "url": "https://deepsearching.github.io/deep_searching/articles/sac.html",
+      "weight": 3
+    }
+  ]
+}

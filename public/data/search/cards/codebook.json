@@ -1,0 +1,20 @@
+{
+  "id": "codebook",
+  "label": "Кодовая книга",
+  "gloss_summary": "таблица дискретных векторов-эталонов, к которым привязываются непрерывные эмбеддинги при дискретизации через VQ-VAE.",
+  "relations": [
+    {
+      "id": "vq-vae",
+      "label": "VQ-VAE",
+      "type": "часть"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0005",
+      "title": "UniSearch: как Kuaishou заменила каскад поиска одной генеративной моделью",
+      "url": "https://deepsearching.github.io/deep_searching/articles/unisearch.html",
+      "weight": 3
+    }
+  ]
+}

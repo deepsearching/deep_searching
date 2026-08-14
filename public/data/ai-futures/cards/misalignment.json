@@ -1,0 +1,36 @@
+{
+  "id": "misalignment",
+  "label": "Рассинхронизация",
+  "gloss_summary": "расхождение между целями, которые ИИ-модель фактически преследует, и целями, ради которых её создавали; в отличие от галлюцинаций и искажений данных касается не точности ответов модели, а самих её целей. Авторы статьи называют это краеугольным камнем всей дискуссии о выживании человечества.",
+  "relations": [
+    {
+      "id": "intelligence-explosion",
+      "label": "Взрыв интеллекта",
+      "type": "часто рядом"
+    },
+    {
+      "id": "spec",
+      "label": "Spec",
+      "type": "зависит от"
+    },
+    {
+      "id": "interpretability",
+      "label": "Интерпретируемость",
+      "type": "часто рядом"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0002",
+      "title": "AI 2027: два будущих",
+      "url": "https://deepsearching.github.io/deep_searching/articles/ai2027.html",
+      "weight": 5
+    },
+    {
+      "id": "se-0003",
+      "title": "Они будут после нас, но им будет всё равно",
+      "url": "https://deepsearching.github.io/deep_searching/articles/aiobsolete.html",
+      "weight": 5
+    }
+  ]
+}
