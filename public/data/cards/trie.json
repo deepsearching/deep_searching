@@ -1,0 +1,14 @@
+{
+  "id": "trie",
+  "label": "Префиксное дерево",
+  "gloss_summary": "структура данных, хранящая только допустимые продолжения последовательности; в статье ограничивает генерацию модели только реально существующими элементами.",
+  "relations": [],
+  "articles": [
+    {
+      "id": "se-0005",
+      "title": "UniSearch: как Kuaishou заменила каскад поиска одной генеративной моделью",
+      "url": "https://deepsearching.github.io/deep_searching/articles/unisearch.html",
+      "weight": 4
+    }
+  ]
+}

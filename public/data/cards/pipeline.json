@@ -1,0 +1,20 @@
+{
+  "id": "pipeline",
+  "label": "Конвейер",
+  "gloss_summary": "заранее заданная последовательность шагов обработки данных, через которую проходит запрос от начала до конца.",
+  "relations": [
+    {
+      "id": "sdk",
+      "label": "SDK",
+      "type": "спорит с"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0004",
+      "title": "Поиск как код",
+      "url": "https://deepsearching.github.io/deep_searching/articles/sac.html",
+      "weight": 3
+    }
+  ]
+}

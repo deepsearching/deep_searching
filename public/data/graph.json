@@ -1,28 +1,60 @@
 {
   "nodes": [
     {
+      "id": "ab-test",
+      "label": "A/B-тест",
+      "coords": [
+        -9.746163998171884,
+        -0.48731340453684735,
+        5.364724788877015
+      ],
+      "top": [
+        "cascade",
+        "coarse-to-fine",
+        "generative-retrieval",
+        "residual",
+        "semantic-id"
+      ]
+    },
+    {
+      "id": "aet",
+      "label": "Прозрачность поисковых движков-ответчиков",
+      "coords": [
+        8.184213466923055,
+        -25.78071609231726,
+        -0.7058575523990506
+      ],
+      "top": [
+        "aio",
+        "path-dependence",
+        "information-uniqueness",
+        "long-tail",
+        "zero-click"
+      ]
+    },
+    {
       "id": "agi",
       "label": "ИИ общего назначения",
       "coords": [
-        11.619670670774301,
-        -15.56233435979686,
-        -6.344632114474374
+        14.394082835850947,
+        -23.382222257854732,
+        -7.021855832952859
       ],
       "top": [
         "superintelligence",
         "ai-rd-progress-multiplier",
+        "benchmark",
         "misalignment",
-        "oversight-committee",
-        "spec"
+        "oversight-committee"
       ]
     },
     {
       "id": "ai-rd-progress-multiplier",
       "label": "Множитель прогресса ИИ-разработки",
       "coords": [
-        12.53579418212494,
-        -13.708535493467199,
-        -7.54998335091393
+        15.264127722555472,
+        -22.753775696230175,
+        -8.402751487240389
       ],
       "top": [
         "iterated-distillation-amplification",
@@ -33,12 +65,28 @@
       ]
     },
     {
+      "id": "aio",
+      "label": "AI Overviews",
+      "coords": [
+        8.835994498287034,
+        -25.0259815473129,
+        -1.1620618194476904
+      ],
+      "top": [
+        "zero-click",
+        "confabulation",
+        "aet",
+        "information-uniqueness",
+        "long-tail"
+      ]
+    },
+    {
       "id": "algorithmic-bias",
       "label": "Алгоритмическое искажение",
       "coords": [
-        9.309762542336106,
-        -19.59226102963558,
-        -3.312141731231767
+        11.50968999950064,
+        -24.258940297657993,
+        -4.223367349122699
       ],
       "top": [
         "confabulation",
@@ -49,12 +97,60 @@
       ]
     },
     {
+      "id": "benchmark",
+      "label": "Бенчмарк",
+      "coords": [
+        15.813208917998804,
+        -23.269328200424418,
+        -8.013593655836921
+      ],
+      "top": [
+        "agi",
+        "oversight-committee",
+        "spec",
+        "ai-rd-progress-multiplier",
+        "chain-of-thought"
+      ]
+    },
+    {
+      "id": "boosting-pedagogy",
+      "label": "Усиление",
+      "coords": [
+        6.555807768492902,
+        1.0314994148739083,
+        -6.983031202544368
+      ],
+      "top": [
+        "nudging",
+        "fading",
+        "scaffolding-zpd",
+        "cognitive-apprenticeship",
+        "react-agent"
+      ]
+    },
+    {
+      "id": "cascade",
+      "label": "Каскад",
+      "coords": [
+        -9.340418467260532,
+        -1.3483591141661675,
+        4.71614843037204
+      ],
+      "top": [
+        "generative-retrieval",
+        "coarse-to-fine",
+        "residual",
+        "semantic-id",
+        "spo"
+      ]
+    },
+    {
       "id": "chain-of-thought",
       "label": "Цепочка рассуждений",
       "coords": [
-        12.292489456487454,
-        -12.51305703764418,
-        -7.757452846264995
+        15.45534598047907,
+        -22.506979055695624,
+        -8.967939534315825
       ],
       "top": [
         "neuralese",
@@ -68,9 +164,9 @@
       "id": "cnn",
       "label": "Свёрточная нейронная сеть",
       "coords": [
-        -17.019882011218932,
-        24.802019275983568,
-        4.669307342863372
+        -25.534159101556426,
+        36.38631931827841,
+        7.07011808236657
       ],
       "top": [
         "relu",
@@ -81,28 +177,108 @@
       ]
     },
     {
+      "id": "coarse-to-fine",
+      "label": "От грубого к точному",
+      "coords": [
+        -9.77020342357278,
+        -1.1069713336058775,
+        4.790303330832875
+      ],
+      "top": [
+        "residual",
+        "cascade",
+        "generative-retrieval",
+        "semantic-id",
+        "spo"
+      ]
+    },
+    {
+      "id": "codebook",
+      "label": "Кодовая книга",
+      "coords": [
+        -10.141658030627426,
+        -1.5644598129541774,
+        5.302197237543639
+      ],
+      "top": [
+        "vq-vae",
+        "cascade",
+        "coarse-to-fine",
+        "generative-retrieval",
+        "residual"
+      ]
+    },
+    {
+      "id": "cognitive-apprenticeship",
+      "label": "Когнитивное ученичество",
+      "coords": [
+        6.0123569393763585,
+        1.7840246640764597,
+        -6.797940232584655
+      ],
+      "top": [
+        "react-agent",
+        "fading",
+        "scaffolding-zpd",
+        "nudging",
+        "search-as-learning"
+      ]
+    },
+    {
       "id": "confabulation",
       "label": "Конфабуляция",
       "coords": [
-        10.084773753148008,
-        -19.642203189787413,
-        -3.807856323240445
+        10.193933528422113,
+        -23.840888647291443,
+        -2.791994372736072
       ],
       "top": [
         "sycophancy",
         "algorithmic-bias",
+        "aio",
         "intelligence-explosion",
-        "superintelligence",
-        "ultraintelligence"
+        "information-uniqueness"
+      ]
+    },
+    {
+      "id": "contrastive-learning",
+      "label": "Контрастное обучение",
+      "coords": [
+        -8.99850743619373,
+        -0.27926689923514186,
+        4.849187859250317
+      ],
+      "top": [
+        "residual",
+        "cascade",
+        "coarse-to-fine",
+        "generative-retrieval",
+        "semantic-id"
+      ]
+    },
+    {
+      "id": "control-plane",
+      "label": "Управляющий слой",
+      "coords": [
+        -2.8064779214998246,
+        25.91250113973011,
+        3.0574519388391335
+      ],
+      "top": [
+        "sandbox",
+        "sdk",
+        "pipeline",
+        "repl",
+        "serialization"
       ]
     },
     {
       "id": "data-augmentation",
       "label": "Аугментация данных",
       "coords": [
-        -17.34460542633125,
-        25.044752226606875,
-        4.04707772994904
+        -25.76897665926988,
+        36.557868319905616,
+        6.681556410981441
       ],
       "top": [
         "dropout",
@@ -116,9 +292,9 @@
       "id": "dropout",
       "label": "Dropout",
       "coords": [
-        -16.875856317693675,
-        24.067419439533538,
-        4.8496528292881464
+        -25.54381272506416,
+        35.94145966061052,
+        7.237184783738694
       ],
       "top": [
         "data-augmentation",
@@ -129,12 +305,28 @@
       ]
     },
     {
+      "id": "fading",
+      "label": "Постепенное убывание поддержки",
+      "coords": [
+        5.875152129232345,
+        1.3934342399036022,
+        -6.535384292990263
+      ],
+      "top": [
+        "scaffolding-zpd",
+        "cognitive-apprenticeship",
+        "nudging",
+        "react-agent",
+        "search-as-learning"
+      ]
+    },
+    {
       "id": "flop",
       "label": "Операции с плавающей точкой",
       "coords": [
-        12.761435077066233,
-        -12.595678358970934,
-        -6.783162452416764
+        15.336760903833017,
+        -21.898503579045514,
+        -8.730711097757275
       ],
       "top": [
         "oversight-committee",
@@ -145,12 +337,60 @@
       ]
     },
     {
+      "id": "generative-retrieval",
+      "label": "Генеративный поиск",
+      "coords": [
+        -9.316871642575158,
+        -1.0266830314763347,
+        5.06016767249557
+      ],
+      "top": [
+        "cascade",
+        "coarse-to-fine",
+        "residual",
+        "semantic-id",
+        "spo"
+      ]
+    },
+    {
+      "id": "heutagogy",
+      "label": "Хьютагогика",
+      "coords": [
+        6.515922511080663,
+        1.8682903066206122,
+        -6.1926348032990735
+      ],
+      "top": [
+        "srl",
+        "fading",
+        "scaffolding-zpd",
+        "cognitive-apprenticeship",
+        "nudging"
+      ]
+    },
+    {
+      "id": "iir",
+      "label": "Интерактивный поиск информации",
+      "coords": [
+        5.281120725631081,
+        1.9003113020906404,
+        -7.4306578803157946
+      ],
+      "top": [
+        "search-as-learning",
+        "fading",
+        "scaffolding-zpd",
+        "cognitive-apprenticeship",
+        "nudging"
+      ]
+    },
+    {
       "id": "ilsvrc",
       "label": "ILSVRC",
       "coords": [
-        -16.54440166443867,
-        23.870697113735858,
-        4.148605967281704
+        -25.29014346869864,
+        35.80586870546438,
+        6.777565727455304
       ],
       "top": [
         "top-1-top-5-error",
@@ -161,12 +401,44 @@
       ]
     },
     {
+      "id": "information-uniqueness",
+      "label": "Уникальность информации",
+      "coords": [
+        9.194000751828009,
+        -25.229250957308672,
+        -1.0562847302167389
+      ],
+      "top": [
+        "long-tail",
+        "aio",
+        "path-dependence",
+        "aet",
+        "zero-click"
+      ]
+    },
+    {
+      "id": "instructional-feedback",
+      "label": "Обучающая обратная связь",
+      "coords": [
+        5.774831979590029,
+        2.4854130714036127,
+        -6.557246321294174
+      ],
+      "top": [
+        "srl",
+        "fading",
+        "scaffolding-zpd",
+        "cognitive-apprenticeship",
+        "nudging"
+      ]
+    },
+    {
       "id": "intelligence-explosion",
       "label": "Взрыв интеллекта",
       "coords": [
-        9.709350517303744,
-        -17.939696303895264,
-        -4.191093454724345
+        12.074168274196602,
+        -23.730340268813688,
+        -4.861746475472778
       ],
       "top": [
         "ultraintelligence",
@@ -180,9 +452,9 @@
       "id": "interpretability",
       "label": "Интерпретируемость",
       "coords": [
-        11.480174596898738,
-        -13.05243110379254,
-        -7.069642296192182
+        14.504193900978343,
+        -22.700962806256566,
+        -8.717079633865318
       ],
       "top": [
         "misalignment",
@@ -196,9 +468,9 @@
       "id": "iterated-distillation-amplification",
       "label": "Итеративная дистилляция и усиление",
       "coords": [
-        12.451765039788697,
-        -13.26555616345361,
-        -8.508774403195146
+        15.188784653449362,
+        -23.171070591448245,
+        -9.181310622300613
       ],
       "top": [
         "ai-rd-progress-multiplier",
@@ -212,25 +484,25 @@
       "id": "linearity-bias",
       "label": "Искажение линейности",
       "coords": [
-        9.020273973700737,
-        -19.493706945837975,
-        -4.457304217210543
+        12.504994045050344,
+        -24.38724835002734,
+        -4.19493256115264
       ],
       "top": [
         "intelligence-explosion",
         "superintelligence",
         "ultraintelligence",
         "algorithmic-bias",
-        "confabulation"
+        "sycophancy"
       ]
     },
     {
       "id": "local-response-normalization",
       "label": "Локальная нормализация отклика",
       "coords": [
-        -18.07247564482613,
-        24.40182523581511,
-        4.914547634446883
+        -26.29114312898185,
+        36.183971784915464,
+        7.212486393196558
       ],
       "top": [
         "cnn",
@@ -241,12 +513,28 @@
       ]
     },
     {
+      "id": "long-tail",
+      "label": "Длинный хвост",
+      "coords": [
+        8.355861297242713,
+        -25.267779917884486,
+        -0.37930680750046236
+      ],
+      "top": [
+        "information-uniqueness",
+        "aio",
+        "path-dependence",
+        "aet",
+        "zero-click"
+      ]
+    },
+    {
       "id": "misalignment",
       "label": "Рассинхронизация",
       "coords": [
-        10.762163509595629,
-        -15.151314325113804,
-        -5.916430269477041
+        13.684768885278418,
+        -23.045770760245656,
+        -7.108757580709346
       ],
       "top": [
         "intelligence-explosion",
@@ -260,9 +548,9 @@
       "id": "neuralese",
       "label": "Нейронский режим",
       "coords": [
-        11.345657272355778,
-        -12.822479714807564,
-        -8.133612739906471
+        14.872885625887221,
+        -22.430605152769047,
+        -9.30859713820684
       ],
       "top": [
         "chain-of-thought",
@@ -273,12 +561,28 @@
       ]
     },
     {
+      "id": "nudging",
+      "label": "Подталкивание",
+      "coords": [
+        6.060687893194362,
+        1.6545245550564642,
+        -7.240158708255439
+      ],
+      "top": [
+        "boosting-pedagogy",
+        "fading",
+        "scaffolding-zpd",
+        "cognitive-apprenticeship",
+        "react-agent"
+      ]
+    },
+    {
       "id": "overlapping-pooling",
       "label": "Пулинг с перекрытием",
       "coords": [
-        -16.13546460872619,
-        24.843355601689765,
-        3.4850714775858975
+        -24.99717385938057,
+        36.38864842274136,
+        6.3100148285714175
       ],
       "top": [
         "cnn",
@@ -292,9 +596,9 @@
       "id": "oversight-committee",
       "label": "Наблюдательный комитет",
       "coords": [
-        11.957009785103457,
-        -13.71576110184317,
-        -6.8856963538197355
+        14.776725224115218,
+        -22.821048044883398,
+        -8.218057911890506
       ],
       "top": [
         "interpretability",
@@ -305,12 +609,60 @@
       ]
     },
     {
+      "id": "path-dependence",
+      "label": "Зависимость от предыдущего выбора",
+      "coords": [
+        8.768403016251098,
+        -25.95965700858617,
+        -0.5953603987264164
+      ],
+      "top": [
+        "aet",
+        "aio",
+        "information-uniqueness",
+        "long-tail",
+        "zero-click"
+      ]
+    },
+    {
+      "id": "pipeline",
+      "label": "Конвейер",
+      "coords": [
+        -3.279577963954754,
+        25.675112665606285,
+        3.74824175759198
+      ],
+      "top": [
+        "sdk",
+        "sandbox",
+        "control-plane",
+        "repl",
+        "serialization"
+      ]
+    },
+    {
+      "id": "react-agent",
+      "label": "ReAct-агент",
+      "coords": [
+        5.864566967909548,
+        0.8184228662558667,
+        -7.067103319539184
+      ],
+      "top": [
+        "cognitive-apprenticeship",
+        "fading",
+        "scaffolding-zpd",
+        "nudging",
+        "search-as-learning"
+      ]
+    },
+    {
       "id": "relu",
       "label": "ReLU",
       "coords": [
-        -17.154007396237304,
-        24.36964152596961,
-        3.6984008890088984
+        -25.693207384426525,
+        36.11747755467537,
+        6.450905727524139
       ],
       "top": [
         "cnn",
@@ -321,12 +673,140 @@
       ]
     },
     {
+      "id": "repl",
+      "label": "REPL",
+      "coords": [
+        -2.849707174567539,
+        26.636616959861275,
+        3.4130431370644354
+      ],
+      "top": [
+        "serialization",
+        "sandbox",
+        "sdk",
+        "control-plane",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "residual",
+      "label": "Остаток",
+      "coords": [
+        -9.7281048760784,
+        -0.6949951410027934,
+        4.514370435898799
+      ],
+      "top": [
+        "contrastive-learning",
+        "coarse-to-fine",
+        "cascade",
+        "generative-retrieval",
+        "semantic-id"
+      ]
+    },
+    {
+      "id": "sandbox",
+      "label": "Песочница",
+      "coords": [
+        -3.448750269755056,
+        26.105687503307756,
+        3.235623795982772
+      ],
+      "top": [
+        "sdk",
+        "control-plane",
+        "pipeline",
+        "repl",
+        "serialization"
+      ]
+    },
+    {
+      "id": "scaffolding-zpd",
+      "label": "Строительные леса",
+      "coords": [
+        5.578623759279595,
+        1.610686919892086,
+        -6.640682570679319
+      ],
+      "top": [
+        "fading",
+        "cognitive-apprenticeship",
+        "nudging",
+        "react-agent",
+        "search-as-learning"
+      ]
+    },
+    {
+      "id": "sdk",
+      "label": "SDK",
+      "coords": [
+        -2.6284309586504286,
+        25.913767932551057,
+        3.7293773691868024
+      ],
+      "top": [
+        "sandbox",
+        "pipeline",
+        "control-plane",
+        "repl",
+        "serialization"
+      ]
+    },
+    {
+      "id": "search-as-learning",
+      "label": "Поиск как обучение",
+      "coords": [
+        5.287936938261316,
+        1.1950021487364306,
+        -7.230457297441242
+      ],
+      "top": [
+        "iir",
+        "fading",
+        "scaffolding-zpd",
+        "cognitive-apprenticeship",
+        "nudging"
+      ]
+    },
+    {
+      "id": "semantic-id",
+      "label": "Семантический идентификатор",
+      "coords": [
+        -8.955657530235772,
+        -0.9940288876969432,
+        4.665173373137888
+      ],
+      "top": [
+        "vq-vae",
+        "cascade",
+        "coarse-to-fine",
+        "generative-retrieval",
+        "residual"
+      ]
+    },
+    {
+      "id": "serialization",
+      "label": "Сериализация",
+      "coords": [
+        -3.2296995980982817,
+        26.36764493683316,
+        3.95393958046262
+      ],
+      "top": [
+        "repl",
+        "sandbox",
+        "sdk",
+        "control-plane",
+        "pipeline"
+      ]
+    },
+    {
       "id": "spec",
       "label": "Spec",
       "coords": [
-        11.62152216328066,
-        -13.899619493429247,
-        -7.419738915414309
+        14.800334658380669,
+        -22.390352322723743,
+        -8.396630480291643
       ],
       "top": [
         "misalignment",
@@ -337,28 +817,60 @@
       ]
     },
     {
+      "id": "spo",
+      "label": "Search Preference Optimization",
+      "coords": [
+        -9.579173843260614,
+        -1.5055484206096865,
+        4.093061968474982
+      ],
+      "top": [
+        "cascade",
+        "coarse-to-fine",
+        "generative-retrieval",
+        "residual",
+        "semantic-id"
+      ]
+    },
+    {
+      "id": "srl",
+      "label": "Саморегулируемое обучение",
+      "coords": [
+        5.822184624827556,
+        2.0613273748165413,
+        -5.856322472929668
+      ],
+      "top": [
+        "instructional-feedback",
+        "heutagogy",
+        "fading",
+        "scaffolding-zpd",
+        "cognitive-apprenticeship"
+      ]
+    },
+    {
       "id": "superintelligence",
       "label": "Сверхразум",
       "coords": [
-        10.268965009876034,
-        -18.445274137756417,
-        -4.378265097621256
+        12.713699595360874,
+        -24.05118597293655,
+        -5.064629474841572
       ],
       "top": [
         "agi",
         "intelligence-explosion",
         "ultraintelligence",
         "algorithmic-bias",
-        "confabulation"
+        "linearity-bias"
       ]
     },
     {
       "id": "sycophancy",
       "label": "Лестность",
       "coords": [
-        10.08271463646178,
-        -18.86835626013191,
-        -2.8083857791896643
+        11.820877934464203,
+        -23.99418342919906,
+        -3.924296359650925
       ],
       "top": [
         "confabulation",
@@ -372,9 +884,9 @@
       "id": "top-1-top-5-error",
       "label": "Top-1 / top-5 ошибка",
       "coords": [
-        -15.986455445926659,
-        25.004450141301348,
-        4.777263972191002
+        -24.896019485556238,
+        36.52128319450637,
+        7.1695762627868636
       ],
       "top": [
         "ilsvrc",
@@ -385,28 +897,60 @@
       ]
     },
     {
+      "id": "trie",
+      "label": "Префиксное дерево",
+      "coords": [
+        -9.228677135006338,
+        -0.7713906512705333,
+        4.008530152706685
+      ],
+      "top": [
+        "cascade",
+        "coarse-to-fine",
+        "generative-retrieval",
+        "residual",
+        "semantic-id"
+      ]
+    },
+    {
       "id": "ultraintelligence",
       "label": "Ультраинтеллект",
       "coords": [
-        9.054996210258857,
-        -18.810903456740053,
-        -3.460560985968368
+        12.088488762605296,
+        -24.637476778988614,
+        -4.652738298916309
       ],
       "top": [
         "intelligence-explosion",
         "superintelligence",
         "algorithmic-bias",
-        "confabulation",
-        "linearity-bias"
+        "linearity-bias",
+        "sycophancy"
+      ]
+    },
+    {
+      "id": "vq-vae",
+      "label": "VQ-VAE",
+      "coords": [
+        -9.227124767723971,
+        -1.8429279541945491,
+        5.373860403032907
+      ],
+      "top": [
+        "semantic-id",
+        "codebook",
+        "cascade",
+        "coarse-to-fine",
+        "generative-retrieval"
       ]
     },
     {
       "id": "weight-decay",
       "label": "Затухание весов",
       "coords": [
-        -17.75745090656032,
-        23.505514948514726,
-        3.9951102433995946
+        -26.03370887806943,
+        35.521148252247535,
+        6.675306679494518
       ],
       "top": [
         "cnn",
@@ -414,6 +958,22 @@
         "dropout",
         "relu",
         "ilsvrc"
+      ]
+    },
+    {
+      "id": "zero-click",
+      "label": "Zero-click search",
+      "coords": [
+        8.806000595708793,
+        -25.572255254259055,
+        -0.09270921880547674
+      ],
+      "top": [
+        "aio",
+        "information-uniqueness",
+        "long-tail",
+        "path-dependence",
+        "aet"
       ]
     }
   ]

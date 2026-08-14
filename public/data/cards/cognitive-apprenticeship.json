@@ -1,0 +1,20 @@
+{
+  "id": "cognitive-apprenticeship",
+  "label": "Когнитивное ученичество",
+  "gloss_summary": "обучение через видимое экспертное мышление: моделирование, наставничество, проговаривание рассуждений и постепенную передачу ответственности учащемуся.",
+  "relations": [
+    {
+      "id": "react-agent",
+      "label": "ReAct-агент",
+      "type": "частный случай"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0007",
+      "title": "От инструмента к учителю: что если поисковик обязан не только отвечать, но и учить искать",
+      "url": "https://deepsearching.github.io/deep_searching/articles/searchteacher.html",
+      "weight": 4
+    }
+  ]
+}

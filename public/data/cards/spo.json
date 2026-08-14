@@ -1,0 +1,14 @@
+{
+  "id": "spo",
+  "label": "Search Preference Optimization",
+  "gloss_summary": "этап онлайнового обучения с подкреплением поверх предобученной модели, использующий систему вознаграждения на основе продакшен-оценок и реального поведения пользователей.",
+  "relations": [],
+  "articles": [
+    {
+      "id": "se-0005",
+      "title": "UniSearch: как Kuaishou заменила каскад поиска одной генеративной моделью",
+      "url": "https://deepsearching.github.io/deep_searching/articles/unisearch.html",
+      "weight": 4
+    }
+  ]
+}

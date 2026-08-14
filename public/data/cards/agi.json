@@ -12,6 +12,11 @@
       "id": "ai-rd-progress-multiplier",
       "label": "Множитель прогресса ИИ-разработки",
       "type": "зависит от"
+    },
+    {
+      "id": "benchmark",
+      "label": "Бенчмарк",
+      "type": "часто рядом"
     }
   ],
   "articles": [

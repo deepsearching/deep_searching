@@ -1,0 +1,20 @@
+{
+  "id": "coarse-to-fine",
+  "label": "От грубого к точному",
+  "gloss_summary": "учебная стратегия, при которой модель сначала решает простую, широкую версию задачи, а затем - постепенно всё более сложную и точную.",
+  "relations": [
+    {
+      "id": "residual",
+      "label": "Остаток",
+      "type": "часто рядом"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0005",
+      "title": "UniSearch: как Kuaishou заменила каскад поиска одной генеративной моделью",
+      "url": "https://deepsearching.github.io/deep_searching/articles/unisearch.html",
+      "weight": 4
+    }
+  ]
+}

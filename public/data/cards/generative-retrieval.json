@@ -1,0 +1,20 @@
+{
+  "id": "generative-retrieval",
+  "label": "Генеративный поиск",
+  "gloss_summary": "подход, при котором модель не оценивает кандидатов по одному, а напрямую генерирует идентификатор нужного элемента как последовательность токенов, обусловленную на запрос.",
+  "relations": [
+    {
+      "id": "cascade",
+      "label": "Каскад",
+      "type": "спорит с"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0005",
+      "title": "UniSearch: как Kuaishou заменила каскад поиска одной генеративной моделью",
+      "url": "https://deepsearching.github.io/deep_searching/articles/unisearch.html",
+      "weight": 4
+    }
+  ]
+}

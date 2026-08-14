@@ -19,5 +19,33 @@
     "title": "Они будут после нас, но им будет всё равно",
     "date": "2026-08-11",
     "url": "https://deepsearching.github.io/deep_searching/articles/aiobsolete.html"
+  },
+  {
+    "id": "se-0004",
+    "series": "search",
+    "title": "Поиск как код",
+    "date": "2026-08-12",
+    "url": "https://deepsearching.github.io/deep_searching/articles/sac.html"
+  },
+  {
+    "id": "se-0005",
+    "series": "search",
+    "title": "UniSearch: как Kuaishou заменила каскад поиска одной генеративной моделью",
+    "date": "2026-08-13",
+    "url": "https://deepsearching.github.io/deep_searching/articles/unisearch.html"
+  },
+  {
+    "id": "se-0006",
+    "series": "search",
+    "title": "24 000 запросов в 243 странах: как ИИ-поиск меняется быстрее, чем мы замечаем",
+    "date": "2026-08-13",
+    "url": "https://deepsearching.github.io/deep_searching/articles/airise.html"
+  },
+  {
+    "id": "se-0007",
+    "series": "search",
+    "title": "От инструмента к учителю: что если поисковик обязан не только отвечать, но и учить искать",
+    "date": "2026-08-13",
+    "url": "https://deepsearching.github.io/deep_searching/articles/searchteacher.html"
   }
 ]

@@ -1,0 +1,25 @@
+{
+  "id": "sdk",
+  "label": "SDK",
+  "gloss_summary": "набор инструментов и компонентов, которые разработчик или, в данном случае, модель использует для построения программ; в статье - Agentic Search SDK, представляющий поисковый стек Perplexity в виде отдельных компонуемых блоков.",
+  "relations": [
+    {
+      "id": "sandbox",
+      "label": "Песочница",
+      "type": "часто рядом"
+    },
+    {
+      "id": "pipeline",
+      "label": "Конвейер",
+      "type": "спорит с"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0004",
+      "title": "Поиск как код",
+      "url": "https://deepsearching.github.io/deep_searching/articles/sac.html",
+      "weight": 4
+    }
+  ]
+}

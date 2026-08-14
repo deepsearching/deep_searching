@@ -1,0 +1,20 @@
+{
+  "id": "semantic-id",
+  "label": "Семантический идентификатор",
+  "gloss_summary": "последовательность дискретных токенов, однозначно определяющая элемент (видео) в общем пространстве представлений запросов и элементов.",
+  "relations": [
+    {
+      "id": "vq-vae",
+      "label": "VQ-VAE",
+      "type": "зависит от"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0005",
+      "title": "UniSearch: как Kuaishou заменила каскад поиска одной генеративной моделью",
+      "url": "https://deepsearching.github.io/deep_searching/articles/unisearch.html",
+      "weight": 4
+    }
+  ]
+}

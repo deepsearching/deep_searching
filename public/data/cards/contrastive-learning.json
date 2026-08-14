@@ -1,0 +1,20 @@
+{
+  "id": "contrastive-learning",
+  "label": "Контрастное обучение",
+  "gloss_summary": "метод обучения, при котором модель учится отличать релевантные пары (например, запрос и подходящий элемент) от нерелевантных, а не просто предсказывать метку напрямую.",
+  "relations": [
+    {
+      "id": "residual",
+      "label": "Остаток",
+      "type": "часть"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0005",
+      "title": "UniSearch: как Kuaishou заменила каскад поиска одной генеративной моделью",
+      "url": "https://deepsearching.github.io/deep_searching/articles/unisearch.html",
+      "weight": 3
+    }
+  ]
+}

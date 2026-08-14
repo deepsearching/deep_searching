@@ -1,0 +1,20 @@
+{
+  "id": "repl",
+  "label": "REPL",
+  "gloss_summary": "интерактивная среда исполнения кода, которая читает команду, выполняет её, печатает результат и ждёт следующую, сохраняя при этом текущее состояние между командами.",
+  "relations": [
+    {
+      "id": "serialization",
+      "label": "Сериализация",
+      "type": "альтернатива"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0004",
+      "title": "Поиск как код",
+      "url": "https://deepsearching.github.io/deep_searching/articles/sac.html",
+      "weight": 3
+    }
+  ]
+}

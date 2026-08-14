@@ -1,0 +1,25 @@
+{
+  "id": "sandbox",
+  "label": "Песочница",
+  "gloss_summary": "изолированная среда исполнения кода, в которой сгенерированный моделью код может безопасно запускаться, не имея прямого доступа к остальной инфраструктуре.",
+  "relations": [
+    {
+      "id": "sdk",
+      "label": "SDK",
+      "type": "часто рядом"
+    },
+    {
+      "id": "control-plane",
+      "label": "Управляющий слой",
+      "type": "часто рядом"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0004",
+      "title": "Поиск как код",
+      "url": "https://deepsearching.github.io/deep_searching/articles/sac.html",
+      "weight": 4
+    }
+  ]
+}

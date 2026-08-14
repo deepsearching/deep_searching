@@ -1,0 +1,20 @@
+{
+  "id": "instructional-feedback",
+  "label": "Обучающая обратная связь",
+  "gloss_summary": "целевая, своевременная обратная связь, отвечающая на вопросы «куда я иду», «как у меня идут дела» и «что дальше».",
+  "relations": [
+    {
+      "id": "srl",
+      "label": "Саморегулируемое обучение",
+      "type": "часто рядом"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0007",
+      "title": "От инструмента к учителю: что если поисковик обязан не только отвечать, но и учить искать",
+      "url": "https://deepsearching.github.io/deep_searching/articles/searchteacher.html",
+      "weight": 3
+    }
+  ]
+}

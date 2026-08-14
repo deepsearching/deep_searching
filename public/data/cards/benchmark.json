@@ -1,0 +1,26 @@
+{
+  "id": "benchmark",
+  "label": "Бенчмарк",
+  "gloss_summary": "стандартизированный набор задач для сравнения разных систем между собой на одних и тех же условиях. В статье используются DeepSearchQA, BrowseComp, Humanity's Last Exam, WideSearch и WANDR.",
+  "relations": [
+    {
+      "id": "agi",
+      "label": "ИИ общего назначения",
+      "type": "часто рядом"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0002",
+      "title": "AI 2027: два будущих",
+      "url": "https://deepsearching.github.io/deep_searching/articles/ai2027.html",
+      "weight": 2
+    },
+    {
+      "id": "se-0004",
+      "title": "Поиск как код",
+      "url": "https://deepsearching.github.io/deep_searching/articles/sac.html",
+      "weight": 2
+    }
+  ]
+}

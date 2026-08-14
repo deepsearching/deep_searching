@@ -1,0 +1,20 @@
+{
+  "id": "zero-click",
+  "label": "Zero-click search",
+  "gloss_summary": "ситуация, когда пользователь получает ответ прямо на странице результатов поиска и не переходит ни по одной ссылке.",
+  "relations": [
+    {
+      "id": "aio",
+      "label": "AI Overviews",
+      "type": "часто рядом"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0006",
+      "title": "24 000 запросов в 243 странах: как ИИ-поиск меняется быстрее, чем мы замечаем",
+      "url": "https://deepsearching.github.io/deep_searching/articles/airise.html",
+      "weight": 3
+    }
+  ]
+}
