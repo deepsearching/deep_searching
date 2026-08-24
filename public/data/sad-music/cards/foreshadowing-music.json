@@ -1,0 +1,20 @@
+{
+  "id": "foreshadowing-music",
+  "label": "Предвосхищающая музыка",
+  "gloss_summary": "Музыка, которая звучит во время сцены, предшествующей ключевому моменту, пока исход ещё не определён, и заранее настраивает зрителя на определённое ожидание относительно того, что произойдёт дальше.",
+  "relations": [],
+  "articles": [
+    {
+      "id": "se-0009",
+      "title": "Музыка, которая не совпадает со сценой по настроению, мешает её запомнить — если играет вместе с ней, и помогает, если звучит заранее",
+      "url": "https://deepsearching.github.io/deep_searching/articles/bgmusicmemory.html",
+      "weight": 5
+    },
+    {
+      "id": "se-0013",
+      "title": "Музыка за кадром решает, что вы запомните из фильма — вплоть до вещей, которых там не было",
+      "url": "https://deepsearching.github.io/deep_searching/articles/musicalschematicinfluence.html",
+      "weight": 2
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "signal-detection-analysis",
+  "label": "Анализ методом обнаружения сигнала",
+  "gloss_summary": "Статистический метод, разделяющий реальную точность различения знакомого и незнакомого (d′) и независимую от точности склонность отвечать в одну сторону (смещение ответа, B).",
+  "relations": [],
+  "articles": [
+    {
+      "id": "se-0013",
+      "title": "Музыка за кадром решает, что вы запомните из фильма — вплоть до вещей, которых там не было",
+      "url": "https://deepsearching.github.io/deep_searching/articles/musicalschematicinfluence.html",
+      "weight": 3
+    }
+  ]
+}

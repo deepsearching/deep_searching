@@ -1,0 +1,20 @@
+{
+  "id": "illusory-conjunctions",
+  "label": "Иллюзорные конъюнкции",
+  "gloss_summary": "Эффект, при котором признаки разных объектов, случайно совпавшие в одном акте внимания, воспринимающий ошибочно связывает друг с другом, как будто они принадлежат одному объекту.",
+  "relations": [
+    {
+      "id": "temporal-congruence",
+      "label": "Временная конгруэнтность",
+      "type": "часто рядом"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0014",
+      "title": "Слабого героя мультфильма музыка делает «активным» — но не там, где сама отличается сильнее всего",
+      "url": "https://deepsearching.github.io/deep_searching/articles/soundtracksgeometricfigures.html",
+      "weight": 3
+    }
+  ]
+}

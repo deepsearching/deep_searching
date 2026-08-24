@@ -1,0 +1,25 @@
+{
+  "id": "temporal-congruence",
+  "label": "Временная конгруэнтность",
+  "gloss_summary": "Совпадение по времени между структурными изменениями в звуке и происходящим на экране; определяет, на какого персонажа направляется внимание зрителя, а не совпадение по общему «смыслу» музыки.",
+  "relations": [
+    {
+      "id": "congruence-associationist-model",
+      "label": "Модель конгруэнтности-ассоциации",
+      "type": "часть"
+    },
+    {
+      "id": "illusory-conjunctions",
+      "label": "Иллюзорные конъюнкции",
+      "type": "часто рядом"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0014",
+      "title": "Слабого героя мультфильма музыка делает «активным» — но не там, где сама отличается сильнее всего",
+      "url": "https://deepsearching.github.io/deep_searching/articles/soundtracksgeometricfigures.html",
+      "weight": 5
+    }
+  ]
+}

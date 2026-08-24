@@ -1,0 +1,32 @@
+{
+  "id": "absorption",
+  "label": "Поглощённость",
+  "gloss_summary": "Способность к интенсивной, суженной концентрации внимания, при которой ослабевает ощущение времени. Главный предиктор удовольствия от грустной музыки — и при этом отрицательный предиктор того, сколько времени человек реально тратит на её прослушивание.",
+  "relations": [
+    {
+      "id": "openness-to-experience",
+      "label": "Открытость опыту",
+      "type": "часто рядом"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0016",
+      "title": "Кто слушает грустную музыку чаще всех — и почему это не те, кому она нравится больше всех",
+      "url": "https://deepsearching.github.io/deep_searching/articles/adaptivemaladaptivemusic.html",
+      "weight": 5
+    },
+    {
+      "id": "se-0017",
+      "title": "Своя грустная песня портит настроение — и это происходит со всеми одинаково",
+      "url": "https://deepsearching.github.io/deep_searching/articles/moodymelodies.html",
+      "weight": 3
+    },
+    {
+      "id": "se-0008",
+      "title": "Грустная музыка нравится не тем, кто прячется от чувств, а тем, кто чувствует сильнее всего",
+      "url": "https://deepsearching.github.io/deep_searching/articles/whosadmusic.html",
+      "weight": 2
+    }
+  ]
+}

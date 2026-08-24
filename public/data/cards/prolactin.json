@@ -1,0 +1,26 @@
+{
+  "id": "prolactin",
+  "label": "Пролактин",
+  "gloss_summary": "Пептидный гормон, участвующий в реакции организма на социальный стресс и утрату. У высокоэмпатичных участниц значимо сильнее снижался во время грустной музыки, чем во время тишины.",
+  "relations": [
+    {
+      "id": "oxytocin",
+      "label": "Окситоцин",
+      "type": "часто рядом"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0011",
+      "title": "Грустная музыка не бьёт по гормонам стресса — у эмпатичных слушателей она включает гормоны удовольствия",
+      "url": "https://deepsearching.github.io/deep_searching/articles/sadmusichormones.html",
+      "weight": 5
+    },
+    {
+      "id": "se-0015",
+      "title": "Грустная музыка нравится не потому, что притупляет боль, а потому, что чинит то же самое, что чинят еда, секс и близость",
+      "url": "https://deepsearching.github.io/deep_searching/articles/pleasuresofsadmusic.html",
+      "weight": 3
+    }
+  ]
+}

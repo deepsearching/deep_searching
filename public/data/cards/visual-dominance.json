@@ -1,0 +1,14 @@
+{
+  "id": "visual-dominance",
+  "label": "Доминирование зрения",
+  "gloss_summary": "Задокументированная тенденция зрительной модальности преобладать над слуховой при совмещении противоречивой или неполной сенсорной информации.",
+  "relations": [],
+  "articles": [
+    {
+      "id": "se-0012",
+      "title": "Смотреть и слушать фильм одновременно не мешает памяти — если музыка ему под стать",
+      "url": "https://deepsearching.github.io/deep_searching/articles/filmsoundtrackcognition.html",
+      "weight": 3
+    }
+  ]
+}

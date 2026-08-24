@@ -1,0 +1,31 @@
+{
+  "id": "reflectiveness",
+  "label": "Рефлексивность",
+  "gloss_summary": "Адаптивная склонность анализировать собственные переживания; связана с открытостью опыту. Предсказывала, кто сообщал о позитивном эффекте от прослушивания грустной музыки.",
+  "relations": [
+    {
+      "id": "rumination",
+      "label": "Руминация",
+      "type": "спорит с"
+    },
+    {
+      "id": "rumination",
+      "label": "Руминация",
+      "type": "спорит с"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0016",
+      "title": "Кто слушает грустную музыку чаще всех — и почему это не те, кому она нравится больше всех",
+      "url": "https://deepsearching.github.io/deep_searching/articles/adaptivemaladaptivemusic.html",
+      "weight": 4
+    },
+    {
+      "id": "se-0017",
+      "title": "Своя грустная песня портит настроение — и это происходит со всеми одинаково",
+      "url": "https://deepsearching.github.io/deep_searching/articles/moodymelodies.html",
+      "weight": 4
+    }
+  ]
+}

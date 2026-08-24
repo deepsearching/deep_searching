@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Графы — сё</title>
+  <meta name="description" content="Пространство концептов «сё»: интерактивные 3D-графы понятий, связанных статьями архива, по темам и все вместе." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="side">
+      <div class="side__top">
+        <a class="brand" href="index.html">сё</a>
+        <nav class="nav" aria-label="Основная навигация">
+          <a class="nav__link" href="index.html">статьи</a>
+          <a class="nav__link" href="about.html">о сё</a>
+          <a class="nav__link nav__link--active" href="graphs.html">графы</a>
+        </nav>
+      </div>
+      <div class="side__bottom">
+        <a href="http://t.me/deep_searching">Канал проекта</a>
+        <span>© 2026</span>
+      </div>
+    </aside>
+
+    <main class="main main-index">
+      <section class="index-hero index-hero--plain" aria-labelledby="graphs-title">
+        <div>
+          <h1 id="graphs-title">Пространство концептов</h1>
+          <p class="intro">Каждая статья архива разбирается на понятия, которые она вводит и опирается на них. Понятия из одной темы связываются друг с другом — получается граф, который можно вращать и исследовать в 3D. Ниже — общий граф со всеми темами и отдельные графы по каждой теме.</p>
+        </div>
+      </section>
+
+      <section class="works-list category-panel" aria-label="Графы">
+        <div class="works-list__items">
+          <a class="work is-active" href="concept-space.html">
+            <span class="work__title">Общее пространство</span>
+            <span class="work__desc">Все темы вместе — 104 понятия из всех статей архива.</span>
+          </a>
+          <a class="work is-active" href="concept-space.html?series=sad-music">
+            <span class="work__title">Грустная музыка</span>
+            <span class="work__desc">Почему людям нравится грустная музыка и что она делает с памятью и вниманием — 44 понятия из 10 статей.</span>
+          </a>
+          <a class="work is-active" href="concept-space.html?series=search">
+            <span class="work__title">Поиск</span>
+            <span class="work__desc">Как устроен поиск в эпоху генеративных моделей — 35 понятий из 4 статей.</span>
+          </a>
+          <a class="work is-active" href="concept-space.html?series=ai-futures">
+            <span class="work__title">Будущее ИИ</span>
+            <span class="work__desc">Сценарии, риски и споры вокруг будущего ИИ — 17 понятий из 2 статей.</span>
+          </a>
+          <a class="work is-active" href="concept-space.html?series=computer-vision">
+            <span class="work__title">Компьютерное зрение</span>
+            <span class="work__desc">Первые шаги нейросетей в распознавании изображений — 9 понятий из 1 статьи.</span>
+          </a>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

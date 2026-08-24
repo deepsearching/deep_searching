@@ -1,0 +1,31 @@
+{
+  "id": "congruence-associationist-model",
+  "label": "Модель конгруэнтности-ассоциации",
+  "gloss_summary": "Теоретическая рамка А. Дж. Коэна (2001), описывающая обработку речи, музыки и изображения в фильме на четырёх уровнях: раздельная сенсорная обработка, предвнимательный кросс-модальный анализ на структурное совпадение, сознательное объединение в повествование, достраивание долговременной памятью.",
+  "relations": [
+    {
+      "id": "mood-congruency",
+      "label": "Согласованность настроения",
+      "type": "зависит от"
+    },
+    {
+      "id": "temporal-congruence",
+      "label": "Временная конгруэнтность",
+      "type": "часть"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0012",
+      "title": "Смотреть и слушать фильм одновременно не мешает памяти — если музыка ему под стать",
+      "url": "https://deepsearching.github.io/deep_searching/articles/filmsoundtrackcognition.html",
+      "weight": 4
+    },
+    {
+      "id": "se-0014",
+      "title": "Слабого героя мультфильма музыка делает «активным» — но не там, где сама отличается сильнее всего",
+      "url": "https://deepsearching.github.io/deep_searching/articles/soundtracksgeometricfigures.html",
+      "weight": 4
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "nostalgia-proneness",
+  "label": "Склонность к ностальгии",
+  "gloss_summary": "Устойчивая склонность испытывать сентиментальную тоску по прошлому; оказалась связана и с руминацией, и с рефлексивностью одновременно.",
+  "relations": [
+    {
+      "id": "rumination",
+      "label": "Руминация",
+      "type": "часто рядом"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0016",
+      "title": "Кто слушает грустную музыку чаще всех — и почему это не те, кому она нравится больше всех",
+      "url": "https://deepsearching.github.io/deep_searching/articles/adaptivemaladaptivemusic.html",
+      "weight": 3
+    }
+  ]
+}

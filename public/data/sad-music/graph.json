@@ -1,0 +1,693 @@
+{
+  "nodes": [
+    {
+      "id": "absorption",
+      "label": "Поглощённость",
+      "coords": [
+        -7.426847084780485,
+        5.363705558896252,
+        1.6943090763926212
+      ],
+      "top": [
+        "openness-to-experience",
+        "rumination",
+        "reflectiveness",
+        "lsms",
+        "music-empathy"
+      ]
+    },
+    {
+      "id": "accompanying-music",
+      "label": "Сопровождающая музыка",
+      "coords": [
+        26.48910611171287,
+        -54.00250284304364,
+        -5.296926569068838
+      ],
+      "top": [
+        "expectancy-violation",
+        "selective-attention",
+        "foreshadowing-music",
+        "schema-copy-plus-tag",
+        "mood-congruency"
+      ]
+    },
+    {
+      "id": "anhedonia",
+      "label": "Ангедония",
+      "coords": [
+        -4.72946985429216,
+        10.882573291507834,
+        0.2864788041885165
+      ],
+      "top": [
+        "homeostasis",
+        "tragedy-paradox",
+        "brecvema-model",
+        "systematic-review",
+        "homeostatic-theory"
+      ]
+    },
+    {
+      "id": "associative-network-theory",
+      "label": "Ассоциативная сетевая теория аффекта",
+      "coords": [
+        -0.2937672946972725,
+        6.319942438201336,
+        3.947213299809628
+      ],
+      "top": [
+        "emotional-contagion",
+        "indirect-measures",
+        "musical-cognitivism",
+        "empathy"
+      ]
+    },
+    {
+      "id": "being-moved",
+      "label": "Растроганность",
+      "coords": [
+        -1.0719764221500772,
+        11.879745381485156,
+        0.880677758519454
+      ],
+      "top": [
+        "reward-theory",
+        "oxytocin",
+        "prolactin",
+        "dopaminergic-system",
+        "hpa-axis"
+      ]
+    },
+    {
+      "id": "brecvema-model",
+      "label": "Модель BRECVEMA",
+      "coords": [
+        -5.371225219613948,
+        9.69010366718923,
+        0.8556369724342507
+      ],
+      "top": [
+        "dissociation-theory",
+        "homeostasis",
+        "tragedy-paradox",
+        "systematic-review",
+        "anhedonia"
+      ]
+    },
+    {
+      "id": "confabulation",
+      "label": "Конфабуляция",
+      "coords": [
+        27.928209843549055,
+        -55.60427216866342,
+        -4.548647980602284
+      ],
+      "top": [
+        "schema",
+        "signal-detection-analysis",
+        "mood-congruency",
+        "foreshadowing-music"
+      ]
+    },
+    {
+      "id": "congruence-associationist-model",
+      "label": "Модель конгруэнтности-ассоциации",
+      "coords": [
+        28.57890585763513,
+        -51.509872545156576,
+        -2.473833946361776
+      ],
+      "top": [
+        "mood-congruency",
+        "temporal-congruence",
+        "joint-encoding",
+        "independent-encoding",
+        "semantic-differential"
+      ]
+    },
+    {
+      "id": "d-prime",
+      "label": "Различение d′",
+      "coords": [
+        27.1598917759041,
+        -52.772145610621095,
+        -4.658461959956463
+      ],
+      "top": [
+        "mood-congruency",
+        "accompanying-music",
+        "joint-encoding",
+        "expectancy-violation",
+        "selective-attention"
+      ]
+    },
+    {
+      "id": "dissociation-theory",
+      "label": "Теория диссоциации",
+      "coords": [
+        -5.131875882533995,
+        7.170224527764951,
+        1.7767649233997824
+      ],
+      "top": [
+        "empathy",
+        "brecvema-model",
+        "openness-to-experience",
+        "absorption",
+        "gems-9"
+      ]
+    },
+    {
+      "id": "dopaminergic-system",
+      "label": "Дофаминергическая система",
+      "coords": [
+        -0.5037723502395745,
+        12.398687148949652,
+        1.8056094588008302
+      ],
+      "top": [
+        "reward-theory",
+        "oxytocin",
+        "prolactin",
+        "being-moved",
+        "hpa-axis"
+      ]
+    },
+    {
+      "id": "emotional-contagion",
+      "label": "Эмоциональное заражение",
+      "coords": [
+        0.13129090067915186,
+        6.767484434673461,
+        3.1658117666263115
+      ],
+      "top": [
+        "empathy",
+        "indirect-measures",
+        "musical-cognitivism",
+        "associative-network-theory"
+      ]
+    },
+    {
+      "id": "empathy",
+      "label": "Эмпатия",
+      "coords": [
+        -1.660713137679953,
+        7.55528619036469,
+        2.722865921214719
+      ],
+      "top": [
+        "dissociation-theory",
+        "musical-cognitivism",
+        "emotional-contagion",
+        "indirect-measures",
+        "reward-theory"
+      ]
+    },
+    {
+      "id": "expectancy-violation",
+      "label": "Нарушение ожиданий",
+      "coords": [
+        26.49880453571817,
+        -53.54768852730982,
+        -5.759704799845236
+      ],
+      "top": [
+        "mood-congruency",
+        "accompanying-music",
+        "selective-attention",
+        "foreshadowing-music",
+        "schema-copy-plus-tag"
+      ]
+    },
+    {
+      "id": "foreshadowing-music",
+      "label": "Предвосхищающая музыка",
+      "coords": [
+        27.225177899410127,
+        -54.67816329562113,
+        -5.548435949809168
+      ],
+      "top": [
+        "accompanying-music",
+        "expectancy-violation",
+        "selective-attention",
+        "schema-copy-plus-tag",
+        "mood-congruency"
+      ]
+    },
+    {
+      "id": "gems-9",
+      "label": "GEMS-9",
+      "coords": [
+        -4.500995204043512,
+        6.578330613169649,
+        2.1784768044993585
+      ],
+      "top": [
+        "dissociation-theory",
+        "openness-to-experience",
+        "empathy",
+        "absorption"
+      ]
+    },
+    {
+      "id": "homeostasis",
+      "label": "Гомеостаз",
+      "coords": [
+        -4.670256651985494,
+        9.979214892266885,
+        0.6224941515000647
+      ],
+      "top": [
+        "homeostatic-theory",
+        "tragedy-paradox",
+        "brecvema-model",
+        "systematic-review",
+        "anhedonia"
+      ]
+    },
+    {
+      "id": "homeostatic-theory",
+      "label": "Гомеостатическая теория",
+      "coords": [
+        -2.8894236710255283,
+        11.251730893610212,
+        1.0578649697799667
+      ],
+      "top": [
+        "reward-theory",
+        "homeostasis",
+        "prolactin",
+        "oxytocin",
+        "being-moved"
+      ]
+    },
+    {
+      "id": "hpa-axis",
+      "label": "Ось стрессовой реакции",
+      "coords": [
+        -0.25895853672276253,
+        12.08253925231295,
+        1.2268104632570955
+      ],
+      "top": [
+        "reward-theory",
+        "oxytocin",
+        "prolactin",
+        "being-moved",
+        "dopaminergic-system"
+      ]
+    },
+    {
+      "id": "illusory-conjunctions",
+      "label": "Иллюзорные конъюнкции",
+      "coords": [
+        29.575292235463152,
+        -50.66124968162418,
+        -0.9515678858095258
+      ],
+      "top": [
+        "temporal-congruence",
+        "semantic-differential",
+        "congruence-associationist-model"
+      ]
+    },
+    {
+      "id": "independent-encoding",
+      "label": "Независимое кодирование",
+      "coords": [
+        27.602771818406666,
+        -52.39032504139989,
+        -3.282525756195747
+      ],
+      "top": [
+        "joint-encoding",
+        "visual-dominance",
+        "congruence-associationist-model",
+        "mood-congruency",
+        "d-prime"
+      ]
+    },
+    {
+      "id": "indirect-measures",
+      "label": "Непрямые измерения",
+      "coords": [
+        -0.47804349207940094,
+        6.297211950593993,
+        3.17826861370769
+      ],
+      "top": [
+        "emotional-contagion",
+        "musical-cognitivism",
+        "associative-network-theory",
+        "empathy"
+      ]
+    },
+    {
+      "id": "joint-encoding",
+      "label": "Совместное кодирование",
+      "coords": [
+        28.06667178881869,
+        -52.08149814239177,
+        -3.8159206928672855
+      ],
+      "top": [
+        "independent-encoding",
+        "visual-dominance",
+        "congruence-associationist-model",
+        "mood-congruency",
+        "d-prime"
+      ]
+    },
+    {
+      "id": "lsms",
+      "label": "Like Sad Music Scale",
+      "coords": [
+        -8.400707103436078,
+        4.0405213777634765,
+        2.048781278832839
+      ],
+      "top": [
+        "music-empathy",
+        "nostalgia-proneness",
+        "absorption",
+        "rumination",
+        "reflectiveness"
+      ]
+    },
+    {
+      "id": "mood-congruency",
+      "label": "Согласованность настроения",
+      "coords": [
+        27.67581823983381,
+        -53.75529254891962,
+        -4.579947020349157
+      ],
+      "top": [
+        "selective-attention",
+        "expectancy-violation",
+        "congruence-associationist-model",
+        "schema",
+        "foreshadowing-music"
+      ]
+    },
+    {
+      "id": "music-empathy",
+      "label": "Музыкальная эмпатия",
+      "coords": [
+        -8.643625726807151,
+        3.8806527163672415,
+        1.2868299055101131
+      ],
+      "top": [
+        "lsms",
+        "nostalgia-proneness",
+        "absorption",
+        "rumination",
+        "reflectiveness"
+      ]
+    },
+    {
+      "id": "musical-cognitivism",
+      "label": "Музыкальный когнитивизм",
+      "coords": [
+        -0.2978275865920655,
+        7.071103639621427,
+        3.783157874468624
+      ],
+      "top": [
+        "empathy",
+        "emotional-contagion",
+        "indirect-measures",
+        "associative-network-theory"
+      ]
+    },
+    {
+      "id": "neuroticism",
+      "label": "Невротизм",
+      "coords": [
+        -8.160121163197726,
+        6.187824215830892,
+        1.263924330822068
+      ],
+      "top": [
+        "rumination",
+        "reflectiveness",
+        "absorption",
+        "openness-to-experience"
+      ]
+    },
+    {
+      "id": "nostalgia-proneness",
+      "label": "Склонность к ностальгии",
+      "coords": [
+        -9.178005283728716,
+        4.179860763424402,
+        1.926207352947035
+      ],
+      "top": [
+        "rumination",
+        "lsms",
+        "music-empathy",
+        "absorption",
+        "reflectiveness"
+      ]
+    },
+    {
+      "id": "openness-to-experience",
+      "label": "Открытость опыту",
+      "coords": [
+        -5.994742360606012,
+        7.751733581029172,
+        1.3249244695838662
+      ],
+      "top": [
+        "absorption",
+        "dissociation-theory",
+        "gems-9",
+        "homeostasis",
+        "tragedy-paradox"
+      ]
+    },
+    {
+      "id": "oxytocin",
+      "label": "Окситоцин",
+      "coords": [
+        -1.2814878896259252,
+        11.975680734256116,
+        1.7188551329120765
+      ],
+      "top": [
+        "prolactin",
+        "reward-theory",
+        "being-moved",
+        "dopaminergic-system",
+        "hpa-axis"
+      ]
+    },
+    {
+      "id": "prolactin",
+      "label": "Пролактин",
+      "coords": [
+        -1.534893931703632,
+        12.231782149891691,
+        1.2125231915616212
+      ],
+      "top": [
+        "oxytocin",
+        "reward-theory",
+        "homeostatic-theory",
+        "being-moved",
+        "dopaminergic-system"
+      ]
+    },
+    {
+      "id": "reflectiveness",
+      "label": "Рефлексивность",
+      "coords": [
+        -8.68845307668322,
+        4.797243096125448,
+        1.1752589201952268
+      ],
+      "top": [
+        "rumination",
+        "absorption",
+        "lsms",
+        "music-empathy",
+        "nostalgia-proneness"
+      ]
+    },
+    {
+      "id": "reward-theory",
+      "label": "Теория вознаграждения",
+      "coords": [
+        -1.1940116121315538,
+        10.928226411195991,
+        1.6902439782547838
+      ],
+      "top": [
+        "homeostatic-theory",
+        "oxytocin",
+        "prolactin",
+        "being-moved",
+        "dopaminergic-system"
+      ]
+    },
+    {
+      "id": "rumination",
+      "label": "Руминация",
+      "coords": [
+        -8.722066221667538,
+        4.968280010433401,
+        1.8312539409402606
+      ],
+      "top": [
+        "reflectiveness",
+        "nostalgia-proneness",
+        "neuroticism",
+        "absorption",
+        "lsms"
+      ]
+    },
+    {
+      "id": "schema",
+      "label": "Схема",
+      "coords": [
+        28.555418204457414,
+        -55.287429048045325,
+        -5.015684079103679
+      ],
+      "top": [
+        "mood-congruency",
+        "confabulation",
+        "signal-detection-analysis",
+        "foreshadowing-music"
+      ]
+    },
+    {
+      "id": "schema-copy-plus-tag",
+      "label": "Гипотеза «копии схемы с меткой»",
+      "coords": [
+        26.448018319984218,
+        -54.36390222325929,
+        -6.164584499436341
+      ],
+      "top": [
+        "accompanying-music",
+        "expectancy-violation",
+        "selective-attention",
+        "foreshadowing-music",
+        "mood-congruency"
+      ]
+    },
+    {
+      "id": "selective-attention",
+      "label": "Избирательное внимание",
+      "coords": [
+        27.128063297536496,
+        -53.70162963985651,
+        -5.960895181789854
+      ],
+      "top": [
+        "mood-congruency",
+        "accompanying-music",
+        "expectancy-violation",
+        "foreshadowing-music",
+        "schema-copy-plus-tag"
+      ]
+    },
+    {
+      "id": "semantic-differential",
+      "label": "Семантический дифференциал",
+      "coords": [
+        29.374362725028774,
+        -50.10344691938738,
+        -1.5961119044231646
+      ],
+      "top": [
+        "temporal-congruence",
+        "illusory-conjunctions",
+        "congruence-associationist-model"
+      ]
+    },
+    {
+      "id": "signal-detection-analysis",
+      "label": "Анализ методом обнаружения сигнала",
+      "coords": [
+        28.116545986918258,
+        -55.906546009254214,
+        -5.3119352593035165
+      ],
+      "top": [
+        "confabulation",
+        "schema",
+        "mood-congruency",
+        "foreshadowing-music"
+      ]
+    },
+    {
+      "id": "systematic-review",
+      "label": "Систематический обзор",
+      "coords": [
+        -4.778930330688949,
+        10.994603646634161,
+        0.957050355363002
+      ],
+      "top": [
+        "homeostasis",
+        "tragedy-paradox",
+        "brecvema-model",
+        "anhedonia",
+        "homeostatic-theory"
+      ]
+    },
+    {
+      "id": "temporal-congruence",
+      "label": "Временная конгруэнтность",
+      "coords": [
+        28.778032825459714,
+        -50.447384140767184,
+        -1.1107923484492956
+      ],
+      "top": [
+        "congruence-associationist-model",
+        "illusory-conjunctions",
+        "semantic-differential"
+      ]
+    },
+    {
+      "id": "tragedy-paradox",
+      "label": "Парадокс трагедии",
+      "coords": [
+        -4.8439190938982435,
+        10.157323007825891,
+        1.1852514463466817
+      ],
+      "top": [
+        "homeostasis",
+        "brecvema-model",
+        "systematic-review",
+        "anhedonia",
+        "homeostatic-theory"
+      ]
+    },
+    {
+      "id": "visual-dominance",
+      "label": "Доминирование зрения",
+      "coords": [
+        28.37925181335134,
+        -52.65186658464228,
+        -3.412493387637164
+      ],
+      "top": [
+        "joint-encoding",
+        "independent-encoding",
+        "congruence-associationist-model",
+        "mood-congruency",
+        "d-prime"
+      ]
+    }
+  ]
+}

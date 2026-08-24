@@ -49,8 +49,28 @@
   .label--focus { font-size: 16px; font-weight: 600; }
   .label--visible { opacity: 1; pointer-events: auto; }
 
-  #home {
+  /* Site-wide nav (статьи / о сё / графы), styled to match the rest of the
+     site's .nav__link pattern but kept minimal so it doesn't compete with
+     the 3D scene. Sits above the in-scene #home (camera reset) button. */
+  .sitenav {
     position: fixed; top: 20px; left: 20px;
+    z-index: 6;
+    display: flex; gap: 4px;
+    font-family: var(--font);
+    font-size: 13px;
+  }
+  .sitenav a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 8px 10px;
+    border-radius: 999px;
+    transition: color 0.15s ease, background 0.15s ease;
+  }
+  .sitenav a:hover { color: var(--ink); background: rgba(255,255,255,0.06); }
+  .sitenav a.is-active { color: var(--ink); }
+
+  #home {
+    position: fixed; top: 60px; left: 20px;
     z-index: 5;
     background: transparent;
     border: 1px solid var(--dim);
@@ -141,7 +161,12 @@
   <div id="loading">Загрузка пространства…</div>
   <div id="scene"></div>
   <div id="labels"></div>
-  <button id="home">← сё</button>
+  <nav class="sitenav" aria-label="Основная навигация">
+    <a href="index.html">статьи</a>
+    <a href="about.html">о сё</a>
+    <a href="graphs.html" class="is-active">графы</a>
+  </nav>
+  <button id="home">⟲ сбросить вид</button>
   <div id="trail"></div>
   <div id="hint">Перетаскивание — вращение. Колесо/щипок — приближение. Тап по узлу — переход.</div>
   <div id="card">
@@ -192,6 +217,7 @@ const SERIES_TITLES = {
   "computer-vision": "Компьютерное зрение",
   "ai-futures": "Будущее ИИ",
   "search": "Поиск",
+  "sad-music": "Грустная музыка",
 };
 if (requestedSeries && requestedSeries !== "all") {
   document.title = `${SERIES_TITLES[requestedSeries] || requestedSeries} — Пространство концептов — сё`;

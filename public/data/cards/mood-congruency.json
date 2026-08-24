@@ -1,0 +1,47 @@
+{
+  "id": "mood-congruency",
+  "label": "Согласованность настроения",
+  "gloss_summary": "Закономерность, при которой информация, согласующаяся по настроению с текущим контекстом (музыкой), обрабатывается, оценивается и запоминается иначе, чем противоречащая ему.",
+  "relations": [
+    {
+      "id": "selective-attention",
+      "label": "Избирательное внимание",
+      "type": "зависит от"
+    },
+    {
+      "id": "expectancy-violation",
+      "label": "Нарушение ожиданий",
+      "type": "спорит с"
+    },
+    {
+      "id": "congruence-associationist-model",
+      "label": "Модель конгруэнтности-ассоциации",
+      "type": "зависит от"
+    },
+    {
+      "id": "schema",
+      "label": "Схема",
+      "type": "зависит от"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0009",
+      "title": "Музыка, которая не совпадает со сценой по настроению, мешает её запомнить — если играет вместе с ней, и помогает, если звучит заранее",
+      "url": "https://deepsearching.github.io/deep_searching/articles/bgmusicmemory.html",
+      "weight": 4
+    },
+    {
+      "id": "se-0012",
+      "title": "Смотреть и слушать фильм одновременно не мешает памяти — если музыка ему под стать",
+      "url": "https://deepsearching.github.io/deep_searching/articles/filmsoundtrackcognition.html",
+      "weight": 4
+    },
+    {
+      "id": "se-0013",
+      "title": "Музыка за кадром решает, что вы запомните из фильма — вплоть до вещей, которых там не было",
+      "url": "https://deepsearching.github.io/deep_searching/articles/musicalschematicinfluence.html",
+      "weight": 4
+    }
+  ]
+}

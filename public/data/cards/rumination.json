@@ -1,0 +1,41 @@
+{
+  "id": "rumination",
+  "label": "Руминация",
+  "gloss_summary": "Непроизвольная фиксация на негативных, пессимистичных мыслях; тесно связана с депрессией. В этом исследовании не отличила тех, чьё настроение ухудшилось после грустной музыки, — но отличила тех, кто сильнее восстановился после весёлой.",
+  "relations": [
+    {
+      "id": "reflectiveness",
+      "label": "Рефлексивность",
+      "type": "спорит с"
+    },
+    {
+      "id": "nostalgia-proneness",
+      "label": "Склонность к ностальгии",
+      "type": "часто рядом"
+    },
+    {
+      "id": "reflectiveness",
+      "label": "Рефлексивность",
+      "type": "спорит с"
+    },
+    {
+      "id": "neuroticism",
+      "label": "Невротизм",
+      "type": "часто рядом"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0016",
+      "title": "Кто слушает грустную музыку чаще всех — и почему это не те, кому она нравится больше всех",
+      "url": "https://deepsearching.github.io/deep_searching/articles/adaptivemaladaptivemusic.html",
+      "weight": 5
+    },
+    {
+      "id": "se-0017",
+      "title": "Своя грустная песня портит настроение — и это происходит со всеми одинаково",
+      "url": "https://deepsearching.github.io/deep_searching/articles/moodymelodies.html",
+      "weight": 5
+    }
+  ]
+}

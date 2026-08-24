@@ -1,0 +1,32 @@
+{
+  "id": "openness-to-experience",
+  "label": "Открытость опыту",
+  "gloss_summary": "Одна из пяти базовых черт личности в модели Big Five; описывает склонность к любопытству, восприимчивость к искусству, красоте и нестандартным идеям. Измерялась опросником Big Five Inventory (BFI).",
+  "relations": [
+    {
+      "id": "absorption",
+      "label": "Поглощённость",
+      "type": "часто рядом"
+    }
+  ],
+  "articles": [
+    {
+      "id": "se-0008",
+      "title": "Грустная музыка нравится не тем, кто прячется от чувств, а тем, кто чувствует сильнее всего",
+      "url": "https://deepsearching.github.io/deep_searching/articles/whosadmusic.html",
+      "weight": 4
+    },
+    {
+      "id": "se-0015",
+      "title": "Грустная музыка нравится не потому, что притупляет боль, а потому, что чинит то же самое, что чинят еда, секс и близость",
+      "url": "https://deepsearching.github.io/deep_searching/articles/pleasuresofsadmusic.html",
+      "weight": 3
+    },
+    {
+      "id": "se-0017",
+      "title": "Своя грустная песня портит настроение — и это происходит со всеми одинаково",
+      "url": "https://deepsearching.github.io/deep_searching/articles/moodymelodies.html",
+      "weight": 3
+    }
+  ]
+}

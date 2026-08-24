@@ -1,0 +1,14 @@
+{
+  "id": "semantic-differential",
+  "label": "Семантический дифференциал",
+  "gloss_summary": "Метод измерения смысла через оценки по шкалам-парам противоположных прилагательных, обычно группирующимся вокруг трёх измерений: Оценки, Силы и Активности (Osgood, Suci, & Tannenbaum, 1957).",
+  "relations": [],
+  "articles": [
+    {
+      "id": "se-0014",
+      "title": "Слабого героя мультфильма музыка делает «активным» — но не там, где сама отличается сильнее всего",
+      "url": "https://deepsearching.github.io/deep_searching/articles/soundtracksgeometricfigures.html",
+      "weight": 4
+    }
+  ]
+}

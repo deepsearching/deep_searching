@@ -1,0 +1,14 @@
+{
+  "id": "lsms",
+  "label": "Like Sad Music Scale",
+  "gloss_summary": "Разработанная в этой статье 10-пунктовая шкала для измерения любви к грустной музыке, адаптированная из Sad Film Scale; внутренняя согласованность (Cronbach's α) 0.802.",
+  "relations": [],
+  "articles": [
+    {
+      "id": "se-0016",
+      "title": "Кто слушает грустную музыку чаще всех — и почему это не те, кому она нравится больше всех",
+      "url": "https://deepsearching.github.io/deep_searching/articles/adaptivemaladaptivemusic.html",
+      "weight": 4
+    }
+  ]
+}
