@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Подбор музыки по темпу, энергии, танцевальности и инструментальности. Каталог записей 1921–2020 годов.">
+  <title>Подобрать музыку — сё</title>
+  <link rel="stylesheet" href="music.css">
+  <script defer src="recommender.js"></script>
+  <script defer src="finder.js"></script>
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+  <header class="masthead"><a class="brand" href="https://deepsearching.github.io/deep_searching/index.html">сё</a><nav aria-label="Навигация"><a href="index.html">исследование</a><a href="index.html#music-map">карта</a><a href="finder.html" aria-current="page">подбор музыки</a></nav></header>
+  <main class="workbench">
+    <h1>Подобрать музыку</h1>
+    <p class="workbench-intro">Найти звучание под свою задачу. Стартовые настройки можно менять; они отражают музыкальные ориентиры, а действие треков на твоё состояние предстоит проверить при прослушивании.</p>
+    <div class="workspace">
+      <form class="controls" id="preferences">
+        <fieldset><legend>Сейчас хочется</legend><div class="mode-options">
+          <label><input type="radio" name="mode" value="switch" checked>Переключиться</label>
+          <label><input type="radio" name="mode" value="soften">Меньше интенсивности</label>
+          <label><input type="radio" name="mode" value="focus">Собраться без слов</label>
+          <label><input type="radio" name="mode" value="custom">Свой профиль</label>
+        </div></fieldset>
+        <details id="sound-options" class="sound-options" open><summary>Параметры звучания <span id="profile-summary">115–130 BPM</span></summary>
+        <fieldset><legend>Желаемое звучание</legend><div id="sliders" class="sliders"></div></fieldset>
+        <fieldset><legend>Темп</legend>
+          <div class="tempo-inputs"><label>От, BPM<input id="tempoMin" type="number" min="1" max="244" value="115" required></label><label>До, BPM<input id="tempoMax" type="number" min="1" max="244" value="130" required></label></div>
+          <p id="tempo-error" class="invalid" hidden>Нужен диапазон от 1 до 244 BPM, нижняя граница не больше верхней.</p>
+        </fieldset>
+        <fieldset><legend>В каталоге</legend>
+          <label class="check"><input id="instrumentalOnly" type="checkbox" checked>Преимущественно без вокала</label>
+          <label class="check"><input id="noExplicit" type="checkbox">Без отметки explicit</label>
+          <label class="filter-line">Годы записи<select id="yearMin"><option value="2000">2000–2020</option><option value="1990">1990–2020</option><option value="1970">1970–2020</option><option value="1921">Весь каталог: 1921–2020</option></select></label>
+        </fieldset>
+        <p class="paper-note">Настройки — редакционные отправные точки, не назначения по результатам исследования.</p>
+        </details>
+      </form>
+      <section aria-label="Подходящие треки">
+        <label class="search-field" for="seed-search">Или оттолкнуться от знакомого трека</label>
+        <input id="seed-search" type="search" placeholder="Название или исполнитель в каталоге" autocomplete="off" aria-controls="seed-results">
+        <div id="seed-results" class="search-results" aria-label="Найденные треки" hidden></div>
+        <p id="seed-status" class="seed" role="status" hidden></p>
+        <div class="results-head"><h2>Что послушать</h2><span id="catalog-status" class="catalog-status" role="status">Загрузка каталога…</span></div>
+        <p class="paper-note">По близости к выбранным параметрам. Ссылки ведут в Spotify и поиск YouTube.</p>
+        <div id="loading" class="loading" role="status">Каталог записей загружается…</div>
+        <ol id="results" class="result-list"></ol>
+        <div id="empty" hidden><p>Треков с такими ограничениями не нашлось.</p><button type="button" id="reset-filters">Расширить темп и годы</button></div>
+        <button id="more" class="more" type="button" hidden>Ещё 12 треков</button>
+        <button id="restore" type="button" hidden>Вернуть пропущенные</button>
+      </section>
+    </div>
+    <details class="method"><summary>Что учитывает подбор</summary>
+      <p>В загруженном каталоге 170 653 записи за 1921–2020 годы. Это отдельный музыкальный каталог, а не плейлисты 93 участников исследования. Здесь нет оценок расслабления, текущего настроения слушателя и жанров.</p>
+      <p>Темп и годы ограничивают выбор. Затем сравниваются пять параметров: энергия, танцевальность и инструментальность с весом 2, акустичность и валентность с весом 1. Ранжирование использует среднее взвешенное квадратов различий на шкале 0–1. Поиск не учитывает популярность. В выдаче не больше двух записей с одинаковым набором исполнителей; одинаковые названия у тех же исполнителей объединяются.</p>
+      <p>Отметка «преимущественно без вокала» означает instrumentalness ≥ 0,5; это оценка алгоритма, не гарантия отсутствия голоса. Записи с speechiness ≥ 0,33 исключены как вероятная смесь речи и музыки или преимущественно речь. Треки с нулевым темпом пропускаются: достоверного BPM у них нет.</p>
+      <p>Танцевальность не доказывает наличие ровного четырёхдольного бита. Повторяемость, синкопация, плавность переходов и «тёплый бас» в CSV не измерены. Поэтому совпадение параметров может привести к разным жанрам. Слушание остаётся решающей проверкой.</p>
+      <p>Профиль «Переключиться» задан редакционно: 115–130 BPM, умеренная энергия, высокая танцевальность и инструментальность. Поиск похожего трека переносит его пять параметров и задаёт диапазон темпа ±10 BPM. Если запись старая или вокальная, ограничения годов и инструментальности расширяются. Кнопка «Пропустить» исключает трек до закрытия страницы.</p>
+      <p><a href="https://developer.spotify.com/documentation/web-api/reference/get-audio-features" target="_blank" rel="noopener noreferrer">Определения параметров Spotify</a> · <a href="index.html#music-map">Результаты исследования</a></p>
+    </details>
+    <details class="method"><summary>Три трека, с которых начался поиск</summary>
+      <ul class="reference-list">
+        <li><a href="https://www.beatport.com/fr/track/cool-bananas/10588080" target="_blank" rel="noopener noreferrer">Tell — Cool Bananas</a>, 115 BPM</li>
+        <li><a href="https://www.beatport.com/track/downstream/18030089" target="_blank" rel="noopener noreferrer">Makèz, Life on Planets — Downstream</a>, 130 BPM</li>
+        <li><a href="https://www.beatport.com/de/track/floating-on-silence/16424907" target="_blank" rel="noopener noreferrer">Tour-Maubourg — Floating on Silence</a>, 123 BPM по исходной подборке</li>
+      </ul>
+      <p>Этих записей в CSV нет. Они сохранены как ориентиры для прослушивания; их неизвестные аудиопараметры не подставляются в расчёт. Найденный в каталоге Downstream группы Supertramp — другая композиция.</p>
+    </details>
+    <noscript><p>Для подбора музыки нужен JavaScript. <a href="index.html">Читать исследование</a>.</p></noscript>
+  </main>
+  <footer class="footer">сё · музыка и внимание</footer>
+</body>
+</html>
