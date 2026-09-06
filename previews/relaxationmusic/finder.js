@@ -52,7 +52,6 @@
     for (const key of M.keys) {
       $(key).value = target[key]; $(key + '-value').value = target[key].toFixed(2);
     }
-    $('tempoMin').value = target.tempoMin; $('tempoMax').value = target.tempoMax;
   }
   document.querySelectorAll('input[name=mode]').forEach(input => input.addEventListener('change', () => {
     if (input.value === 'custom') return;
@@ -62,18 +61,50 @@
     setControls(); update();
   }));
   function filters() {
-    return { tempoMin: Number($('tempoMin').value), tempoMax: Number($('tempoMax').value),
+    return { tempoAny: $('tempo-choice').value === 'any', tempoMin: Number($('tempoMin').value), tempoMax: Number($('tempoMax').value),
       yearMin: Number($('yearMin').value), noExplicit: $('noExplicit').checked,
       instrumentalOnly: $('instrumentalOnly').checked, excluded };
   }
   function schedule() { clearTimeout(timer); timer = setTimeout(update, 140); }
-  ['tempoMin', 'tempoMax'].forEach(id => $(id).addEventListener('input', () => { custom(); schedule(); }));
+  let taps = [];
+  function resetTaps() {
+    taps = []; $('reset-taps').hidden = true;
+    $('tap-status').textContent = 'Можно задать пульс несколькими нажатиями.';
+  }
+  function setTempo(min, max, mode = 'custom') {
+    $('tempoMin').value = min; $('tempoMax').value = max; $('tempo-choice').value = mode;
+  }
+  $('tempo-choice').addEventListener('change', () => {
+    const mode = $('tempo-choice').value;
+    const ranges = { any: [1, 244], slow: [1, 90], medium: [90, 120], fast: [120, 244] };
+    if (ranges[mode]) setTempo(...ranges[mode], mode);
+    else $('exact-tempo').open = true;
+    resetTaps(); update();
+  });
+  $('tap-tempo').addEventListener('click', () => {
+    const now = performance.now();
+    if (taps.length && now - taps[taps.length - 1] < 180) return;
+    if (taps.length && now - taps[taps.length - 1] > 2200) taps = [];
+    taps.push(now); taps = taps.slice(-9); $('reset-taps').hidden = false;
+    if (taps.length < 4) {
+      $('tap-status').textContent = 'Ещё ' + (4 - taps.length) + ' нажатия в удобном ритме.'; return;
+    }
+    const bpm = M.tappedTempo(taps);
+    if (!bpm) { $('tap-status').textContent = 'Не удалось определить пульс. Попробуй нажимать ровнее.'; return; }
+    setTempo(Math.max(1, bpm - 10), Math.min(244, bpm + 10));
+    $('tap-status').textContent = 'Твой ритм: около ' + bpm + ' ударов в минуту.';
+    update();
+  });
+  $('reset-taps').addEventListener('click', () => { resetTaps(); setTempo(1, 244, 'any'); update(); });
+  ['tempoMin', 'tempoMax'].forEach(id => $(id).addEventListener('input', () => {
+    $('tempo-choice').value = 'custom'; resetTaps(); schedule();
+  }));
   ['yearMin', 'noExplicit', 'instrumentalOnly'].forEach(id => $(id).addEventListener('change', update));
   $('preferences').addEventListener('submit', event => event.preventDefault());
   function update() {
     const f = filters();
-    $('profile-summary').textContent = f.tempoMin + '–' + f.tempoMax + ' BPM';
-    const valid = f.tempoMin >= 1 && f.tempoMax <= 244 && f.tempoMin <= f.tempoMax && f.tempoMax >= 1;
+    $('tempo-summary').textContent = f.tempoAny ? 'Без ограничения по темпу.' : 'Ищем примерно ' + f.tempoMin + '–' + f.tempoMax + ' ударов в минуту.';
+    const valid = f.tempoAny || (f.tempoMin >= 1 && f.tempoMax <= 244 && f.tempoMin <= f.tempoMax && f.tempoMax >= 1);
     $('tempo-error').hidden = valid;
     $('tempoMin').setAttribute('aria-invalid', String(!valid));
     $('tempoMax').setAttribute('aria-invalid', String(!valid));
@@ -90,8 +121,9 @@
   function chooseSeed(t) {
     for (const key of M.keys) target[key] = t[C[key]];
     const bpm = t[C.tempo];
-    target.tempoMin = bpm > 0 ? Math.max(1, Math.floor(bpm - 10)) : 1;
-    target.tempoMax = bpm > 0 ? Math.min(244, Math.ceil(bpm + 10)) : 244;
+    resetTaps();
+    setTempo(bpm > 0 ? Math.max(1, Math.floor(bpm - 10)) : 1,
+      bpm > 0 ? Math.min(244, Math.ceil(bpm + 10)) : 244, bpm > 0 ? 'custom' : 'any');
     if (t[C.year] < Number($('yearMin').value)) $('yearMin').value = '1921';
     if (t[C.instrumentalness] < .5) $('instrumentalOnly').checked = false;
     if (t[C.explicit]) $('noExplicit').checked = false;
@@ -112,7 +144,7 @@
       const seconds = Math.round(t[C.duration] / 1000);
       body.append(node('div', t[C.artists] + ' · ' + t[C.year] + ' · ' + Math.floor(seconds / 60) + ':' + String(seconds % 60).padStart(2, '0'), 'track-artist'));
       const meta = node('div', undefined, 'track-meta');
-      meta.append(node('strong', t[C.tempo].toFixed(1) + ' BPM'));
+      meta.append(node('strong', t[C.tempo] > 0 ? t[C.tempo].toFixed(1) + ' BPM' : 'Темп неизвестен'));
       meta.append(node('span', 'энергия ' + t[C.energy].toFixed(2)));
       meta.append(node('span', 'танцевальность ' + t[C.danceability].toFixed(2)));
       meta.append(node('span', 'инструментальность ' + t[C.instrumentalness].toFixed(2)));
@@ -136,7 +168,7 @@
   $('more').addEventListener('click', () => { shown += 12; render(); });
   $('restore').addEventListener('click', () => { excluded.clear(); update(); });
   $('reset-filters').addEventListener('click', () => {
-    $('tempoMin').value = '1'; $('tempoMax').value = '244'; $('yearMin').value = '1921'; custom(); update();
+    setTempo(1, 244, 'any'); resetTaps(); $('yearMin').value = '1921'; update();
   });
   let searchTimer;
   $('seed-search').disabled = true;

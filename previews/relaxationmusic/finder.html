@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Подбор музыки по темпу, энергии, танцевальности и инструментальности. Каталог записей 1921–2020 годов.">
   <title>Подобрать музыку — сё</title>
-  <link rel="stylesheet" href="music.css">
-  <script defer src="recommender.js"></script>
-  <script defer src="finder.js"></script>
+  <link rel="stylesheet" href="music.css?v=tempo-2">
+  <script defer src="recommender.js?v=tempo-2"></script>
+  <script defer src="finder.js?v=tempo-2"></script>
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body>
@@ -23,12 +23,19 @@
           <label><input type="radio" name="mode" value="focus">Собраться без слов</label>
           <label><input type="radio" name="mode" value="custom">Свой профиль</label>
         </div></fieldset>
-        <details id="sound-options" class="sound-options" open><summary>Параметры звучания <span id="profile-summary">115–130 BPM</span></summary>
-        <fieldset><legend>Желаемое звучание</legend><div id="sliders" class="sliders"></div></fieldset>
         <fieldset><legend>Темп</legend>
-          <div class="tempo-inputs"><label>От, BPM<input id="tempoMin" type="number" min="1" max="244" value="115" required></label><label>До, BPM<input id="tempoMax" type="number" min="1" max="244" value="130" required></label></div>
+          <label class="sr-only" for="tempo-choice">Какой темп хочется</label>
+          <select id="tempo-choice"><option value="any">Пока не знаю — любой</option><option value="slow">Медленнее</option><option value="medium">Умеренно</option><option value="fast">Быстрее</option><option value="custom">Свой темп</option></select>
+          <div class="tempo-actions"><button type="button" id="tap-tempo">Настучать свой ритм</button><button type="button" id="reset-taps" hidden>Заново</button></div>
+          <p id="tap-status" class="paper-note" role="status">Можно задать пульс несколькими нажатиями.</p>
+          <p id="tempo-summary" class="paper-note">Без ограничения по темпу.</p>
+          <details id="exact-tempo"><summary>Точный диапазон</summary>
+          <div class="tempo-inputs"><label>От, BPM<input id="tempoMin" type="number" min="1" max="244" value="1" required></label><label>До, BPM<input id="tempoMax" type="number" min="1" max="244" value="244" required></label></div>
+          </details>
           <p id="tempo-error" class="invalid" hidden>Нужен диапазон от 1 до 244 BPM, нижняя граница не больше верхней.</p>
         </fieldset>
+        <details id="sound-options" class="sound-options" open><summary>Параметры звучания</summary>
+        <fieldset><legend>Желаемое звучание</legend><div id="sliders" class="sliders"></div></fieldset>
         <fieldset><legend>В каталоге</legend>
           <label class="check"><input id="instrumentalOnly" type="checkbox" checked>Преимущественно без вокала</label>
           <label class="check"><input id="noExplicit" type="checkbox">Без отметки explicit</label>
@@ -54,9 +61,10 @@
     <details class="method"><summary>Что учитывает подбор</summary>
       <p>В загруженном каталоге 170 653 записи за 1921–2020 годы. Это отдельный музыкальный каталог, а не плейлисты 93 участников исследования. Здесь нет оценок расслабления, текущего настроения слушателя и жанров.</p>
       <p>Темп и годы ограничивают выбор. Затем сравниваются пять параметров: энергия, танцевальность и инструментальность с весом 2, акустичность и валентность с весом 1. Ранжирование использует среднее взвешенное квадратов различий на шкале 0–1. Поиск не учитывает популярность. В выдаче не больше двух записей с одинаковым набором исполнителей; одинаковые названия у тех же исполнителей объединяются.</p>
-      <p>Отметка «преимущественно без вокала» означает instrumentalness ≥ 0,5; это оценка алгоритма, не гарантия отсутствия голоса. Записи с speechiness ≥ 0,33 исключены как вероятная смесь речи и музыки или преимущественно речь. Треки с нулевым темпом пропускаются: достоверного BPM у них нет.</p>
+      <p>Отметка «преимущественно без вокала» означает instrumentalness ≥ 0,5; это оценка алгоритма, не гарантия отсутствия голоса. Записи с speechiness ≥ 0,33 исключены как вероятная смесь речи и музыки или преимущественно речь. Треки с неизвестным темпом участвуют в поиске «любой темп» и исключаются при ограничении BPM.</p>
       <p>Танцевальность не доказывает наличие ровного четырёхдольного бита. Повторяемость, синкопация, плавность переходов и «тёплый бас» в CSV не измерены. Поэтому совпадение параметров может привести к разным жанрам. Слушание остаётся решающей проверкой.</p>
-      <p>Профиль «Переключиться» задан редакционно: 115–130 BPM, умеренная энергия, высокая танцевальность и инструментальность. Поиск похожего трека переносит его пять параметров и задаёт диапазон темпа ±10 BPM. Если запись старая или вокальная, ограничения годов и инструментальности расширяются. Кнопка «Пропустить» исключает трек до закрытия страницы.</p>
+      <p>По умолчанию темп не ограничен. «Медленнее» задаёт до 90 BPM, «умеренно» — 90–120, «быстрее» — от 120; это условные ориентиры. После четырёх нажатий удобный пульс оценивается по медиане интервалов между ними, а подбор ищет темп ±10 BPM. Нажатия не записывают звук и не измеряют сердцебиение. Музыкальный пульс иногда воспринимается вдвое медленнее или быстрее значения в каталоге.</p>
+      <p>Профиль «Переключиться» задаёт умеренную энергию, высокую танцевальность и инструментальность. Смена задачи сохраняет выбранный тобой темп. Поиск похожего трека переносит его пять параметров и задаёт диапазон темпа ±10 BPM. Если запись старая или вокальная, ограничения годов и инструментальности расширяются. Кнопка «Пропустить» исключает трек до закрытия страницы.</p>
       <p><a href="https://developer.spotify.com/documentation/web-api/reference/get-audio-features" target="_blank" rel="noopener noreferrer">Определения параметров Spotify</a> · <a href="index.html#music-map">Результаты исследования</a></p>
     </details>
     <details class="method"><summary>Три трека, с которых начался поиск</summary>

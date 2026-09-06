@@ -4,9 +4,9 @@
     acousticness: 7, instrumentalness: 8, valence: 9, speechiness: 10, loudness: 11, duration: 12, explicit: 13 };
   const keys = ['energy', 'danceability', 'acousticness', 'instrumentalness', 'valence'];
   const presets = {
-    switch: { energy: .55, danceability: .75, acousticness: .15, instrumentalness: .7, valence: .5, tempoMin: 115, tempoMax: 130 },
-    soften: { energy: .2, danceability: .35, acousticness: .8, instrumentalness: .85, valence: .35, tempoMin: 50, tempoMax: 160 },
-    focus: { energy: .4, danceability: .55, acousticness: .4, instrumentalness: .9, valence: .45, tempoMin: 70, tempoMax: 150 }
+    switch: { energy: .55, danceability: .75, acousticness: .15, instrumentalness: .7, valence: .5 },
+    soften: { energy: .2, danceability: .35, acousticness: .8, instrumentalness: .85, valence: .35 },
+    focus: { energy: .4, danceability: .55, acousticness: .4, instrumentalness: .9, valence: .45 }
   };
   const normalize = s => s.normalize('NFKC').toLocaleLowerCase().trim();
   function distance(track, target) {
@@ -14,7 +14,7 @@
     return keys.reduce((sum, key) => sum + weights[key] * (track[C[key]] - target[key]) ** 2, 0) / 8;
   }
   function accepts(t, filters) {
-    return t[C.tempo] > 0 && t[C.tempo] >= filters.tempoMin && t[C.tempo] <= filters.tempoMax &&
+    return (filters.tempoAny || (t[C.tempo] > 0 && t[C.tempo] >= filters.tempoMin && t[C.tempo] <= filters.tempoMax)) &&
       t[C.year] >= filters.yearMin && (!filters.noExplicit || !t[C.explicit]) &&
       (!filters.instrumentalOnly || t[C.instrumentalness] >= .5) &&
       t[C.speechiness] < .33 && !filters.excluded?.has(t[C.id]);
@@ -46,7 +46,16 @@
     }
     return results;
   }
-  const api = { C, keys, presets, distance, accepts, rank, search };
+  function tappedTempo(timestamps) {
+    if (timestamps.length < 4) return null;
+    const intervals = timestamps.slice(1).map((time, index) => time - timestamps[index]).sort((a, b) => a - b);
+    const middle = Math.floor(intervals.length / 2);
+    const median = intervals.length % 2 ? intervals[middle] : (intervals[middle - 1] + intervals[middle]) / 2;
+    if (median <= 0) return null;
+    const bpm = Math.round(60000 / median);
+    return bpm >= 30 && bpm <= 244 ? bpm : null;
+  }
+  const api = { C, keys, presets, distance, accepts, rank, search, tappedTempo };
   root.MusicMatcher = api;
   if (typeof module !== 'undefined') module.exports = api;
 })(globalThis);

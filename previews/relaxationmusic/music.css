@@ -69,6 +69,14 @@ output { font-variant-numeric: tabular-nums; }
 input[type=range] { width: 100%; accent-color: var(--green); margin: 9px 0 0; }
 .tempo-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 15px 0 12px; }
 .tempo-inputs label { font-size: 13px; }
+#tempo-choice { width: 100%; font-size: 14px; }
+.tempo-actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 8px; }
+.tempo-actions button { font-size: 14px; min-height: 44px; touch-action: manipulation; }
+#tap-tempo:active { background: #e3f2ec; border-color: var(--green); }
+#tap-status { min-height: 42px; margin: 0 0 8px; }
+#tempo-summary { margin: 0 0 10px; }
+#exact-tempo { font-size: 14px; }
+#exact-tempo summary { cursor: pointer; }
 input[type=number], input[type=search] { background: #fff; color: var(--ink); border: 1px solid #aaa; border-radius: 3px; padding: 8px 10px; min-width: 0; width: 100%; }
 .filter-line { margin-top: 15px; display: grid; gap: 8px; font-size: 14px; }
 .invalid { color: #b03224; font-size: 14px; }
