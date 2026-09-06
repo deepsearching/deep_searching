@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Одна конкретная ситуация: что мешает, какой шаг доступен и что произошло при попытке. По мотивам исследования психологической гибкости.">
+  <title>Что я чувствую, что я выбираю — сё</title>
+  <link rel="stylesheet" href="style.css?v=1">
+  <script defer src="app.js?v=1"></script>
+</head>
+<body>
+  <header class="masthead"><a class="brand" href="https://deepsearching.github.io/deep_searching/">сё</a><nav aria-label="Навигация"><a href="#research">исследование</a><a href="#journal">мои попытки <span id="record-count">0</span></a></nav></header>
+  <main>
+    <header class="intro"><p class="eyebrow">психологическая гибкость · Kashdan et al., 2020</p><h1>Что я чувствую,<br>что я выбираю</h1><p>Одно важное дело, к которому трудно подступиться. Один доступный шаг. И запись того, что случилось на самом деле.</p></header>
+    <div class="layout">
+      <section class="work" aria-label="Моя попытка">
+        <ol class="stages" aria-label="Этапы"><li id="stage-plan" aria-current="step">01 · Выбор</li><li id="stage-act">02 · Попытка</li><li id="stage-review">03 · Результат</li></ol>
+        <div id="draft-view">
+          <form id="plan-form">
+            <label class="field">Какое дело сейчас застряло?<input name="goal" id="goal" required maxlength="240" placeholder="Написать начало статьи"></label>
+            <label class="field">Ради чего мне к нему возвращаться?<input name="reason" id="reason" required maxlength="300" placeholder="Хочу донести идею, которую считаю важной"></label>
+            <fieldset><legend>Что мешает сейчас?</legend><div class="choices" id="barriers">
+              <label><input type="radio" name="barrier" value="feeling" required>Неприятное чувство или мысль</label>
+              <label><input type="radio" name="barrier" value="resources">Не хватает сил, времени, информации или помощи</label>
+              <label><input type="radio" name="barrier" value="goal">Сомневаюсь, что мне нужна эта цель</label>
+              <label><input type="radio" name="barrier" value="mixed">Несколько причин сразу</label>
+            </div></fieldset>
+            <div id="barrier-context" hidden><p id="barrier-note" class="context"></p><label class="field">Что именно я замечаю?<textarea id="feeling" name="feeling" rows="2" maxlength="500" placeholder="Кажется, что получится банально. Поэтому не открываю документ."></textarea></label></div>
+            <fieldset><legend>Что я выбираю на этот раз?</legend><div class="choices" id="routes">
+              <label><input type="radio" name="route" value="step" required>Попробовать небольшой шаг</label>
+              <label><input type="radio" name="route" value="support">Сначала разобраться с препятствием</label>
+              <label><input type="radio" name="route" value="pause">Сделать паузу</label>
+              <label><input type="radio" name="route" value="reconsider">Пересмотреть цель</label>
+            </div></fieldset>
+            <label class="field"><span id="action-label">Моё конкретное действие</span><textarea id="action" name="action" rows="2" required maxlength="500" placeholder="Записать три возможных первых предложения, не редактируя"></textarea></label>
+            <label class="field"><span id="criterion-label">По какому факту я пойму, что сделал это?</span><input id="criterion" name="criterion" required maxlength="300" placeholder="В документе появились три предложения"></label>
+            <div class="form-row"><label class="field">Сколько времени я отвожу?<select name="minutes" id="minutes"><option value="2">2 минуты</option><option value="5" selected>5 минут</option><option value="10">10 минут</option><option value="15">15 минут</option><option value="30">30 минут</option><option value="60">1 час</option></select></label><label class="field">Когда?<select name="when" id="when"><option value="now">Сейчас</option><option value="later">Позже</option></select></label></div>
+            <label class="field" id="return-field" hidden>Когда вернусь к этой попытке?<input id="returnAt" name="returnAt" type="datetime-local"></label>
+            <label class="field">Чего я ожидаю при попытке?<textarea id="expectation" name="expectation" rows="2" required maxlength="500" placeholder="Буду сомневаться в каждом слове и, возможно, не напишу ни одного предложения"></textarea></label>
+            <button type="submit" class="primary" id="plan-submit">Перейти к попытке</button>
+          </form>
+        </div>
+        <section id="active-view" hidden aria-labelledby="active-title">
+          <h2 id="active-title" tabindex="-1">Моя попытка</h2>
+          <dl id="active-plan" class="record"></dl>
+          <div id="budget" class="budget" hidden><span id="budget-label">Осталось в выбранном отрезке</span><output id="clock" aria-label="Оставшееся время">05:00</output></div>
+          <p id="active-note" class="context"></p>
+          <div class="actions"><button id="begin" class="primary" type="button">Начать сейчас</button><button id="to-review" class="primary" type="button">Записать результат</button><button id="edit-plan" type="button">Изменить план</button></div>
+        </section>
+        <section id="review-view" hidden aria-labelledby="review-title">
+          <h2 id="review-title" tabindex="-1">Что произошло?</h2>
+          <dl id="review-plan" class="record"></dl>
+          <form id="review-form">
+            <fieldset><legend>С выбранным действием</legend><div class="choices">
+              <label><input type="radio" name="outcome" value="done" required>Сделал то, что выбрал</label>
+              <label><input type="radio" name="outcome" value="partly">Сделал часть</label>
+              <label><input type="radio" name="outcome" value="not_started">Не получилось начать</label>
+              <label><input type="radio" name="outcome" value="changed">Изменил решение</label>
+            </div></fieldset>
+            <label class="field">Какой конкретный факт это описывает?<textarea name="fact" id="fact" required rows="3" maxlength="800" placeholder="Написал два предложения. На третьем начал редактировать первое."></textarea></label>
+            <label class="field">Что было с чувством или мыслью? <span class="optional">необязательно</span><textarea name="after" id="after" rows="2" maxlength="500" placeholder="Неуверенность осталась, но пару фраз всё же написал"></textarea></label>
+            <label class="field">Что учту в следующей попытке?<textarea name="adjustment" id="adjustment" required rows="2" maxlength="500" placeholder="Начну в отдельном черновике, чтобы не исправлять предыдущий текст"></textarea></label>
+            <div class="actions"><button type="submit" class="primary">Сохранить наблюдение</button><button type="button" id="back-active">Вернуться к попытке</button></div>
+          </form>
+        </section>
+        <section id="done-view" hidden aria-labelledby="done-title">
+          <h2 id="done-title" tabindex="-1">Ожидание и факт</h2><div id="comparison" class="comparison"></div>
+          <p id="done-note" class="context"></p><div class="actions"><button id="repeat" type="button" class="primary">Следующая попытка с этим делом</button><button id="new-goal" type="button">Другое дело</button></div>
+        </section>
+        <p id="form-error" class="error" role="alert" hidden></p>
+      </section>
+      <aside class="evidence" id="research">
+        <h2>Чувство и действие</h2>
+        <div class="distinction"><div><span>Внутри</span><strong>«Мне неуверенно»</strong></div><div><span>В действии</span><strong>«Два предложения написаны»</strong></div></div>
+        <p>Это может происходить одновременно. По одному самочувствию ещё нельзя судить, что человек способен сделать.</p>
+        <details><summary>Что обнаружили исследователи</summary><p>Kashdan и соавторы предложили измерять психологическую гибкость относительно лично значимой цели. Их индекс PPFI различает избегание, принятие и использование дискомфорта. Он оказался отделим от общего негативного эмоционального состояния и был связан с рядом показателей движения к целям.</p><p>Авторы изучали измерение гибкости и связи между показателями. Этот инструмент, его таймер и порядок вопросов в исследовании не испытывались. Мы не рассчитываем PPFI и не оцениваем личность.</p><p><a href="https://doi.org/10.1037/pas0000834" target="_blank" rel="noopener noreferrer">Kashdan et al., 2020 · Psychological Assessment</a></p></details>
+        <details><summary>Что здесь добавила редакция сё</summary><p>Разделение причин, выбор шага, ограничение времени и сравнение ожидания с фактом — наш способ приложить вопрос исследования к обычному делу. Полезность этого формата ещё нужно проверить.</p><p>Запись помогает видеть, что было сделано и что помешало. Одна попытка не устанавливает причину результата. Спокойствие, продуктивность и продолжение работы любой ценой здесь не являются обязательными итогами.</p></details>
+        <p class="source-note">Пример с двумя предложениями вымышленный. Твои ответы остаются в этом браузере и не отправляются на сервер.</p>
+        <div class="storage"><label><input type="checkbox" id="remember">Сохранять записи на этом устройстве</label><p id="storage-note">Пока страница открыта, записи доступны здесь. После перезагрузки они исчезнут.</p></div>
+      </aside>
+    </div>
+    <section id="journal" class="journal" aria-labelledby="journal-title"><div class="section-head"><h2 id="journal-title">Мои попытки</h2><button id="clear-data" type="button" hidden>Удалить записи</button></div><p id="journal-empty" class="muted">Здесь появятся завершённые наблюдения: что ожидалось и что произошло.</p><div id="records"></div></section>
+    <noscript><p>Для записи попытки нужен JavaScript. Описание исследования доступно выше.</p></noscript>
+  </main>
+  <footer>сё · инструмент на пробу · без оценки личности</footer>
+</body>
+</html>
