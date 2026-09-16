@@ -20,6 +20,7 @@
 .menu-item:hover > span:nth-child(2), .menu-item[aria-current] > span:nth-child(2) { text-decoration: underline; text-underline-offset: 4px; }
 .item-number { color: #5e5b50; }
 .item-mark { text-align: right; }
+.menu-icon { width: 18px; height: 18px; display: inline-block; vertical-align: -3px; flex-shrink: 0; }
 .menu-item.done .item-mark { color: #375d49; }
 .receipt-total { margin-top: 8px; padding-top: 18px; border-top: 1px dashed #928f80; }
 .receipt-total strong { display: block; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 17px; margin-top: 7px; }

@@ -15,7 +15,9 @@
   const excluded = new Set();
   const smallScreen = matchMedia('(max-width: 760px)');
   $('sound-options').open = !smallScreen.matches;
-  smallScreen.addEventListener('change', event => { $('sound-options').open = !event.matches; });
+  const resizeOptions = event => { $('sound-options').open = !event.matches; };
+  if (smallScreen.addEventListener) smallScreen.addEventListener('change', resizeOptions);
+  else smallScreen.addListener(resizeOptions);
   let timer;
   const number = value => value.toLocaleString('ru-RU');
   function node(tag, text, className) {
@@ -196,21 +198,27 @@
     if (event.key === 'ArrowDown') $('seed-results').querySelector('button')?.focus();
   });
   function failed() {
-    $('loading').textContent = 'Каталог не удалось загрузить. Открой страницу ещё раз.';
+    $('loading').hidden = false;
+    $('loading').textContent = 'Загрузка прервалась. Проверь соединение и продолжи загрузку.';
     $('catalog-status').textContent = 'Каталог недоступен';
     const retry = node('button', 'Повторить'); retry.type = 'button';
-    retry.addEventListener('click', () => location.reload()); $('loading').append(retry);
+    retry.addEventListener('click', loadCatalogue); $('loading').append(retry);
   }
-  const script = document.createElement('script'); script.src = 'catalogue.js';
-  script.onload = () => {
-    if (!window.MUSIC_CATALOGUE?.tracks?.length) { failed(); return; }
-    tracks = window.MUSIC_CATALOGUE.tracks;
+  const loader = window.CatalogueLoader.create();
+  async function loadCatalogue() {
+    $('loading').textContent = 'Каталог записей загружается…';
+    try {
+      tracks = await loader.load((loaded, total) => {
+        $('loading').textContent = 'Загружено ' + number(loaded) + ' из ' + number(total) + ' записей';
+        $('catalog-status').textContent = 'Загрузка каталога…';
+      });
+    } catch (error) { failed(); return; }
     $('loading').hidden = true; $('seed-search').disabled = false;
     const preset = new URLSearchParams(location.search).get('profile');
     if (M.presets[preset]) {
       target = { ...M.presets[preset] }; document.querySelector('input[value="' + preset + '"]').checked = true; setControls();
     }
     update();
-  };
-  script.onerror = failed; document.head.append(script);
+  }
+  loadCatalogue();
 })();

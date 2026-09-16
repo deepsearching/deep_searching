@@ -31,7 +31,14 @@
       const id = link.dataset.chapter;
       const done = completed.has(id);
       link.classList.toggle('done', done);
-      link.querySelector('.item-mark').textContent = done ? '✓' : '↗';
+      const paths = done ? ['M20 6 9 17l-5-5'] : ['M7 7h10v10', 'M7 17 17 7'];
+      const mark = link.querySelector('.item-mark');
+      const svg = mark.querySelector('svg');
+      svg.replaceChildren(...paths.map(d => {
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', d);
+        return path;
+      }));
       link.setAttribute('aria-label', link.children[1].textContent + (done ? ', глава прочитана' : ''));
       if (id === current) link.setAttribute('aria-current', 'true');
       else link.removeAttribute('aria-current');
