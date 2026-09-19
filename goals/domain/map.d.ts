@@ -1,0 +1,4 @@
+export type OnboardingState='START'|'GOAL'|'CONTEXT'|'PILLARS'|'MAP_REVEAL'|'ACTIONS'|'REVIEW'|'PRIORITIES'|'COMPLETE';
+export interface Action {id:string;position:number;text:string;type:'idea'|'deadline'|'routine';deadline?:string;completedOn?:string;checkIns?:string[];frequency?:{type:'daily'|'several_times_week'|'weekly'|'custom';value?:string}}
+export interface Pillar {id:string;position:number;text:string;actions:Action[]}
+export interface HaradaMap {format:'deep-searching-goals';schemaVersion:2;id:string;createdAt:string;updatedAt:string;onboardingState:OnboardingState;activePillarId?:string;contextStep?:0|1;reviewStep?:0|1|2;goal:{text:string;targetDate?:string;purpose?:string};pillars:Pillar[];priorityActionIds:string[];execution?:{month?:string;reviewDate?:string;lastReviewedOn?:string;reviewNote?:string}}
