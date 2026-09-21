@@ -1,9 +1,9 @@
 /* Illustrative states, not empirical neural weights or a learning simulation. */
 const states = [
-  {title:'Привычное ожидание', caption:'Ошибка будто заранее означает: меня осудят.', old:7, fresh:0, visible:0, activation:0},
-  {title:'Ожидание оживает', caption:'Новый черновик вызывает знакомое ожидание унижения.', old:7, fresh:0, visible:0, activation:1},
-  {title:'Другой исход', caption:'Ошибку заметили. Вместо унижения предложили исправление.', old:6, fresh:2, visible:1, activation:0},
-  {title:'Больше одного исхода', caption:'У ошибки появляется другая устойчивая ассоциация. Прежняя не стёрта.', old:3, fresh:7, visible:1, activation:0}
+  {title:'«Покажу — засмеют»', caption:'«Если заметят ошибку, будут смеяться».', old:7, fresh:0, visible:0, activation:0},
+  {title:'Снова страшно показывать', caption:'Подруга просит показать рисунок, а ты вспоминаешь прежние насмешки.', old:7, fresh:0, visible:0, activation:1},
+  {title:'Ошибку можно обсудить', caption:'Подруга заметила недочёт, но разговор остался доброжелательным.', old:6, fresh:2, visible:1, activation:0},
+  {title:'Есть и другой опыт', caption:'Теперь ты помнишь и насмешки, и разговоры, в которых тебя поддержали.', old:3, fresh:7, visible:1, activation:0}
 ];
 
 function stageAt(tops, readingLine) {

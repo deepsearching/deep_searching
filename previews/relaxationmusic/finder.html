@@ -13,20 +13,20 @@
 <body class="se-site se-finder">
   <header class="masthead se-masthead"><div class="se-identity"><a class="brand" href="../brand/index.html" aria-label="сё — материалы">сё</a><span class="se-brand-note">исследования<br>для жизни</span></div><nav aria-label="Основная навигация"><a href="../brand/index.html">Материалы</a><a href="../brand/about.html">О проекте</a><a href="https://t.me/deep_searching" target="_blank" rel="noopener noreferrer">Telegram <svg class="se-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a></nav></header><main class="workbench">
     <nav class="se-breadcrumb" aria-label="Путь к материалу"><a href="../brand/index.html">Материалы</a><span>/</span><span>Подбор музыки</span></nav><h1>Подобрать музыку</h1>
-    <p class="workbench-intro">Найти звучание под свою задачу. Стартовые настройки можно менять; они отражают музыкальные ориентиры, а действие треков на твоё состояние предстоит проверить при прослушивании.</p>
+    <p class="workbench-intro">Выбери, что хочется послушать, или найди знакомый трек — подберём похожие по звучанию. Настройки можно менять. Что подойдёт тебе сегодня, станет понятно при прослушивании.</p>
     <div class="workspace">
       <form class="controls" id="preferences">
         <fieldset><legend>Сейчас хочется</legend><div class="mode-options">
           <label><input type="radio" name="mode" value="switch" checked>Переключиться</label>
-          <label><input type="radio" name="mode" value="soften">Меньше интенсивности</label>
-          <label><input type="radio" name="mode" value="focus">Собраться без слов</label>
-          <label><input type="radio" name="mode" value="custom">Свой профиль</label>
+          <label><input type="radio" name="mode" value="soften">Что-нибудь помягче</label>
+          <label><input type="radio" name="mode" value="focus">Музыку без слов</label>
+          <label><input type="radio" name="mode" value="custom">Свои настройки</label>
         </div></fieldset>
         <fieldset><legend>Темп</legend>
           <label class="sr-only" for="tempo-choice">Какой темп хочется</label>
           <select id="tempo-choice"><option value="any">Пока не знаю — любой</option><option value="slow">Медленнее</option><option value="medium">Умеренно</option><option value="fast">Быстрее</option><option value="custom">Свой темп</option></select>
           <div class="tempo-actions"><button type="button" id="tap-tempo">Настучать свой ритм</button><button type="button" id="reset-taps" hidden>Заново</button></div>
-          <p id="tap-status" class="paper-note" role="status">Можно задать пульс несколькими нажатиями.</p>
+          <p id="tap-status" class="paper-note" role="status">Нажми кнопку несколько раз в удобном тебе ритме.</p>
           <p id="tempo-summary" class="paper-note">Без ограничения по темпу.</p>
           <details id="exact-tempo"><summary>Точный диапазон</summary>
           <div class="tempo-inputs"><label>От, BPM<input id="tempoMin" type="number" min="1" max="244" value="1" required></label><label>До, BPM<input id="tempoMax" type="number" min="1" max="244" value="244" required></label></div>
@@ -37,19 +37,19 @@
         <fieldset><legend>Желаемое звучание</legend><div id="sliders" class="sliders"></div></fieldset>
         <fieldset><legend>В каталоге</legend>
           <label class="check"><input id="instrumentalOnly" type="checkbox" checked>Преимущественно без вокала</label>
-          <label class="check"><input id="noExplicit" type="checkbox">Без отметки explicit</label>
+          <label class="check"><input id="noExplicit" type="checkbox">Без отметки о ненормативной лексике</label>
           <label class="filter-line">Годы записи<select id="yearMin"><option value="2000">2000–2020</option><option value="1990">1990–2020</option><option value="1970">1970–2020</option><option value="1921">Весь каталог: 1921–2020</option></select></label>
         </fieldset>
-        <p class="paper-note">Настройки — редакционные отправные точки, не назначения по результатам исследования.</p>
+        <p class="paper-note">Мы выбрали начальные настройки, чтобы было с чего начать. В исследовании их действие не проверяли.</p>
         </details>
       </form>
       <section aria-label="Подходящие треки">
-        <label class="search-field" for="seed-search">Или оттолкнуться от знакомого трека</label>
+        <label class="search-field" for="seed-search">Или найти музыку, похожую на знакомый трек</label>
         <input id="seed-search" type="search" placeholder="Название или исполнитель в каталоге" autocomplete="off" aria-controls="seed-results">
         <div id="seed-results" class="search-results" aria-label="Найденные треки" hidden></div>
         <p id="seed-status" class="seed" role="status" hidden></p>
         <div class="results-head"><h2>Что послушать</h2><span id="catalog-status" class="catalog-status" role="status">Загрузка каталога…</span></div>
-        <p class="paper-note">По близости к выбранным параметрам. Ссылки ведут в Spotify и поиск YouTube.</p>
+        <p class="paper-note">Выше — треки, которые ближе к твоим настройкам. Открыть их можно в Spotify или найти на YouTube.</p>
         <div id="loading" class="loading" role="status">Каталог записей загружается…</div>
         <ol id="results" class="result-list"></ol>
         <div id="empty" hidden><p>Треков с такими ограничениями не нашлось.</p><button type="button" id="reset-filters">Расширить темп и годы</button></div>
@@ -61,7 +61,7 @@
       <p>В загруженном каталоге 170 653 записи за 1921–2020 годы. Это отдельный музыкальный каталог, а не плейлисты 93 участников исследования. Здесь нет оценок расслабления, текущего настроения слушателя и жанров.</p>
       <p>Темп и годы ограничивают выбор. Затем сравниваются пять параметров: энергия, танцевальность и инструментальность с весом 2, акустичность и валентность с весом 1. Ранжирование использует среднее взвешенное квадратов различий на шкале 0–1. Поиск не учитывает популярность. В выдаче не больше двух записей с одинаковым набором исполнителей; одинаковые названия у тех же исполнителей объединяются.</p>
       <p>Отметка «преимущественно без вокала» означает instrumentalness ≥ 0,5; это оценка алгоритма, не гарантия отсутствия голоса. Записи с speechiness ≥ 0,33 исключены как вероятная смесь речи и музыки или преимущественно речь. Треки с неизвестным темпом участвуют в поиске «любой темп» и исключаются при ограничении BPM.</p>
-      <p>Танцевальность не доказывает наличие ровного четырёхдольного бита. Повторяемость, синкопация, плавность переходов и «тёплый бас» в CSV не измерены. Поэтому совпадение параметров может привести к разным жанрам. Слушание остаётся решающей проверкой.</p>
+      <p>Танцевальность не доказывает наличие ровного четырёхдольного бита. Повторяемость, синкопация, плавность переходов и «тёплый бас» в CSV не измерены. Поэтому совпадение параметров может привести к разным жанрам. Поэтому окончательно выбрать можно только после прослушивания.</p>
       <p>По умолчанию темп не ограничен. «Медленнее» задаёт до 90 BPM, «умеренно» — 90–120, «быстрее» — от 120; это условные ориентиры. После четырёх нажатий удобный пульс оценивается по медиане интервалов между ними, а подбор ищет темп ±10 BPM. Нажатия не записывают звук и не измеряют сердцебиение. Музыкальный пульс иногда воспринимается вдвое медленнее или быстрее значения в каталоге.</p>
       <p>Профиль «Переключиться» задаёт умеренную энергию, высокую танцевальность и инструментальность. Смена задачи сохраняет выбранный тобой темп. Поиск похожего трека переносит его пять параметров и задаёт диапазон темпа ±10 BPM. Если запись старая или вокальная, ограничения годов и инструментальности расширяются. Кнопка «Пропустить» исключает трек до закрытия страницы.</p>
       <p><a href="https://developer.spotify.com/documentation/web-api/reference/get-audio-features" target="_blank" rel="noopener noreferrer">Определения параметров Spotify</a> · <a href="index.html#music-map">Результаты исследования</a></p>
